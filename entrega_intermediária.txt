@@ -1,0 +1,15 @@
+Arquitetura do processador (acumulador, registrador memória ou registrador registrador);
+
+Total de instruções e sua sintaxe (o nome de cada instrução com o tipo de argumento que ela utiliza);
+
+Modos de endereçamento utilizados (direto, indexado, etc);
+
+Formato das instruções (distribuição dos campos na palavra de instrução);
+
+Fluxo de dados para o processador, com uma explicação resumida do seu funcionamento;
+
+Listagem dos pontos de controle e sua utilização;
+
+Rascunho do diagrama de conexão do processador com os periféricos;
+
+Rascunho do mapa de memória.
