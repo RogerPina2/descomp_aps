@@ -4,18 +4,20 @@ use ieee.numeric_std.all;
 
 entity fetch is
     generic (
-        data_width : NATURAL := 8;
-        addr_width: NATURAL := 3;
+        data_width : NATURAL := 17;
+        addr_width: NATURAL := 10;
         incremento : NATURAL := 1
     );
     port (
         -- Input ports
-        clk      : in std_logic;
-        sel_MuxPC : in std_logic;
+        clk      			: in std_logic;
+		  je					: in std_logic;
+        sel_MuxJump		: in std_logic;
+		  flag				: in std_logic;
         endereco_desvio : in std_logic_vector(addr_width - 1 downto 0);
 
         -- Output ports
-        instrucao : out std_logic_vector(data_width - 1 downto 0)
+        instrucao 		: out std_logic_vector(data_width - 1 downto 0)
     );
 end entity;
 
@@ -24,7 +26,12 @@ architecture comportamento of fetch is
 	signal out_RegPC : std_logic_vector(addr_width - 1 downto 0);
 	signal out_SomPC : std_logic_vector(addr_width - 1 downto 0);
 	
+	signal sel_MuxPC : std_logic;
+	
 begin
+	
+	sel_MuxPC <= sel_MuxJump or (je and flag);
+	
 	somPC : entity work.somaConstante
 		generic map (
 			larguraDados => addr_width,
@@ -59,7 +66,7 @@ begin
 			RST    => '0'
 		);
 
-	ROM : ENTITY work.memoria
+	ROM : ENTITY work.memoriaROM
 		generic map (
 			dataWidth => data_width,
 			addrWidth => addr_width
