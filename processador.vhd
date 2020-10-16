@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity processador is
 	generic (
-		opcd_width : natural := 4;
+		opcode_width : natural := 4;
 		regs_width : natural := 3;
 		data_width : natural := 8;
 		addr_width : natural := 10;
@@ -13,10 +13,10 @@ entity processador is
 	port (
 		clk 				: in std_logic;
 		
-		in_MuxRAM 		: in std_logic_vector(addr_width - 1 downto 0);
+		in_MuxRAM 		: in std_logic_vector(data_width - 1 downto 0);
 		
 		out_memReg 		: out std_logic_vector(data_width - 1 downto 0);
-		out_instrucao 	: out std_logic_vector(addr_width - 1 downto 0);
+		out_addrImediato 	: out std_logic_vector(addr_width - 1 downto 0);
 		
 		out_habLeiMEM 	: out std_logic;
 		out_habEscMEM 	: out std_logic	
@@ -25,9 +25,9 @@ end entity;
 
 architecture comportamento of processador is
 	
-	signal instrucao	: std_logic_vector(addr_width - 1 downto 0);
+	signal instrucao		: std_logic_vector(inst_width - 1 downto 0);
 		
-	signal opcode		: std_logic_vector(opcd_width - 1 downto 0);
+	signal opcode		: std_logic_vector(opcode_width - 1 downto 0);
 	
 	signal UC_op			: std_logic_vector(2 downto 0);
 	signal UC_muxJump		: std_logic;
@@ -45,15 +45,11 @@ architecture comportamento of processador is
 	
 begin
 	
-	opcode <= instrucao((inst_width - 1) downto (inst_width - opcd_width));
+	opcode <= instrucao((inst_width - 1) downto (inst_width - opcode_width));
 	
 	UC : entity work.UC
-		generic map (
-			opcd_width => opcd_width,
-			regs_width => regs_width,
-			data_width => data_width,
-			addr_width => addr_width,
-			inst_width => inst_width
+		generic map (			
+			opcode_width => opcode_width
 		)
 		port map (
 			opcode 					=> opcode,
@@ -84,7 +80,7 @@ begin
 	
 	arquitetura : entity work.arquitetura
 		generic map (
-			opcd_width => opcd_width,
+			opcode_width => opcode_width,
 			regs_width => regs_width,
 			data_width => data_width,
 			addr_width => addr_width,
@@ -92,7 +88,7 @@ begin
 		)
 		port map (
 			clk 				=> clk,
-			in_Mux_Ram 		=> UC_muxRAM,
+			in_Mux_Ram 		=> in_MuxRAM,
 			instrucao		=> instrucao,
 			sel_MuxInstRAM	=> UC_muxRAM,
 			hab_memReg		=> UC_habReg,
@@ -104,7 +100,7 @@ begin
 		);
 			
 	out_memReg <= out_Reg;
-	out_instrucao <= s_out_instrucao;
+	out_addrImediato <= instrucao(9 downto 0);
 	out_habLeiMEM <= UC_habLeiMEM;
 	out_habEscMEM <= UC_habEscMEM;
 end architecture;
