@@ -17,12 +17,6 @@ architecture comportamento of flag is
 begin
 
 	flipFlop : entity work.flipFlop
-		generic map (
-			DIN : in std_logic,
-			DOUT : out std_logic,
-			ENABLE : in std_logic,
-			CLK,RST : in std_logic
-		)
 		port map (
 			DIN => in_flag,
 			DOUT => out_flag,
