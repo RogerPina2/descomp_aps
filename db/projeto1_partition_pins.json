@@ -1,0 +1,117 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "instrucao[0]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[1]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[2]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[3]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[4]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[5]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[10]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[11]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[12]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[13]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[14]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[15]",
+					"strict" : false
+				},
+				{
+					"name" : "instrucao[16]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "endereco_desvio[6]",
+					"strict" : false
+				},
+				{
+					"name" : "je",
+					"strict" : false
+				},
+				{
+					"name" : "flag",
+					"strict" : false
+				},
+				{
+					"name" : "sel_MuxJump",
+					"strict" : false
+				},
+				{
+					"name" : "endereco_desvio[2]",
+					"strict" : false
+				},
+				{
+					"name" : "endereco_desvio[4]",
+					"strict" : false
+				},
+				{
+					"name" : "endereco_desvio[0]",
+					"strict" : false
+				},
+				{
+					"name" : "endereco_desvio[1]",
+					"strict" : false
+				},
+				{
+					"name" : "endereco_desvio[5]",
+					"strict" : false
+				},
+				{
+					"name" : "endereco_desvio[3]",
+					"strict" : false
+				},
+				{
+					"name" : "endereco_desvio[7]",
+					"strict" : false
+				},
+				{
+					"name" : "endereco_desvio[8]",
+					"strict" : false
+				},
+				{
+					"name" : "endereco_desvio[9]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
