@@ -11,27 +11,45 @@ entity fetch is
     port (
         -- Input ports
         clk      			: in std_logic;
-		  je					: in std_logic;
-        sel_MuxJump		: in std_logic;
+		  
 		  flag				: in std_logic;
-        endereco_desvio : in std_logic_vector(addr_width - 1 downto 0);
-
+		  jumpEqual			: in std_logic;
+        selMuxJump		: in std_logic;
+        
         -- Output ports
-        instrucao 		: out std_logic_vector(data_width - 1 downto 0)
+        out_instrucao 		: out std_logic_vector(data_width - 1 downto 0);
+		  
+		  pinoTeste 			: out std_logic_vector(9 downto 0)
     );
 end entity;
 
 architecture comportamento of fetch is
-	signal out_MuxPC : std_logic_vector(addr_width - 1 downto 0);
+	
+	
 	signal out_RegPC : std_logic_vector(addr_width - 1 downto 0);
 	signal out_SomPC : std_logic_vector(addr_width - 1 downto 0);
 	
-	signal sel_MuxPC : std_logic;
+	signal addr_desvio 	: std_logic_vector(addr_width - 1 downto 0);
+	signal out_MuxPC 		: std_logic_vector(addr_width - 1 downto 0);
+	signal sel_MuxPC 		: std_logic;
+	
+	signal out_ROM 		: std_logic_vector(data_width - 1 downto 0);
 	
 begin
 	
-	sel_MuxPC <= sel_MuxJump or (je and flag);
+	sel_MuxPC <= selMuxJump or (jumpEqual and flag);
 	
+	muxPC : entity work.muxGenerico2x1
+		generic map (
+			larguraDados => addr_width
+		)
+		port map (
+			entradaA_MUX => out_SomPC,
+			entradaB_MUX => addr_desvio,
+			seletor_MUX  => sel_MuxPC,
+			saida_MUX    => out_MuxPC
+		);
+		  
 	somPC : entity work.somaConstante
 		generic map (
 			larguraDados => addr_width,
@@ -43,17 +61,7 @@ begin
 			saida   => out_SomPC
 		);
 		
-	muxPC : entity work.muxGenerico2x1
-		generic map (
-			larguraDados => addr_width
-		)
-		port map (
-			entradaA_MUX => out_SomPC,
-			entradaB_MUX => endereco_desvio,
-			seletor_MUX  => sel_MuxPC,
-			saida_MUX    => out_MuxPC
-		);
-		  
+
 	registerPC : entity work.registradorGenerico
 		generic map (
 			larguraDados => addr_width
@@ -73,7 +81,12 @@ begin
 		)
 		port map (
 			Endereco => out_RegPC,
-			Dado     => instrucao
+			Dado     => out_ROM
 		);
+		
+		pinoTeste <= out_RegPC;
+		out_instrucao <= out_ROM;
+		addr_desvio <= out_ROM(9 downto 0);
+		
 	
 end architecture;

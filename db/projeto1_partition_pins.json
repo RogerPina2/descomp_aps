@@ -4,63 +4,99 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "instrucao[0]",
+					"name" : "instrucaoOut[0]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[1]",
+					"name" : "instrucaoOut[1]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[2]",
+					"name" : "instrucaoOut[2]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[3]",
+					"name" : "instrucaoOut[3]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[4]",
+					"name" : "instrucaoOut[4]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[5]",
+					"name" : "instrucaoOut[5]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[10]",
+					"name" : "instrucaoOut[10]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[11]",
+					"name" : "instrucaoOut[11]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[12]",
+					"name" : "instrucaoOut[12]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[13]",
+					"name" : "instrucaoOut[13]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[14]",
+					"name" : "instrucaoOut[14]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[15]",
+					"name" : "instrucaoOut[15]",
 					"strict" : false
 				},
 				{
-					"name" : "instrucao[16]",
+					"name" : "instrucaoOut[16]",
+					"strict" : false
+				},
+				{
+					"name" : "pinoTeste[0]",
+					"strict" : false
+				},
+				{
+					"name" : "pinoTeste[1]",
+					"strict" : false
+				},
+				{
+					"name" : "pinoTeste[2]",
+					"strict" : false
+				},
+				{
+					"name" : "pinoTeste[3]",
+					"strict" : false
+				},
+				{
+					"name" : "pinoTeste[4]",
+					"strict" : false
+				},
+				{
+					"name" : "pinoTeste[5]",
+					"strict" : false
+				},
+				{
+					"name" : "pinoTeste[6]",
+					"strict" : false
+				},
+				{
+					"name" : "pinoTeste[7]",
+					"strict" : false
+				},
+				{
+					"name" : "pinoTeste[8]",
+					"strict" : false
+				},
+				{
+					"name" : "pinoTeste[9]",
 					"strict" : false
 				},
 				{
 					"name" : "clk",
-					"strict" : false
-				},
-				{
-					"name" : "endereco_desvio[6]",
 					"strict" : false
 				},
 				{
@@ -73,42 +109,6 @@
 				},
 				{
 					"name" : "sel_MuxJump",
-					"strict" : false
-				},
-				{
-					"name" : "endereco_desvio[2]",
-					"strict" : false
-				},
-				{
-					"name" : "endereco_desvio[4]",
-					"strict" : false
-				},
-				{
-					"name" : "endereco_desvio[0]",
-					"strict" : false
-				},
-				{
-					"name" : "endereco_desvio[1]",
-					"strict" : false
-				},
-				{
-					"name" : "endereco_desvio[5]",
-					"strict" : false
-				},
-				{
-					"name" : "endereco_desvio[3]",
-					"strict" : false
-				},
-				{
-					"name" : "endereco_desvio[7]",
-					"strict" : false
-				},
-				{
-					"name" : "endereco_desvio[8]",
-					"strict" : false
-				},
-				{
-					"name" : "endereco_desvio[9]",
 					"strict" : false
 				}
 			]

@@ -4,8 +4,8 @@ use ieee.numeric_std.all;
 
 entity memoriaROM is
    generic (
-          dataWidth: natural := 8;
-          addrWidth: natural := 3
+          dataWidth: natural := 17;
+          addrWidth: natural := 10
     );
    port (
           -- O fato da interface ser do tipo std_logic auxilía na simulação.
@@ -31,6 +31,8 @@ architecture assincrona of memoriaROM is
         tmp(3) := "10010110000000000";
         tmp(4) := "10011000000000000";
         tmp(5) := "10011010000000000";
+		  
+		  -- passo
         tmp(6) := "10011100000000001";
 
         -- While
@@ -45,8 +47,8 @@ architecture assincrona of memoriaROM is
         tmp(13) := "01100000000001110"; --US
         
         -- US
-		tmp(14) := "00000000000000000"; --END MEM
-	    tmp(15) := "00011110000000000"; --END MEM 	
+		  tmp(14) := "00000000000000000"; --END MEM
+		  tmp(15) := "00011110000000000"; --END MEM 	
         tmp(16) := "01000000000001001";
         tmp(17) := "01010000000010100"; -- DS
         tmp(18) := "01110000000000001";
