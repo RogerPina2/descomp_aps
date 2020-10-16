@@ -1,5 +1,5 @@
 Analysis & Synthesis report for projeto1
-Thu Oct 15 20:18:45 2020
+Fri Oct 16 13:24:18 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -37,10 +37,10 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Thu Oct 15 20:18:45 2020           ;
+; Analysis & Synthesis Status ; Failed - Fri Oct 16 13:24:18 2020           ;
 ; Quartus Prime Version       ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name               ; projeto1                                    ;
-; Top-level Entity Name       ; projeto1                                    ;
+; Top-level Entity Name       ; arquitetura                                 ;
 ; Family                      ; Cyclone V                                   ;
 ; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
 ; Total registers             ; N/A until Partition Merge                   ;
@@ -58,7 +58,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CEBA4F23C7        ;                    ;
-; Top-level entity name                                                           ; projeto1           ; projeto1           ;
+; Top-level entity name                                                           ; arquitetura        ; projeto1           ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -161,13 +161,10 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Thu Oct 15 20:18:27 2020
+    Info: Processing started: Fri Oct 16 13:24:06 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off projeto1 -c projeto1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhd
-    Info (12022): Found design unit 1: cpu-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/cpu.vhd Line: 12
-    Info (12023): Found entity 1: cpu File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/cpu.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file registradorgenerico.vhd
     Info (12022): Found design unit 1: registradorGenerico-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/registradorGenerico.vhd Line: 15
     Info (12023): Found entity 1: registradorGenerico File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/registradorGenerico.vhd Line: 4
@@ -177,36 +174,41 @@ Info (12021): Found 2 design units, including 1 entities, in source file muxgene
 Info (12021): Found 2 design units, including 1 entities, in source file ulasoma.vhd
     Info (12022): Found design unit 1: ULAsoma-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/ULAsoma.vhd Line: 14
     Info (12023): Found entity 1: ULAsoma File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/ULAsoma.vhd Line: 5
-Error (10500): VHDL syntax error at memoria.vhd(28) near text ""1001 000 0000 0000 0000"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 28
-Error (10500): VHDL syntax error at memoria.vhd(29) near text ""1001 001 0000 0000 0000"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 29
-Error (10500): VHDL syntax error at memoria.vhd(30) near text ""1001 010 0000 0000 0000"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 30
-Error (10500): VHDL syntax error at memoria.vhd(31) near text ""1001 011 0000 0000 0000"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 31
-Error (10500): VHDL syntax error at memoria.vhd(32) near text ""1001 100 0000 0000 0000"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 32
-Error (10500): VHDL syntax error at memoria.vhd(33) near text ""1001 101 0000 0000 0000"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 33
-Error (10500): VHDL syntax error at memoria.vhd(34) near text ""1001 110 0000 0000 0001"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 34
-Error (10500): VHDL syntax error at memoria.vhd(38) near text ""0001 000 END DISPLAY"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 38
-Error (10500): VHDL syntax error at memoria.vhd(39) near text ""0001 001 END DISPLAY"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 39
-Error (10500): VHDL syntax error at memoria.vhd(40) near text ""0001 010 END DISPLAY"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 40
-Error (10500): VHDL syntax error at memoria.vhd(41) near text ""0001 011 END DISPLAY"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 41
-Error (10500): VHDL syntax error at memoria.vhd(42) near text ""0001 100 END DISPLAY"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 42
-Error (10500): VHDL syntax error at memoria.vhd(43) near text ""0001 101 END DISPLAY"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 43
-Error (10500): VHDL syntax error at memoria.vhd(46) near text ""0110 XXX END US"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 46
-Error (10500): VHDL syntax error at memoria.vhd(49) near text ""0100 000 0000 0000 1001"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 49
-Error (10500): VHDL syntax error at memoria.vhd(50) near text ""0101 XXX END DS"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 50
-Error (10500): VHDL syntax error at memoria.vhd(51) near text ""0111 000 0000 0000 0001"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 51
-Error (10500): VHDL syntax error at memoria.vhd(52) near text ""0110 XXX END WHILE"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 52
-Error (10500): VHDL syntax error at memoria.vhd(55) near text ""1001 000 0000 0000 0000"";  expecting ";" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoria.vhd Line: 55
-Info (12021): Found 0 design units, including 0 entities, in source file memoria.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file fetch.vhd
-    Info (12022): Found design unit 1: fetch-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 22
+    Info (12022): Found design unit 1: fetch-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 26
     Info (12023): Found entity 1: fetch File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file somaconstante.vhd
     Info (12022): Found design unit 1: somaConstante-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/somaConstante.vhd Line: 18
     Info (12023): Found entity 1: somaConstante File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/somaConstante.vhd Line: 5
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 19 errors, 1 warning
+Info (12021): Found 2 design units, including 1 entities, in source file projeto1.vhd
+    Info (12022): Found design unit 1: projeto1-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 20
+    Info (12023): Found entity 1: projeto1 File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file memoriarom.vhd
+    Info (12022): Found design unit 1: memoriaROM-assincrona File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaROM.vhd Line: 17
+    Info (12023): Found entity 1: memoriaROM File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaROM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file processador.vhd
+    Info (12022): Found design unit 1: processador-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 26
+    Info (12023): Found entity 1: processador File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file arquitetura.vhd
+    Info (12022): Found design unit 1: arquitetura-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd Line: 28
+    Info (12023): Found entity 1: arquitetura File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file memoriaregistradores.vhd
+    Info (12022): Found design unit 1: memoriaRegistradores-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRegistradores.vhd Line: 24
+    Info (12023): Found entity 1: memoriaRegistradores File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRegistradores.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ula.vhd
+    Info (12022): Found design unit 1: ULA-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/ULA.vhd Line: 19
+    Info (12023): Found entity 1: ULA File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/ULA.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file flag.vhd
+    Info (12022): Found design unit 1: flag-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/flag.vhd Line: 14
+    Info (12023): Found entity 1: flag File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/flag.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file uc.vhd
+    Info (12022): Found design unit 1: UC-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 29
+    Info (12023): Found entity 1: UC File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 5
+Error (10349): VHDL Association List error at processador.vhd(60): formal "operacao" does not exist File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 60
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
     Error: Peak virtual memory: 4843 megabytes
-    Error: Processing ended: Thu Oct 15 20:18:45 2020
-    Error: Elapsed time: 00:00:18
-    Error: Total CPU time (on all processors): 00:00:34
+    Error: Processing ended: Fri Oct 16 13:24:18 2020
+    Error: Elapsed time: 00:00:12
+    Error: Total CPU time (on all processors): 00:00:28
 
 

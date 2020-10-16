@@ -18,7 +18,6 @@ entity UC is
 end entity;
 
 architecture comportamento of UC is
-
 	constant LOAD  : std_logic_vector(addr_width - 1 downto 0) := "0000"
 	constant STORE : std_logic_vector(addr_width - 1 downto 0) := "0001"
 	constant INC   : std_logic_vector(addr_width - 1 downto 0) := "0010"
