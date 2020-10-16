@@ -13,10 +13,10 @@ entity processador is
 	port (
 		clk 				: in std_logic;
 		
-		in_arqMuxRAM 	: in std_logic_vector(addr_width - 1 downto 0);
+		in_MuxRAM 		: in std_logic_vector(addr_width - 1 downto 0);
 		
-		out_instrucao 	: out std_logic_vector(addr_width - 1 downto 0);
 		out_memReg 		: out std_logic_vector(data_width - 1 downto 0);
+		out_instrucao 	: out std_logic_vector(addr_width - 1 downto 0);
 		
 		out_habLeiMEM 	: out std_logic;
 		out_habEscMEM 	: out std_logic	
@@ -25,24 +25,47 @@ end entity;
 
 architecture comportamento of processador is
 	
-	
+	signal instrucao	: std_logic_vector(addr_width - 1 downto 0);
+		
 	signal opcode		: std_logic_vector(opcd_width - 1 downto 0);
-	signal instROM 	: std_logic_vector(addr_width - 1 downto 0);
 	
-	signal out_UC_muxJump			: std_logic;
-	signal out_UC_je					: std_logic;
-	signal out_UC_sel_MuxInstRAM	: std_logic;
-	signal out_UC_hab_memReg		: std_logic;
-	signal out_UC_op_ULA				: std_logic_vector(2 downto 0);
-	signal out_UC_hab_flag			: std_logic;
+	signal UC_op			: std_logic_vector(2 downto 0);
+	signal UC_muxJump		: std_logic;
+	signal UC_jumpEqual	: std_logic;
+	signal UC_muxRAM		: std_logic;
+	signal UC_habReg		: std_logic;
+	signal UC_habFlag		: std_logic;
+	signal UC_habLeiMEM	: std_logic;
+	signal UC_habEscMEM	: std_logic;
 	
-	signal out_flag 					: std_logic;
-	signal s_out_instrucao			: std_logic_vector(addr_width - 1 downto 0);
+	signal pinoTeste		: std_logic_vector(9 downto 0);
+	
+	signal out_Reg			: std_logic_vector(data_width - 1 downto 0);
+	signal out_Flag		: std_logic;
 	
 begin
 	
-	opcode <= s_out_instrucao((inst_width - 1) downto (inst_width - opcd_width));
-	instROM <= s_out_instrucao(addr_width - 1 downto 0);
+	opcode <= instrucao((inst_width - 1) downto (inst_width - opcd_width));
+	
+	UC : entity work.UC
+		generic map (
+			opcd_width => opcd_width,
+			regs_width => regs_width,
+			data_width => data_width,
+			addr_width => addr_width,
+			inst_width => inst_width
+		)
+		port map (
+			opcode 					=> opcode,
+			operacao 				=> UC_op,
+			muxJump					=> UC_muxJump,
+			jumpEqual				=> UC_jumpEqual,
+			muxImediatoRAM			=> UC_muxRAM,
+			habilitaResgistrador	=> UC_habReg,
+			habilitaFlag			=> UC_habFlag,
+			habilitaLeitutaMEM	=> UC_habLeiMEM,
+			habilitaEscritaMEM	=> UC_habEscMEM
+		);
 	
 	fetch : entity work.fetch
 		generic map (
@@ -51,11 +74,12 @@ begin
 		)		
 		port map (
 			clk 					=> clk,
-			je						=> out_UC_je,
-			sel_MuxJump 		=> out_UC_muxJump,
-			flag 					=> out_flag,
-			endereco_desvio 	=> instROM,
-			instrucao 			=> s_out_instrucao
+			flag 					=> out_Flag,
+			jumpEqual			=> UC_jumpEqual,
+			selMuxJump 			=> UC_muxJump,
+			
+			out_instrucao 		=> instrucao,
+			pinoTeste			=>	pinoTeste
 		);
 	
 	arquitetura : entity work.arquitetura
@@ -68,36 +92,19 @@ begin
 		)
 		port map (
 			clk 				=> clk,
-			in_Mux_Ram 		=> in_arqMuxRAM,
-			instrucao		=> s_out_instrucao,
-			sel_MuxInstRAM	=> out_UC_sel_MuxInstRAM,
-			hab_memReg		=> out_UC_hab_memReg,
-			op_ULA			=> out_UC_op_ULA,
-			hab_flag			=> out_UC_hab_flag,
-			out_memReg 		=> out_memReg,
-			out_flag			=> out_flag
+			in_Mux_Ram 		=> UC_muxRAM,
+			instrucao		=> instrucao,
+			sel_MuxInstRAM	=> UC_muxRAM,
+			hab_memReg		=> UC_habReg,
+			op_ULA			=> UC_op,
+			hab_flag			=> UC_habFlag,
+			
+			out_memReg 		=> out_Reg,
+			out_flag			=> out_Flag
 		);
 			
-	UC : entity work.UC
-		generic map (
-			opcd_width => opcd_width,
-			regs_width => regs_width,
-			data_width => data_width,
-			addr_width => addr_width,
-			inst_width => inst_width
-		)
-		port map (
-			opcode 			=> opcode,
-			muxJump 			=> out_UC_muxJump,
-			je					=> out_UC_je,
-			sel_MuxInstRAM	=> out_UC_sel_MuxInstRAM,
-			hab_memReg		=> out_UC_hab_memReg,
-			op_ULA			=> out_UC_op_ULA,
-			hab_flag			=> out_UC_hab_flag,
-			habLeiMEM		=> out_habLeiMEM,
-			habEscMEM		=> out_habEscMEM
-		);
-		
-
+	out_memReg <= out_Reg;
 	out_instrucao <= s_out_instrucao;
+	out_habLeiMEM <= UC_habLeiMEM;
+	out_habEscMEM <= UC_habEscMEM;
 end architecture;

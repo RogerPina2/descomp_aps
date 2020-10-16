@@ -58,8 +58,6 @@ begin
 --		end case;
 --	end process;
 --	
---	muxJump 			<= s_muxJump; 
---	je 				<= s_je;
 --	sel_MuxInstRAM <= s_sel_MuxInstRAM;
 --	hab_memReg		<= s_hab_memReg;
 --	op_ULA			<= s_op_ULA;
@@ -67,8 +65,10 @@ begin
 --	habLeiMEM		<= s_habLeiMEM;
 --	habEscMEM		<= s_habEscMEM;
 
-s_muxJump <= '1' when opcode = JMP else '0';
-s_je <= '1' when opcode = "0111" else '0';
+	s_muxJump 	<= '1' when opcode = JMP else '0';
+	s_je 			<= '1' when opcode = "0111" else '0';
 
+	muxJump 	<= s_muxJump; 
+	je 		<= s_je;
 
 end architecture;
