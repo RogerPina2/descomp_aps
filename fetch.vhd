@@ -4,8 +4,9 @@ use ieee.numeric_std.all;
 
 entity fetch is
     generic (
-        data_width : NATURAL := 17;
+        data_width : NATURAL := 8;
         addr_width: NATURAL := 10;
+		  inst_width: NATURAL := 17;
         incremento : NATURAL := 1
     );
     port (
@@ -17,7 +18,7 @@ entity fetch is
         selMuxJump		: in std_logic;
         
         -- Output ports
-        out_instrucao 		: out std_logic_vector(data_width - 1 downto 0);
+        out_instrucao 		: out std_logic_vector(inst_width - 1 downto 0);
 		  
 		  pinoTeste 			: out std_logic_vector(9 downto 0)
     );
@@ -33,7 +34,7 @@ architecture comportamento of fetch is
 	signal out_MuxPC 		: std_logic_vector(addr_width - 1 downto 0);
 	signal sel_MuxPC 		: std_logic;
 	
-	signal out_ROM 		: std_logic_vector(data_width - 1 downto 0);
+	signal out_ROM 		: std_logic_vector(inst_width - 1 downto 0);
 	
 begin
 	

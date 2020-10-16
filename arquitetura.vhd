@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity arquitetura is
 	generic (
-		opcd_width : natural := 4;
+		opcode_width : natural := 4;
 		regs_width : natural := 3;
 		data_width : natural := 8;
 		addr_width : natural := 10;
@@ -12,7 +12,7 @@ entity arquitetura is
 	);
 	port (
 		clk 				: in std_logic;
-		in_Mux_Ram 		: in std_logic_vector(addr_width - 1 downto 0);
+		in_Mux_Ram 		: in std_logic_vector(data_width - 1 downto 0);
 		instrucao		: in std_logic_vector(inst_width - 1 downto 0);
 		
 		sel_MuxInstRAM	: in std_logic;
@@ -53,20 +53,13 @@ begin
 		);
 
 	
-	memReg : entity work.memoriaRegistradores
-		generic map (
-			opcd_width => opcd_width,
-			regs_width => regs_width,
-			data_width => data_width,
-			addr_width => addr_width,
-			inst_width => inst_width
-		)
+	memReg : entity work.bancoRegistradoresArqRegMem
 		port map (
-			clk 				=> clk,
-			in_memReg 		=> out_ULA,
-			in_regCode		=> regs,
-			hab_memRegEsc 	=> hab_memReg,
-			out_memReg 		=> s_out_memReg
+			clk        			=> clk,
+			endereco       	=> regs,
+			dadoEscrita    	=> out_ULA,
+			habilitaEscrita	=> hab_memReg,
+			saida          	=>	s_out_memReg
 		);
 	
 	ULA : entity work.ULA
