@@ -38,7 +38,7 @@ architecture comportamento of arquitetura is
 	
 begin
 	
-	regs <= instrucao(regs_width - 1 downto 0);
+	regs <= instrucao(addr_width + regs_width - 1 downto addr_width);
 	data <= instrucao(data_width - 1 downto 0);
 
 	muxInstRAM : entity work.muxGenerico2x1
@@ -78,6 +78,7 @@ begin
 		port map (
 			in_flag 		=> out_ULA_flag,
 			hab_flag 	=> hab_flag,
+			CLK			=> clk,
 			out_flag 	=> hab_muxJump
 		);
 		

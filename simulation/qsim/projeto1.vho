@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition"
 
--- DATE "10/16/2020 15:16:32"
+-- DATE "10/16/2020 21:11:31"
 
 -- 
 -- Device: Altera 5CEBA4F23C7 Package FBGA484
@@ -36,50 +36,49 @@ USE ALTERA_LNSIM.ALTERA_LNSIM_COMPONENTS.ALL;
 USE CYCLONEV.CYCLONEV_COMPONENTS.ALL;
 USE IEEE.STD_LOGIC_1164.ALL;
 
-ENTITY 	processador IS
+ENTITY 	projeto1 IS
     PORT (
-	clk : IN std_logic;
-	in_MuxRAM : IN std_logic_vector(7 DOWNTO 0);
-	out_memReg : OUT std_logic_vector(7 DOWNTO 0);
-	out_addrImediato : OUT std_logic_vector(9 DOWNTO 0);
-	out_habLeiMEM : OUT std_logic;
-	out_habEscMEM : OUT std_logic
+	CLOCK_50 : IN std_logic;
+	pinoTeste : OUT std_logic_vector(9 DOWNTO 0);
+	t_outMem : OUT std_logic_vector(7 DOWNTO 0);
+	habRAM : OUT std_logic;
+	habDisplay : OUT std_logic;
+	habSW : OUT std_logic;
+	habKEY : OUT std_logic;
+	habLED : OUT std_logic;
+	habBT : OUT std_logic
 	);
-END processador;
+END projeto1;
 
 -- Design Ports Information
--- in_MuxRAM[0]	=>  Location: PIN_B11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- in_MuxRAM[1]	=>  Location: PIN_R7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- in_MuxRAM[2]	=>  Location: PIN_P8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- in_MuxRAM[3]	=>  Location: PIN_U16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- in_MuxRAM[4]	=>  Location: PIN_J13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- in_MuxRAM[5]	=>  Location: PIN_U7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- in_MuxRAM[6]	=>  Location: PIN_Y10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- in_MuxRAM[7]	=>  Location: PIN_AB10,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_memReg[0]	=>  Location: PIN_C11,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_memReg[1]	=>  Location: PIN_P7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_memReg[2]	=>  Location: PIN_J17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_memReg[3]	=>  Location: PIN_G16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_memReg[4]	=>  Location: PIN_W21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_memReg[5]	=>  Location: PIN_H14,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_memReg[6]	=>  Location: PIN_P9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_memReg[7]	=>  Location: PIN_N2,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_addrImediato[0]	=>  Location: PIN_A7,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_addrImediato[1]	=>  Location: PIN_A8,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_addrImediato[2]	=>  Location: PIN_Y17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_addrImediato[3]	=>  Location: PIN_N1,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_addrImediato[4]	=>  Location: PIN_U20,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_addrImediato[5]	=>  Location: PIN_AA17,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_addrImediato[6]	=>  Location: PIN_D12,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_addrImediato[7]	=>  Location: PIN_U21,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_addrImediato[8]	=>  Location: PIN_D13,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_addrImediato[9]	=>  Location: PIN_E9,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_habLeiMEM	=>  Location: PIN_C6,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- out_habEscMEM	=>  Location: PIN_N16,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- clk	=>  Location: PIN_M16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- pinoTeste[0]	=>  Location: PIN_L18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- pinoTeste[1]	=>  Location: PIN_K22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- pinoTeste[2]	=>  Location: PIN_M21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- pinoTeste[3]	=>  Location: PIN_K21,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- pinoTeste[4]	=>  Location: PIN_M20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- pinoTeste[5]	=>  Location: PIN_N19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- pinoTeste[6]	=>  Location: PIN_K17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- pinoTeste[7]	=>  Location: PIN_L22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- pinoTeste[8]	=>  Location: PIN_L17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- pinoTeste[9]	=>  Location: PIN_L19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- t_outMem[0]	=>  Location: PIN_M18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- t_outMem[1]	=>  Location: PIN_M22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- t_outMem[2]	=>  Location: PIN_J13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- t_outMem[3]	=>  Location: PIN_R6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- t_outMem[4]	=>  Location: PIN_AB7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- t_outMem[5]	=>  Location: PIN_AB12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- t_outMem[6]	=>  Location: PIN_AB17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- t_outMem[7]	=>  Location: PIN_R12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- habRAM	=>  Location: PIN_K16,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- habDisplay	=>  Location: PIN_E14,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- habSW	=>  Location: PIN_P9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- habKEY	=>  Location: PIN_H8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- habLED	=>  Location: PIN_P17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- habBT	=>  Location: PIN_P19,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- CLOCK_50	=>  Location: PIN_M16,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
-ARCHITECTURE structure OF processador IS
+ARCHITECTURE structure OF projeto1 IS
 SIGNAL gnd : std_logic := '0';
 SIGNAL vcc : std_logic := '1';
 SIGNAL unknown : std_logic := 'X';
@@ -89,76 +88,261 @@ SIGNAL devpor : std_logic := '1';
 SIGNAL ww_devoe : std_logic;
 SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
-SIGNAL ww_clk : std_logic;
-SIGNAL ww_in_MuxRAM : std_logic_vector(7 DOWNTO 0);
-SIGNAL ww_out_memReg : std_logic_vector(7 DOWNTO 0);
-SIGNAL ww_out_addrImediato : std_logic_vector(9 DOWNTO 0);
-SIGNAL ww_out_habLeiMEM : std_logic;
-SIGNAL ww_out_habEscMEM : std_logic;
-SIGNAL \in_MuxRAM[0]~input_o\ : std_logic;
-SIGNAL \in_MuxRAM[1]~input_o\ : std_logic;
-SIGNAL \in_MuxRAM[2]~input_o\ : std_logic;
-SIGNAL \in_MuxRAM[3]~input_o\ : std_logic;
-SIGNAL \in_MuxRAM[4]~input_o\ : std_logic;
-SIGNAL \in_MuxRAM[5]~input_o\ : std_logic;
-SIGNAL \in_MuxRAM[6]~input_o\ : std_logic;
-SIGNAL \in_MuxRAM[7]~input_o\ : std_logic;
+SIGNAL ww_CLOCK_50 : std_logic;
+SIGNAL ww_pinoTeste : std_logic_vector(9 DOWNTO 0);
+SIGNAL ww_t_outMem : std_logic_vector(7 DOWNTO 0);
+SIGNAL ww_habRAM : std_logic;
+SIGNAL ww_habDisplay : std_logic;
+SIGNAL ww_habSW : std_logic;
+SIGNAL ww_habKEY : std_logic;
+SIGNAL ww_habLED : std_logic;
+SIGNAL ww_habBT : std_logic;
 SIGNAL \~QUARTUS_CREATED_GND~I_combout\ : std_logic;
-SIGNAL \clk~input_o\ : std_logic;
-SIGNAL \clk~inputCLKENA0_outclk\ : std_logic;
-SIGNAL \fetch|somPC|Add0~1_sumout\ : std_logic;
-SIGNAL \fetch|somPC|Add0~2\ : std_logic;
-SIGNAL \fetch|somPC|Add0~21_sumout\ : std_logic;
-SIGNAL \fetch|somPC|Add0~22\ : std_logic;
-SIGNAL \fetch|somPC|Add0~17_sumout\ : std_logic;
-SIGNAL \fetch|somPC|Add0~18\ : std_logic;
-SIGNAL \fetch|somPC|Add0~13_sumout\ : std_logic;
-SIGNAL \fetch|somPC|Add0~14\ : std_logic;
-SIGNAL \fetch|somPC|Add0~9_sumout\ : std_logic;
-SIGNAL \fetch|somPC|Add0~10\ : std_logic;
-SIGNAL \fetch|somPC|Add0~5_sumout\ : std_logic;
-SIGNAL \fetch|somPC|Add0~6\ : std_logic;
-SIGNAL \fetch|somPC|Add0~37_sumout\ : std_logic;
-SIGNAL \fetch|somPC|Add0~38\ : std_logic;
-SIGNAL \fetch|somPC|Add0~33_sumout\ : std_logic;
-SIGNAL \fetch|somPC|Add0~34\ : std_logic;
-SIGNAL \fetch|somPC|Add0~29_sumout\ : std_logic;
-SIGNAL \fetch|somPC|Add0~30\ : std_logic;
-SIGNAL \fetch|somPC|Add0~25_sumout\ : std_logic;
-SIGNAL \fetch|ROM|memROM~0_combout\ : std_logic;
-SIGNAL \fetch|ROM|memROM~1_combout\ : std_logic;
-SIGNAL \fetch|ROM|memROM~2_combout\ : std_logic;
-SIGNAL \fetch|registerPC|DOUT\ : std_logic_vector(9 DOWNTO 0);
-SIGNAL \fetch|ROM|ALT_INV_memROM~2_combout\ : std_logic;
-SIGNAL \fetch|ROM|ALT_INV_memROM~0_combout\ : std_logic;
-SIGNAL \fetch|registerPC|ALT_INV_DOUT\ : std_logic_vector(9 DOWNTO 0);
+SIGNAL \CLOCK_50~input_o\ : std_logic;
+SIGNAL \CLOCK_50~inputCLKENA0_outclk\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~1_sumout\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~2\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~5_sumout\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~6\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~9_sumout\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~10\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~13_sumout\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~14\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~17_sumout\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~18\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~21_sumout\ : std_logic;
+SIGNAL \processador|fetch|registerPC|DOUT[5]~DUPLICATE_q\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~22\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~25_sumout\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~26\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~29_sumout\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~30\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~33_sumout\ : std_logic;
+SIGNAL \processador|fetch|registerPC|DOUT[8]~DUPLICATE_q\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~34\ : std_logic;
+SIGNAL \processador|fetch|somPC|Add0~37_sumout\ : std_logic;
+SIGNAL \processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\ : std_logic;
+SIGNAL \processador|fetch|registerPC|DOUT[2]~DUPLICATE_q\ : std_logic;
+SIGNAL \processador|fetch|ROM|memROM~1_combout\ : std_logic;
+SIGNAL \processador|fetch|ROM|memROM~0_combout\ : std_logic;
+SIGNAL \processador|fetch|ROM|memROM~2_combout\ : std_logic;
+SIGNAL \processador|arquitetura|muxInstRAM|saida_MUX[0]~0_combout\ : std_logic;
+SIGNAL \processador|arquitetura|memReg|registrador~30_combout\ : std_logic;
+SIGNAL \processador|arquitetura|memReg|registrador~20_q\ : std_logic;
+SIGNAL \processador|arquitetura|memReg|registrador~31_combout\ : std_logic;
+SIGNAL \processador|arquitetura|memReg|registrador~12_q\ : std_logic;
+SIGNAL \processador|arquitetura|memReg|registrador~28_combout\ : std_logic;
+SIGNAL \processador|fetch|ROM|memROM~3_combout\ : std_logic;
+SIGNAL \processador|arquitetura|memReg|registrador~21_q\ : std_logic;
+SIGNAL \processador|arquitetura|memReg|registrador~13_q\ : std_logic;
+SIGNAL \processador|arquitetura|memReg|registrador~29_combout\ : std_logic;
+SIGNAL \processador|fetch|ROM|memROM~4_combout\ : std_logic;
+SIGNAL \processador|fetch|registerPC|DOUT\ : std_logic_vector(9 DOWNTO 0);
+SIGNAL \processador|fetch|registerPC|ALT_INV_DOUT[2]~DUPLICATE_q\ : std_logic;
+SIGNAL \processador|fetch|registerPC|ALT_INV_DOUT[1]~DUPLICATE_q\ : std_logic;
+SIGNAL \processador|fetch|ROM|ALT_INV_memROM~4_combout\ : std_logic;
+SIGNAL \processador|fetch|ROM|ALT_INV_memROM~2_combout\ : std_logic;
+SIGNAL \processador|fetch|ROM|ALT_INV_memROM~1_combout\ : std_logic;
+SIGNAL \processador|fetch|ROM|ALT_INV_memROM~0_combout\ : std_logic;
+SIGNAL \processador|fetch|registerPC|ALT_INV_DOUT\ : std_logic_vector(9 DOWNTO 0);
+SIGNAL \processador|arquitetura|memReg|ALT_INV_registrador~13_q\ : std_logic;
+SIGNAL \processador|arquitetura|memReg|ALT_INV_registrador~21_q\ : std_logic;
+SIGNAL \processador|arquitetura|memReg|ALT_INV_registrador~12_q\ : std_logic;
+SIGNAL \processador|arquitetura|memReg|ALT_INV_registrador~20_q\ : std_logic;
 
 BEGIN
 
-ww_clk <= clk;
-ww_in_MuxRAM <= in_MuxRAM;
-out_memReg <= ww_out_memReg;
-out_addrImediato <= ww_out_addrImediato;
-out_habLeiMEM <= ww_out_habLeiMEM;
-out_habEscMEM <= ww_out_habEscMEM;
+ww_CLOCK_50 <= CLOCK_50;
+pinoTeste <= ww_pinoTeste;
+t_outMem <= ww_t_outMem;
+habRAM <= ww_habRAM;
+habDisplay <= ww_habDisplay;
+habSW <= ww_habSW;
+habKEY <= ww_habKEY;
+habLED <= ww_habLED;
+habBT <= ww_habBT;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
-\fetch|ROM|ALT_INV_memROM~2_combout\ <= NOT \fetch|ROM|memROM~2_combout\;
-\fetch|ROM|ALT_INV_memROM~0_combout\ <= NOT \fetch|ROM|memROM~0_combout\;
-\fetch|registerPC|ALT_INV_DOUT\(1) <= NOT \fetch|registerPC|DOUT\(1);
-\fetch|registerPC|ALT_INV_DOUT\(0) <= NOT \fetch|registerPC|DOUT\(0);
-\fetch|registerPC|ALT_INV_DOUT\(6) <= NOT \fetch|registerPC|DOUT\(6);
-\fetch|registerPC|ALT_INV_DOUT\(7) <= NOT \fetch|registerPC|DOUT\(7);
-\fetch|registerPC|ALT_INV_DOUT\(8) <= NOT \fetch|registerPC|DOUT\(8);
-\fetch|registerPC|ALT_INV_DOUT\(9) <= NOT \fetch|registerPC|DOUT\(9);
-\fetch|registerPC|ALT_INV_DOUT\(2) <= NOT \fetch|registerPC|DOUT\(2);
-\fetch|registerPC|ALT_INV_DOUT\(3) <= NOT \fetch|registerPC|DOUT\(3);
-\fetch|registerPC|ALT_INV_DOUT\(4) <= NOT \fetch|registerPC|DOUT\(4);
-\fetch|registerPC|ALT_INV_DOUT\(5) <= NOT \fetch|registerPC|DOUT\(5);
+\processador|fetch|registerPC|ALT_INV_DOUT[2]~DUPLICATE_q\ <= NOT \processador|fetch|registerPC|DOUT[2]~DUPLICATE_q\;
+\processador|fetch|registerPC|ALT_INV_DOUT[1]~DUPLICATE_q\ <= NOT \processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\;
+\processador|fetch|ROM|ALT_INV_memROM~4_combout\ <= NOT \processador|fetch|ROM|memROM~4_combout\;
+\processador|fetch|ROM|ALT_INV_memROM~2_combout\ <= NOT \processador|fetch|ROM|memROM~2_combout\;
+\processador|fetch|ROM|ALT_INV_memROM~1_combout\ <= NOT \processador|fetch|ROM|memROM~1_combout\;
+\processador|fetch|ROM|ALT_INV_memROM~0_combout\ <= NOT \processador|fetch|ROM|memROM~0_combout\;
+\processador|fetch|registerPC|ALT_INV_DOUT\(9) <= NOT \processador|fetch|registerPC|DOUT\(9);
+\processador|fetch|registerPC|ALT_INV_DOUT\(8) <= NOT \processador|fetch|registerPC|DOUT\(8);
+\processador|fetch|registerPC|ALT_INV_DOUT\(7) <= NOT \processador|fetch|registerPC|DOUT\(7);
+\processador|fetch|registerPC|ALT_INV_DOUT\(6) <= NOT \processador|fetch|registerPC|DOUT\(6);
+\processador|fetch|registerPC|ALT_INV_DOUT\(5) <= NOT \processador|fetch|registerPC|DOUT\(5);
+\processador|fetch|registerPC|ALT_INV_DOUT\(4) <= NOT \processador|fetch|registerPC|DOUT\(4);
+\processador|fetch|registerPC|ALT_INV_DOUT\(3) <= NOT \processador|fetch|registerPC|DOUT\(3);
+\processador|fetch|registerPC|ALT_INV_DOUT\(2) <= NOT \processador|fetch|registerPC|DOUT\(2);
+\processador|fetch|registerPC|ALT_INV_DOUT\(1) <= NOT \processador|fetch|registerPC|DOUT\(1);
+\processador|fetch|registerPC|ALT_INV_DOUT\(0) <= NOT \processador|fetch|registerPC|DOUT\(0);
+\processador|arquitetura|memReg|ALT_INV_registrador~13_q\ <= NOT \processador|arquitetura|memReg|registrador~13_q\;
+\processador|arquitetura|memReg|ALT_INV_registrador~21_q\ <= NOT \processador|arquitetura|memReg|registrador~21_q\;
+\processador|arquitetura|memReg|ALT_INV_registrador~12_q\ <= NOT \processador|arquitetura|memReg|registrador~12_q\;
+\processador|arquitetura|memReg|ALT_INV_registrador~20_q\ <= NOT \processador|arquitetura|memReg|registrador~20_q\;
 
--- Location: IOOBUF_X32_Y45_N76
-\out_memReg[0]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X54_Y21_N22
+\pinoTeste[0]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|fetch|registerPC|DOUT\(0),
+	devoe => ww_devoe,
+	o => ww_pinoTeste(0));
+
+-- Location: IOOBUF_X54_Y21_N56
+\pinoTeste[1]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|fetch|registerPC|DOUT\(1),
+	devoe => ww_devoe,
+	o => ww_pinoTeste(1));
+
+-- Location: IOOBUF_X54_Y20_N56
+\pinoTeste[2]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|fetch|registerPC|DOUT\(2),
+	devoe => ww_devoe,
+	o => ww_pinoTeste(2));
+
+-- Location: IOOBUF_X54_Y21_N39
+\pinoTeste[3]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|fetch|registerPC|DOUT\(3),
+	devoe => ww_devoe,
+	o => ww_pinoTeste(3));
+
+-- Location: IOOBUF_X54_Y20_N39
+\pinoTeste[4]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|fetch|registerPC|DOUT\(4),
+	devoe => ww_devoe,
+	o => ww_pinoTeste(4));
+
+-- Location: IOOBUF_X54_Y19_N5
+\pinoTeste[5]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|fetch|registerPC|DOUT[5]~DUPLICATE_q\,
+	devoe => ww_devoe,
+	o => ww_pinoTeste(5));
+
+-- Location: IOOBUF_X54_Y20_N5
+\pinoTeste[6]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|fetch|registerPC|DOUT\(6),
+	devoe => ww_devoe,
+	o => ww_pinoTeste(6));
+
+-- Location: IOOBUF_X54_Y19_N56
+\pinoTeste[7]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|fetch|registerPC|DOUT\(7),
+	devoe => ww_devoe,
+	o => ww_pinoTeste(7));
+
+-- Location: IOOBUF_X54_Y20_N22
+\pinoTeste[8]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|fetch|registerPC|DOUT[8]~DUPLICATE_q\,
+	devoe => ww_devoe,
+	o => ww_pinoTeste(8));
+
+-- Location: IOOBUF_X54_Y21_N5
+\pinoTeste[9]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|fetch|registerPC|DOUT\(9),
+	devoe => ww_devoe,
+	o => ww_pinoTeste(9));
+
+-- Location: IOOBUF_X54_Y19_N22
+\t_outMem[0]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|arquitetura|memReg|registrador~28_combout\,
+	devoe => ww_devoe,
+	o => ww_t_outMem(0));
+
+-- Location: IOOBUF_X54_Y19_N39
+\t_outMem[1]~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => \processador|arquitetura|memReg|registrador~29_combout\,
+	devoe => ww_devoe,
+	o => ww_t_outMem(1));
+
+-- Location: IOOBUF_X42_Y45_N19
+\t_outMem[2]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -168,10 +352,10 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => ww_out_memReg(0));
+	o => ww_t_outMem(2));
 
--- Location: IOOBUF_X14_Y0_N36
-\out_memReg[1]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X10_Y0_N59
+\t_outMem[3]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -181,10 +365,10 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => ww_out_memReg(1));
+	o => ww_t_outMem(3));
 
--- Location: IOOBUF_X44_Y45_N36
-\out_memReg[2]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X18_Y0_N36
+\t_outMem[4]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -194,10 +378,10 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => ww_out_memReg(2));
+	o => ww_t_outMem(4));
 
--- Location: IOOBUF_X50_Y45_N53
-\out_memReg[3]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X33_Y0_N76
+\t_outMem[5]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -207,10 +391,10 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => ww_out_memReg(3));
+	o => ww_t_outMem(5));
 
--- Location: IOOBUF_X50_Y0_N36
-\out_memReg[4]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X38_Y0_N53
+\t_outMem[6]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -220,10 +404,10 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => ww_out_memReg(4));
+	o => ww_t_outMem(6));
 
--- Location: IOOBUF_X42_Y45_N2
-\out_memReg[5]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X24_Y0_N53
+\t_outMem[7]~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -233,10 +417,36 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => ww_out_memReg(5));
+	o => ww_t_outMem(7));
+
+-- Location: IOOBUF_X44_Y45_N53
+\habRAM~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => GND,
+	devoe => ww_devoe,
+	o => ww_habRAM);
+
+-- Location: IOOBUF_X40_Y45_N42
+\habDisplay~output\ : cyclonev_io_obuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	open_drain_output => "false",
+	shift_series_termination_control => "false")
+-- pragma translate_on
+PORT MAP (
+	i => GND,
+	devoe => ww_devoe,
+	o => ww_habDisplay);
 
 -- Location: IOOBUF_X29_Y0_N19
-\out_memReg[6]~output\ : cyclonev_io_obuf
+\habSW~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -246,10 +456,10 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => ww_out_memReg(6));
+	o => ww_habSW);
 
--- Location: IOOBUF_X0_Y19_N39
-\out_memReg[7]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X20_Y45_N36
+\habKEY~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -259,10 +469,10 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => ww_out_memReg(7));
+	o => ww_habKEY);
 
--- Location: IOOBUF_X12_Y45_N19
-\out_addrImediato[0]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X54_Y17_N22
+\habLED~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -270,12 +480,12 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \fetch|ROM|memROM~1_combout\,
+	i => \processador|fetch|ROM|ALT_INV_memROM~4_combout\,
 	devoe => ww_devoe,
-	o => ww_out_addrImediato(0));
+	o => ww_habLED);
 
--- Location: IOOBUF_X12_Y45_N2
-\out_addrImediato[1]~output\ : cyclonev_io_obuf
+-- Location: IOOBUF_X54_Y17_N39
+\habBT~output\ : cyclonev_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -283,153 +493,23 @@ GENERIC MAP (
 	shift_series_termination_control => "false")
 -- pragma translate_on
 PORT MAP (
-	i => \fetch|ROM|memROM~2_combout\,
+	i => \processador|fetch|ROM|memROM~4_combout\,
 	devoe => ww_devoe,
-	o => ww_out_addrImediato(1));
-
--- Location: IOOBUF_X40_Y0_N42
-\out_addrImediato[2]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_out_addrImediato(2));
-
--- Location: IOOBUF_X0_Y19_N56
-\out_addrImediato[3]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_out_addrImediato(3));
-
--- Location: IOOBUF_X52_Y0_N36
-\out_addrImediato[4]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_out_addrImediato(4));
-
--- Location: IOOBUF_X43_Y0_N53
-\out_addrImediato[5]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_out_addrImediato(5));
-
--- Location: IOOBUF_X32_Y45_N42
-\out_addrImediato[6]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_out_addrImediato(6));
-
--- Location: IOOBUF_X52_Y0_N53
-\out_addrImediato[7]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_out_addrImediato(7));
-
--- Location: IOOBUF_X36_Y45_N2
-\out_addrImediato[8]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_out_addrImediato(8));
-
--- Location: IOOBUF_X10_Y45_N2
-\out_addrImediato[9]~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_out_addrImediato(9));
-
--- Location: IOOBUF_X12_Y45_N36
-\out_habLeiMEM~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => \fetch|ROM|ALT_INV_memROM~2_combout\,
-	devoe => ww_devoe,
-	o => ww_out_habLeiMEM);
-
--- Location: IOOBUF_X54_Y18_N45
-\out_habEscMEM~output\ : cyclonev_io_obuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	open_drain_output => "false",
-	shift_series_termination_control => "false")
--- pragma translate_on
-PORT MAP (
-	i => GND,
-	devoe => ww_devoe,
-	o => ww_out_habEscMEM);
+	o => ww_habBT);
 
 -- Location: IOIBUF_X54_Y18_N61
-\clk~input\ : cyclonev_io_ibuf
+\CLOCK_50~input\ : cyclonev_io_ibuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
 	simulate_z_as => "z")
 -- pragma translate_on
 PORT MAP (
-	i => ww_clk,
-	o => \clk~input_o\);
+	i => ww_CLOCK_50,
+	o => \CLOCK_50~input_o\);
 
 -- Location: CLKCTRL_G10
-\clk~inputCLKENA0\ : cyclonev_clkena
+\CLOCK_50~inputCLKENA0\ : cyclonev_clkena
 -- pragma translate_off
 GENERIC MAP (
 	clock_type => "global clock",
@@ -439,14 +519,14 @@ GENERIC MAP (
 	test_syn => "high")
 -- pragma translate_on
 PORT MAP (
-	inclk => \clk~input_o\,
-	outclk => \clk~inputCLKENA0_outclk\);
+	inclk => \CLOCK_50~input_o\,
+	outclk => \CLOCK_50~inputCLKENA0_outclk\);
 
--- Location: LABCELL_X12_Y44_N30
-\fetch|somPC|Add0~1\ : cyclonev_lcell_comb
+-- Location: LABCELL_X53_Y26_N30
+\processador|fetch|somPC|Add0~1\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|somPC|Add0~1_sumout\ = SUM(( \fetch|registerPC|DOUT\(0) ) + ( VCC ) + ( !VCC ))
--- \fetch|somPC|Add0~2\ = CARRY(( \fetch|registerPC|DOUT\(0) ) + ( VCC ) + ( !VCC ))
+-- \processador|fetch|somPC|Add0~1_sumout\ = SUM(( \processador|fetch|registerPC|DOUT\(0) ) + ( VCC ) + ( !VCC ))
+-- \processador|fetch|somPC|Add0~2\ = CARRY(( \processador|fetch|registerPC|DOUT\(0) ) + ( VCC ) + ( !VCC ))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -455,30 +535,30 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \fetch|registerPC|ALT_INV_DOUT\(0),
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(0),
 	cin => GND,
-	sumout => \fetch|somPC|Add0~1_sumout\,
-	cout => \fetch|somPC|Add0~2\);
+	sumout => \processador|fetch|somPC|Add0~1_sumout\,
+	cout => \processador|fetch|somPC|Add0~2\);
 
--- Location: FF_X12_Y44_N32
-\fetch|registerPC|DOUT[0]\ : dffeas
+-- Location: FF_X53_Y26_N32
+\processador|fetch|registerPC|DOUT[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \fetch|somPC|Add0~1_sumout\,
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~1_sumout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \fetch|registerPC|DOUT\(0));
+	q => \processador|fetch|registerPC|DOUT\(0));
 
--- Location: LABCELL_X12_Y44_N33
-\fetch|somPC|Add0~21\ : cyclonev_lcell_comb
+-- Location: LABCELL_X53_Y26_N33
+\processador|fetch|somPC|Add0~5\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|somPC|Add0~21_sumout\ = SUM(( \fetch|registerPC|DOUT\(1) ) + ( GND ) + ( \fetch|somPC|Add0~2\ ))
--- \fetch|somPC|Add0~22\ = CARRY(( \fetch|registerPC|DOUT\(1) ) + ( GND ) + ( \fetch|somPC|Add0~2\ ))
+-- \processador|fetch|somPC|Add0~5_sumout\ = SUM(( \processador|fetch|registerPC|DOUT\(1) ) + ( GND ) + ( \processador|fetch|somPC|Add0~2\ ))
+-- \processador|fetch|somPC|Add0~6\ = CARRY(( \processador|fetch|registerPC|DOUT\(1) ) + ( GND ) + ( \processador|fetch|somPC|Add0~2\ ))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -487,30 +567,30 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \fetch|registerPC|ALT_INV_DOUT\(1),
-	cin => \fetch|somPC|Add0~2\,
-	sumout => \fetch|somPC|Add0~21_sumout\,
-	cout => \fetch|somPC|Add0~22\);
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(1),
+	cin => \processador|fetch|somPC|Add0~2\,
+	sumout => \processador|fetch|somPC|Add0~5_sumout\,
+	cout => \processador|fetch|somPC|Add0~6\);
 
--- Location: FF_X12_Y44_N35
-\fetch|registerPC|DOUT[1]\ : dffeas
+-- Location: FF_X53_Y26_N34
+\processador|fetch|registerPC|DOUT[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \fetch|somPC|Add0~21_sumout\,
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~5_sumout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \fetch|registerPC|DOUT\(1));
+	q => \processador|fetch|registerPC|DOUT\(1));
 
--- Location: LABCELL_X12_Y44_N36
-\fetch|somPC|Add0~17\ : cyclonev_lcell_comb
+-- Location: LABCELL_X53_Y26_N36
+\processador|fetch|somPC|Add0~9\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|somPC|Add0~17_sumout\ = SUM(( \fetch|registerPC|DOUT\(2) ) + ( GND ) + ( \fetch|somPC|Add0~22\ ))
--- \fetch|somPC|Add0~18\ = CARRY(( \fetch|registerPC|DOUT\(2) ) + ( GND ) + ( \fetch|somPC|Add0~22\ ))
+-- \processador|fetch|somPC|Add0~9_sumout\ = SUM(( \processador|fetch|registerPC|DOUT\(2) ) + ( GND ) + ( \processador|fetch|somPC|Add0~6\ ))
+-- \processador|fetch|somPC|Add0~10\ = CARRY(( \processador|fetch|registerPC|DOUT\(2) ) + ( GND ) + ( \processador|fetch|somPC|Add0~6\ ))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -519,30 +599,30 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \fetch|registerPC|ALT_INV_DOUT\(2),
-	cin => \fetch|somPC|Add0~22\,
-	sumout => \fetch|somPC|Add0~17_sumout\,
-	cout => \fetch|somPC|Add0~18\);
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(2),
+	cin => \processador|fetch|somPC|Add0~6\,
+	sumout => \processador|fetch|somPC|Add0~9_sumout\,
+	cout => \processador|fetch|somPC|Add0~10\);
 
--- Location: FF_X12_Y44_N38
-\fetch|registerPC|DOUT[2]\ : dffeas
+-- Location: FF_X53_Y26_N37
+\processador|fetch|registerPC|DOUT[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \fetch|somPC|Add0~17_sumout\,
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~9_sumout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \fetch|registerPC|DOUT\(2));
+	q => \processador|fetch|registerPC|DOUT\(2));
 
--- Location: LABCELL_X12_Y44_N39
-\fetch|somPC|Add0~13\ : cyclonev_lcell_comb
+-- Location: LABCELL_X53_Y26_N39
+\processador|fetch|somPC|Add0~13\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|somPC|Add0~13_sumout\ = SUM(( \fetch|registerPC|DOUT\(3) ) + ( GND ) + ( \fetch|somPC|Add0~18\ ))
--- \fetch|somPC|Add0~14\ = CARRY(( \fetch|registerPC|DOUT\(3) ) + ( GND ) + ( \fetch|somPC|Add0~18\ ))
+-- \processador|fetch|somPC|Add0~13_sumout\ = SUM(( \processador|fetch|registerPC|DOUT\(3) ) + ( GND ) + ( \processador|fetch|somPC|Add0~10\ ))
+-- \processador|fetch|somPC|Add0~14\ = CARRY(( \processador|fetch|registerPC|DOUT\(3) ) + ( GND ) + ( \processador|fetch|somPC|Add0~10\ ))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -551,30 +631,30 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \fetch|registerPC|ALT_INV_DOUT\(3),
-	cin => \fetch|somPC|Add0~18\,
-	sumout => \fetch|somPC|Add0~13_sumout\,
-	cout => \fetch|somPC|Add0~14\);
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(3),
+	cin => \processador|fetch|somPC|Add0~10\,
+	sumout => \processador|fetch|somPC|Add0~13_sumout\,
+	cout => \processador|fetch|somPC|Add0~14\);
 
--- Location: FF_X12_Y44_N41
-\fetch|registerPC|DOUT[3]\ : dffeas
+-- Location: FF_X53_Y26_N41
+\processador|fetch|registerPC|DOUT[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \fetch|somPC|Add0~13_sumout\,
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~13_sumout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \fetch|registerPC|DOUT\(3));
+	q => \processador|fetch|registerPC|DOUT\(3));
 
--- Location: LABCELL_X12_Y44_N42
-\fetch|somPC|Add0~9\ : cyclonev_lcell_comb
+-- Location: LABCELL_X53_Y26_N42
+\processador|fetch|somPC|Add0~17\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|somPC|Add0~9_sumout\ = SUM(( \fetch|registerPC|DOUT\(4) ) + ( GND ) + ( \fetch|somPC|Add0~14\ ))
--- \fetch|somPC|Add0~10\ = CARRY(( \fetch|registerPC|DOUT\(4) ) + ( GND ) + ( \fetch|somPC|Add0~14\ ))
+-- \processador|fetch|somPC|Add0~17_sumout\ = SUM(( \processador|fetch|registerPC|DOUT\(4) ) + ( GND ) + ( \processador|fetch|somPC|Add0~14\ ))
+-- \processador|fetch|somPC|Add0~18\ = CARRY(( \processador|fetch|registerPC|DOUT\(4) ) + ( GND ) + ( \processador|fetch|somPC|Add0~14\ ))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -583,30 +663,44 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \fetch|registerPC|ALT_INV_DOUT\(4),
-	cin => \fetch|somPC|Add0~14\,
-	sumout => \fetch|somPC|Add0~9_sumout\,
-	cout => \fetch|somPC|Add0~10\);
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(4),
+	cin => \processador|fetch|somPC|Add0~14\,
+	sumout => \processador|fetch|somPC|Add0~17_sumout\,
+	cout => \processador|fetch|somPC|Add0~18\);
 
--- Location: FF_X12_Y44_N43
-\fetch|registerPC|DOUT[4]\ : dffeas
+-- Location: FF_X53_Y26_N44
+\processador|fetch|registerPC|DOUT[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \fetch|somPC|Add0~9_sumout\,
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~17_sumout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \fetch|registerPC|DOUT\(4));
+	q => \processador|fetch|registerPC|DOUT\(4));
 
--- Location: LABCELL_X12_Y44_N45
-\fetch|somPC|Add0~5\ : cyclonev_lcell_comb
+-- Location: FF_X53_Y26_N47
+\processador|fetch|registerPC|DOUT[5]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~21_sumout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \processador|fetch|registerPC|DOUT\(5));
+
+-- Location: LABCELL_X53_Y26_N45
+\processador|fetch|somPC|Add0~21\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|somPC|Add0~5_sumout\ = SUM(( \fetch|registerPC|DOUT\(5) ) + ( GND ) + ( \fetch|somPC|Add0~10\ ))
--- \fetch|somPC|Add0~6\ = CARRY(( \fetch|registerPC|DOUT\(5) ) + ( GND ) + ( \fetch|somPC|Add0~10\ ))
+-- \processador|fetch|somPC|Add0~21_sumout\ = SUM(( \processador|fetch|registerPC|DOUT\(5) ) + ( GND ) + ( \processador|fetch|somPC|Add0~18\ ))
+-- \processador|fetch|somPC|Add0~22\ = CARRY(( \processador|fetch|registerPC|DOUT\(5) ) + ( GND ) + ( \processador|fetch|somPC|Add0~18\ ))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -615,30 +709,30 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \fetch|registerPC|ALT_INV_DOUT\(5),
-	cin => \fetch|somPC|Add0~10\,
-	sumout => \fetch|somPC|Add0~5_sumout\,
-	cout => \fetch|somPC|Add0~6\);
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(5),
+	cin => \processador|fetch|somPC|Add0~18\,
+	sumout => \processador|fetch|somPC|Add0~21_sumout\,
+	cout => \processador|fetch|somPC|Add0~22\);
 
--- Location: FF_X12_Y44_N47
-\fetch|registerPC|DOUT[5]\ : dffeas
+-- Location: FF_X53_Y26_N46
+\processador|fetch|registerPC|DOUT[5]~DUPLICATE\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \fetch|somPC|Add0~5_sumout\,
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~21_sumout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \fetch|registerPC|DOUT\(5));
+	q => \processador|fetch|registerPC|DOUT[5]~DUPLICATE_q\);
 
--- Location: LABCELL_X12_Y44_N48
-\fetch|somPC|Add0~37\ : cyclonev_lcell_comb
+-- Location: LABCELL_X53_Y26_N48
+\processador|fetch|somPC|Add0~25\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|somPC|Add0~37_sumout\ = SUM(( \fetch|registerPC|DOUT\(6) ) + ( GND ) + ( \fetch|somPC|Add0~6\ ))
--- \fetch|somPC|Add0~38\ = CARRY(( \fetch|registerPC|DOUT\(6) ) + ( GND ) + ( \fetch|somPC|Add0~6\ ))
+-- \processador|fetch|somPC|Add0~25_sumout\ = SUM(( \processador|fetch|registerPC|DOUT\(6) ) + ( GND ) + ( \processador|fetch|somPC|Add0~22\ ))
+-- \processador|fetch|somPC|Add0~26\ = CARRY(( \processador|fetch|registerPC|DOUT\(6) ) + ( GND ) + ( \processador|fetch|somPC|Add0~22\ ))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -647,30 +741,30 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \fetch|registerPC|ALT_INV_DOUT\(6),
-	cin => \fetch|somPC|Add0~6\,
-	sumout => \fetch|somPC|Add0~37_sumout\,
-	cout => \fetch|somPC|Add0~38\);
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(6),
+	cin => \processador|fetch|somPC|Add0~22\,
+	sumout => \processador|fetch|somPC|Add0~25_sumout\,
+	cout => \processador|fetch|somPC|Add0~26\);
 
--- Location: FF_X12_Y44_N50
-\fetch|registerPC|DOUT[6]\ : dffeas
+-- Location: FF_X53_Y26_N50
+\processador|fetch|registerPC|DOUT[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \fetch|somPC|Add0~37_sumout\,
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~25_sumout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \fetch|registerPC|DOUT\(6));
+	q => \processador|fetch|registerPC|DOUT\(6));
 
--- Location: LABCELL_X12_Y44_N51
-\fetch|somPC|Add0~33\ : cyclonev_lcell_comb
+-- Location: LABCELL_X53_Y26_N51
+\processador|fetch|somPC|Add0~29\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|somPC|Add0~33_sumout\ = SUM(( \fetch|registerPC|DOUT\(7) ) + ( GND ) + ( \fetch|somPC|Add0~38\ ))
--- \fetch|somPC|Add0~34\ = CARRY(( \fetch|registerPC|DOUT\(7) ) + ( GND ) + ( \fetch|somPC|Add0~38\ ))
+-- \processador|fetch|somPC|Add0~29_sumout\ = SUM(( \processador|fetch|registerPC|DOUT\(7) ) + ( GND ) + ( \processador|fetch|somPC|Add0~26\ ))
+-- \processador|fetch|somPC|Add0~30\ = CARRY(( \processador|fetch|registerPC|DOUT\(7) ) + ( GND ) + ( \processador|fetch|somPC|Add0~26\ ))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -679,30 +773,44 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \fetch|registerPC|ALT_INV_DOUT\(7),
-	cin => \fetch|somPC|Add0~38\,
-	sumout => \fetch|somPC|Add0~33_sumout\,
-	cout => \fetch|somPC|Add0~34\);
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(7),
+	cin => \processador|fetch|somPC|Add0~26\,
+	sumout => \processador|fetch|somPC|Add0~29_sumout\,
+	cout => \processador|fetch|somPC|Add0~30\);
 
--- Location: FF_X12_Y44_N53
-\fetch|registerPC|DOUT[7]\ : dffeas
+-- Location: FF_X53_Y26_N52
+\processador|fetch|registerPC|DOUT[7]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \fetch|somPC|Add0~33_sumout\,
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~29_sumout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \fetch|registerPC|DOUT\(7));
+	q => \processador|fetch|registerPC|DOUT\(7));
 
--- Location: LABCELL_X12_Y44_N54
-\fetch|somPC|Add0~29\ : cyclonev_lcell_comb
+-- Location: FF_X53_Y26_N56
+\processador|fetch|registerPC|DOUT[8]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~33_sumout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \processador|fetch|registerPC|DOUT\(8));
+
+-- Location: LABCELL_X53_Y26_N54
+\processador|fetch|somPC|Add0~33\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|somPC|Add0~29_sumout\ = SUM(( \fetch|registerPC|DOUT\(8) ) + ( GND ) + ( \fetch|somPC|Add0~34\ ))
--- \fetch|somPC|Add0~30\ = CARRY(( \fetch|registerPC|DOUT\(8) ) + ( GND ) + ( \fetch|somPC|Add0~34\ ))
+-- \processador|fetch|somPC|Add0~33_sumout\ = SUM(( \processador|fetch|registerPC|DOUT\(8) ) + ( GND ) + ( \processador|fetch|somPC|Add0~30\ ))
+-- \processador|fetch|somPC|Add0~34\ = CARRY(( \processador|fetch|registerPC|DOUT\(8) ) + ( GND ) + ( \processador|fetch|somPC|Add0~30\ ))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -711,29 +819,29 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \fetch|registerPC|ALT_INV_DOUT\(8),
-	cin => \fetch|somPC|Add0~34\,
-	sumout => \fetch|somPC|Add0~29_sumout\,
-	cout => \fetch|somPC|Add0~30\);
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(8),
+	cin => \processador|fetch|somPC|Add0~30\,
+	sumout => \processador|fetch|somPC|Add0~33_sumout\,
+	cout => \processador|fetch|somPC|Add0~34\);
 
--- Location: FF_X12_Y44_N56
-\fetch|registerPC|DOUT[8]\ : dffeas
+-- Location: FF_X53_Y26_N55
+\processador|fetch|registerPC|DOUT[8]~DUPLICATE\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \fetch|somPC|Add0~29_sumout\,
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~33_sumout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \fetch|registerPC|DOUT\(8));
+	q => \processador|fetch|registerPC|DOUT[8]~DUPLICATE_q\);
 
--- Location: LABCELL_X12_Y44_N57
-\fetch|somPC|Add0~25\ : cyclonev_lcell_comb
+-- Location: LABCELL_X53_Y26_N57
+\processador|fetch|somPC|Add0~37\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|somPC|Add0~25_sumout\ = SUM(( \fetch|registerPC|DOUT\(9) ) + ( GND ) + ( \fetch|somPC|Add0~30\ ))
+-- \processador|fetch|somPC|Add0~37_sumout\ = SUM(( \processador|fetch|registerPC|DOUT\(9) ) + ( GND ) + ( \processador|fetch|somPC|Add0~34\ ))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -742,171 +850,321 @@ GENERIC MAP (
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	datad => \fetch|registerPC|ALT_INV_DOUT\(9),
-	cin => \fetch|somPC|Add0~30\,
-	sumout => \fetch|somPC|Add0~25_sumout\);
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(9),
+	cin => \processador|fetch|somPC|Add0~34\,
+	sumout => \processador|fetch|somPC|Add0~37_sumout\);
 
--- Location: FF_X12_Y44_N59
-\fetch|registerPC|DOUT[9]\ : dffeas
+-- Location: FF_X53_Y26_N59
+\processador|fetch|registerPC|DOUT[9]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
 	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	clk => \clk~inputCLKENA0_outclk\,
-	d => \fetch|somPC|Add0~25_sumout\,
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~37_sumout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => \fetch|registerPC|DOUT\(9));
+	q => \processador|fetch|registerPC|DOUT\(9));
 
--- Location: LABCELL_X12_Y44_N24
-\fetch|ROM|memROM~0\ : cyclonev_lcell_comb
+-- Location: FF_X53_Y26_N35
+\processador|fetch|registerPC|DOUT[1]~DUPLICATE\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~5_sumout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\);
+
+-- Location: FF_X53_Y26_N38
+\processador|fetch|registerPC|DOUT[2]~DUPLICATE\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|somPC|Add0~9_sumout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \processador|fetch|registerPC|DOUT[2]~DUPLICATE_q\);
+
+-- Location: LABCELL_X53_Y26_N3
+\processador|fetch|ROM|memROM~1\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|ROM|memROM~0_combout\ = ( !\fetch|registerPC|DOUT\(8) & ( !\fetch|registerPC|DOUT\(1) & ( (!\fetch|registerPC|DOUT\(6) & (!\fetch|registerPC|DOUT\(9) & !\fetch|registerPC|DOUT\(7))) ) ) )
+-- \processador|fetch|ROM|memROM~1_combout\ = ( !\processador|fetch|registerPC|DOUT\(3) & ( !\processador|fetch|registerPC|DOUT[2]~DUPLICATE_q\ ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "1000000010000000000000000000000000000000000000000000000000000000",
+	lut_mask => "1111111100000000111111110000000000000000000000000000000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \fetch|registerPC|ALT_INV_DOUT\(6),
-	datab => \fetch|registerPC|ALT_INV_DOUT\(9),
-	datac => \fetch|registerPC|ALT_INV_DOUT\(7),
-	datae => \fetch|registerPC|ALT_INV_DOUT\(8),
-	dataf => \fetch|registerPC|ALT_INV_DOUT\(1),
-	combout => \fetch|ROM|memROM~0_combout\);
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT[2]~DUPLICATE_q\,
+	dataf => \processador|fetch|registerPC|ALT_INV_DOUT\(3),
+	combout => \processador|fetch|ROM|memROM~1_combout\);
 
--- Location: LABCELL_X12_Y44_N18
-\fetch|ROM|memROM~1\ : cyclonev_lcell_comb
+-- Location: LABCELL_X53_Y26_N0
+\processador|fetch|ROM|memROM~0\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|ROM|memROM~1_combout\ = ( !\fetch|registerPC|DOUT\(5) & ( \fetch|registerPC|DOUT\(0) & ( (!\fetch|registerPC|DOUT\(2) & (!\fetch|registerPC|DOUT\(3) & (\fetch|ROM|memROM~0_combout\ & !\fetch|registerPC|DOUT\(4)))) ) ) )
+-- \processador|fetch|ROM|memROM~0_combout\ = ( !\processador|fetch|registerPC|DOUT\(4) & ( (!\processador|fetch|registerPC|DOUT\(6) & (!\processador|fetch|registerPC|DOUT\(7) & (!\processador|fetch|registerPC|DOUT\(8) & 
+-- !\processador|fetch|registerPC|DOUT\(5)))) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000000000000000000000000000000000001000000000000000000000000000",
+	lut_mask => "1000000000000000100000000000000000000000000000000000000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \fetch|registerPC|ALT_INV_DOUT\(2),
-	datab => \fetch|registerPC|ALT_INV_DOUT\(3),
-	datac => \fetch|ROM|ALT_INV_memROM~0_combout\,
-	datad => \fetch|registerPC|ALT_INV_DOUT\(4),
-	datae => \fetch|registerPC|ALT_INV_DOUT\(5),
-	dataf => \fetch|registerPC|ALT_INV_DOUT\(0),
-	combout => \fetch|ROM|memROM~1_combout\);
+	dataa => \processador|fetch|registerPC|ALT_INV_DOUT\(6),
+	datab => \processador|fetch|registerPC|ALT_INV_DOUT\(7),
+	datac => \processador|fetch|registerPC|ALT_INV_DOUT\(8),
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(5),
+	dataf => \processador|fetch|registerPC|ALT_INV_DOUT\(4),
+	combout => \processador|fetch|ROM|memROM~0_combout\);
 
--- Location: LABCELL_X12_Y44_N12
-\fetch|ROM|memROM~2\ : cyclonev_lcell_comb
+-- Location: LABCELL_X52_Y26_N0
+\processador|fetch|ROM|memROM~2\ : cyclonev_lcell_comb
 -- Equation(s):
--- \fetch|ROM|memROM~2_combout\ = ( !\fetch|registerPC|DOUT\(5) & ( !\fetch|registerPC|DOUT\(3) & ( (!\fetch|registerPC|DOUT\(2) & (!\fetch|registerPC|DOUT\(4) & \fetch|ROM|memROM~0_combout\)) ) ) )
+-- \processador|fetch|ROM|memROM~2_combout\ = ( !\processador|fetch|registerPC|DOUT[2]~DUPLICATE_q\ & ( \processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\ & ( (!\processador|fetch|registerPC|DOUT\(3) & \processador|fetch|registerPC|DOUT\(0)) ) ) ) # ( 
+-- !\processador|fetch|registerPC|DOUT[2]~DUPLICATE_q\ & ( !\processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\ & ( !\processador|fetch|registerPC|DOUT\(3) ) ) )
 
 -- pragma translate_off
 GENERIC MAP (
 	extended_lut => "off",
-	lut_mask => "0000100000001000000000000000000000000000000000000000000000000000",
+	lut_mask => "1010101010101010000000000000000000001010000010100000000000000000",
 	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	dataa => \fetch|registerPC|ALT_INV_DOUT\(2),
-	datab => \fetch|registerPC|ALT_INV_DOUT\(4),
-	datac => \fetch|ROM|ALT_INV_memROM~0_combout\,
-	datae => \fetch|registerPC|ALT_INV_DOUT\(5),
-	dataf => \fetch|registerPC|ALT_INV_DOUT\(3),
-	combout => \fetch|ROM|memROM~2_combout\);
+	dataa => \processador|fetch|registerPC|ALT_INV_DOUT\(3),
+	datac => \processador|fetch|registerPC|ALT_INV_DOUT\(0),
+	datae => \processador|fetch|registerPC|ALT_INV_DOUT[2]~DUPLICATE_q\,
+	dataf => \processador|fetch|registerPC|ALT_INV_DOUT[1]~DUPLICATE_q\,
+	combout => \processador|fetch|ROM|memROM~2_combout\);
 
--- Location: IOIBUF_X32_Y45_N92
-\in_MuxRAM[0]~input\ : cyclonev_io_ibuf
+-- Location: LABCELL_X53_Y26_N18
+\processador|arquitetura|muxInstRAM|saida_MUX[0]~0\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \processador|arquitetura|muxInstRAM|saida_MUX[0]~0_combout\ = ( \processador|fetch|ROM|memROM~1_combout\ & ( \processador|fetch|ROM|memROM~2_combout\ & ( (\processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\ & (!\processador|fetch|registerPC|DOUT\(9) & 
+-- (\processador|fetch|ROM|memROM~0_combout\ & \processador|fetch|registerPC|DOUT\(0)))) ) ) )
+
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000000000000000000000000100",
+	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	i => ww_in_MuxRAM(0),
-	o => \in_MuxRAM[0]~input_o\);
+	dataa => \processador|fetch|registerPC|ALT_INV_DOUT[1]~DUPLICATE_q\,
+	datab => \processador|fetch|registerPC|ALT_INV_DOUT\(9),
+	datac => \processador|fetch|ROM|ALT_INV_memROM~0_combout\,
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(0),
+	datae => \processador|fetch|ROM|ALT_INV_memROM~1_combout\,
+	dataf => \processador|fetch|ROM|ALT_INV_memROM~2_combout\,
+	combout => \processador|arquitetura|muxInstRAM|saida_MUX[0]~0_combout\);
 
--- Location: IOIBUF_X14_Y0_N52
-\in_MuxRAM[1]~input\ : cyclonev_io_ibuf
+-- Location: LABCELL_X53_Y26_N24
+\processador|arquitetura|memReg|registrador~30\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \processador|arquitetura|memReg|registrador~30_combout\ = ( !\processador|fetch|ROM|memROM~2_combout\ & ( (\processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\ & (!\processador|fetch|registerPC|DOUT\(9) & (\processador|fetch|ROM|memROM~1_combout\ & 
+-- \processador|fetch|ROM|memROM~0_combout\))) ) )
+
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	extended_lut => "off",
+	lut_mask => "0000000000000100000000000000010000000000000000000000000000000000",
+	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	i => ww_in_MuxRAM(1),
-	o => \in_MuxRAM[1]~input_o\);
+	dataa => \processador|fetch|registerPC|ALT_INV_DOUT[1]~DUPLICATE_q\,
+	datab => \processador|fetch|registerPC|ALT_INV_DOUT\(9),
+	datac => \processador|fetch|ROM|ALT_INV_memROM~1_combout\,
+	datad => \processador|fetch|ROM|ALT_INV_memROM~0_combout\,
+	dataf => \processador|fetch|ROM|ALT_INV_memROM~2_combout\,
+	combout => \processador|arquitetura|memReg|registrador~30_combout\);
 
--- Location: IOIBUF_X18_Y0_N18
-\in_MuxRAM[2]~input\ : cyclonev_io_ibuf
+-- Location: FF_X53_Y26_N14
+\processador|arquitetura|memReg|registrador~20\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	is_wysiwyg => "true",
+	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	i => ww_in_MuxRAM(2),
-	o => \in_MuxRAM[2]~input_o\);
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	asdata => \processador|arquitetura|muxInstRAM|saida_MUX[0]~0_combout\,
+	sload => VCC,
+	ena => \processador|arquitetura|memReg|registrador~30_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \processador|arquitetura|memReg|registrador~20_q\);
 
--- Location: IOIBUF_X52_Y0_N18
-\in_MuxRAM[3]~input\ : cyclonev_io_ibuf
+-- Location: LABCELL_X53_Y26_N6
+\processador|arquitetura|memReg|registrador~31\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \processador|arquitetura|memReg|registrador~31_combout\ = ( \processador|fetch|ROM|memROM~0_combout\ & ( \processador|fetch|ROM|memROM~2_combout\ & ( ((!\processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\ & (!\processador|fetch|registerPC|DOUT\(0) & 
+-- \processador|fetch|ROM|memROM~1_combout\))) # (\processador|fetch|registerPC|DOUT\(9)) ) ) ) # ( !\processador|fetch|ROM|memROM~0_combout\ & ( \processador|fetch|ROM|memROM~2_combout\ ) ) # ( \processador|fetch|ROM|memROM~0_combout\ & ( 
+-- !\processador|fetch|ROM|memROM~2_combout\ & ( (!\processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\) # ((!\processador|fetch|ROM|memROM~1_combout\) # (\processador|fetch|registerPC|DOUT\(9))) ) ) ) # ( !\processador|fetch|ROM|memROM~0_combout\ & ( 
+-- !\processador|fetch|ROM|memROM~2_combout\ ) )
+
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	extended_lut => "off",
+	lut_mask => "1111111111111111111110101111111111111111111111110000100011111111",
+	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	i => ww_in_MuxRAM(3),
-	o => \in_MuxRAM[3]~input_o\);
+	dataa => \processador|fetch|registerPC|ALT_INV_DOUT[1]~DUPLICATE_q\,
+	datab => \processador|fetch|registerPC|ALT_INV_DOUT\(0),
+	datac => \processador|fetch|ROM|ALT_INV_memROM~1_combout\,
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(9),
+	datae => \processador|fetch|ROM|ALT_INV_memROM~0_combout\,
+	dataf => \processador|fetch|ROM|ALT_INV_memROM~2_combout\,
+	combout => \processador|arquitetura|memReg|registrador~31_combout\);
 
--- Location: IOIBUF_X42_Y45_N18
-\in_MuxRAM[4]~input\ : cyclonev_io_ibuf
+-- Location: FF_X53_Y26_N19
+\processador|arquitetura|memReg|registrador~12\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	is_wysiwyg => "true",
+	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	i => ww_in_MuxRAM(4),
-	o => \in_MuxRAM[4]~input_o\);
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|arquitetura|muxInstRAM|saida_MUX[0]~0_combout\,
+	ena => \processador|arquitetura|memReg|registrador~31_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \processador|arquitetura|memReg|registrador~12_q\);
 
--- Location: IOIBUF_X10_Y0_N92
-\in_MuxRAM[5]~input\ : cyclonev_io_ibuf
+-- Location: LABCELL_X53_Y26_N12
+\processador|arquitetura|memReg|registrador~28\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \processador|arquitetura|memReg|registrador~28_combout\ = ( \processador|arquitetura|memReg|registrador~20_q\ & ( \processador|arquitetura|memReg|registrador~12_q\ ) ) # ( !\processador|arquitetura|memReg|registrador~20_q\ & ( 
+-- \processador|arquitetura|memReg|registrador~12_q\ & ( (!\processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\) # ((!\processador|fetch|ROM|memROM~1_combout\) # ((!\processador|fetch|ROM|memROM~0_combout\) # (\processador|fetch|registerPC|DOUT\(9)))) ) ) ) # 
+-- ( \processador|arquitetura|memReg|registrador~20_q\ & ( !\processador|arquitetura|memReg|registrador~12_q\ & ( (\processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\ & (\processador|fetch|ROM|memROM~1_combout\ & (\processador|fetch|ROM|memROM~0_combout\ & 
+-- !\processador|fetch|registerPC|DOUT\(9)))) ) ) )
+
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000010000000011111110111111111111111111111111",
+	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	i => ww_in_MuxRAM(5),
-	o => \in_MuxRAM[5]~input_o\);
+	dataa => \processador|fetch|registerPC|ALT_INV_DOUT[1]~DUPLICATE_q\,
+	datab => \processador|fetch|ROM|ALT_INV_memROM~1_combout\,
+	datac => \processador|fetch|ROM|ALT_INV_memROM~0_combout\,
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(9),
+	datae => \processador|arquitetura|memReg|ALT_INV_registrador~20_q\,
+	dataf => \processador|arquitetura|memReg|ALT_INV_registrador~12_q\,
+	combout => \processador|arquitetura|memReg|registrador~28_combout\);
 
--- Location: IOIBUF_X23_Y0_N92
-\in_MuxRAM[6]~input\ : cyclonev_io_ibuf
+-- Location: LABCELL_X53_Y26_N27
+\processador|fetch|ROM|memROM~3\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \processador|fetch|ROM|memROM~3_combout\ = ( \processador|fetch|ROM|memROM~1_combout\ & ( (!\processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\ & (!\processador|fetch|registerPC|DOUT\(9) & (!\processador|fetch|registerPC|DOUT\(0) & 
+-- \processador|fetch|ROM|memROM~0_combout\))) ) )
+
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000000000000000000100000000000000010000000",
+	shared_arith => "off")
 -- pragma translate_on
 PORT MAP (
-	i => ww_in_MuxRAM(6),
-	o => \in_MuxRAM[6]~input_o\);
+	dataa => \processador|fetch|registerPC|ALT_INV_DOUT[1]~DUPLICATE_q\,
+	datab => \processador|fetch|registerPC|ALT_INV_DOUT\(9),
+	datac => \processador|fetch|registerPC|ALT_INV_DOUT\(0),
+	datad => \processador|fetch|ROM|ALT_INV_memROM~0_combout\,
+	dataf => \processador|fetch|ROM|ALT_INV_memROM~1_combout\,
+	combout => \processador|fetch|ROM|memROM~3_combout\);
 
--- Location: IOIBUF_X25_Y0_N52
-\in_MuxRAM[7]~input\ : cyclonev_io_ibuf
+-- Location: FF_X53_Y26_N17
+\processador|arquitetura|memReg|registrador~21\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
-	bus_hold => "false",
-	simulate_z_as => "z")
+	is_wysiwyg => "true",
+	power_up => "low")
 -- pragma translate_on
 PORT MAP (
-	i => ww_in_MuxRAM(7),
-	o => \in_MuxRAM[7]~input_o\);
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	asdata => \processador|fetch|ROM|memROM~3_combout\,
+	sload => VCC,
+	ena => \processador|arquitetura|memReg|registrador~30_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \processador|arquitetura|memReg|registrador~21_q\);
 
--- Location: LABCELL_X41_Y36_N3
+-- Location: FF_X53_Y26_N28
+\processador|arquitetura|memReg|registrador~13\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLOCK_50~inputCLKENA0_outclk\,
+	d => \processador|fetch|ROM|memROM~3_combout\,
+	ena => \processador|arquitetura|memReg|registrador~31_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \processador|arquitetura|memReg|registrador~13_q\);
+
+-- Location: LABCELL_X53_Y26_N15
+\processador|arquitetura|memReg|registrador~29\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \processador|arquitetura|memReg|registrador~29_combout\ = ( \processador|arquitetura|memReg|registrador~21_q\ & ( \processador|arquitetura|memReg|registrador~13_q\ ) ) # ( !\processador|arquitetura|memReg|registrador~21_q\ & ( 
+-- \processador|arquitetura|memReg|registrador~13_q\ & ( (!\processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\) # ((!\processador|fetch|ROM|memROM~1_combout\) # ((!\processador|fetch|ROM|memROM~0_combout\) # (\processador|fetch|registerPC|DOUT\(9)))) ) ) ) # 
+-- ( \processador|arquitetura|memReg|registrador~21_q\ & ( !\processador|arquitetura|memReg|registrador~13_q\ & ( (\processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\ & (\processador|fetch|ROM|memROM~1_combout\ & (!\processador|fetch|registerPC|DOUT\(9) & 
+-- \processador|fetch|ROM|memROM~0_combout\))) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000000000000000000000000001000011111111111011111111111111111111",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \processador|fetch|registerPC|ALT_INV_DOUT[1]~DUPLICATE_q\,
+	datab => \processador|fetch|ROM|ALT_INV_memROM~1_combout\,
+	datac => \processador|fetch|registerPC|ALT_INV_DOUT\(9),
+	datad => \processador|fetch|ROM|ALT_INV_memROM~0_combout\,
+	datae => \processador|arquitetura|memReg|ALT_INV_registrador~21_q\,
+	dataf => \processador|arquitetura|memReg|ALT_INV_registrador~13_q\,
+	combout => \processador|arquitetura|memReg|registrador~29_combout\);
+
+-- Location: LABCELL_X52_Y26_N54
+\processador|fetch|ROM|memROM~4\ : cyclonev_lcell_comb
+-- Equation(s):
+-- \processador|fetch|ROM|memROM~4_combout\ = ( !\processador|fetch|registerPC|DOUT[2]~DUPLICATE_q\ & ( !\processador|fetch|registerPC|DOUT\(3) & ( (\processador|fetch|ROM|memROM~0_combout\ & (!\processador|fetch|registerPC|DOUT\(9) & 
+-- ((\processador|fetch|registerPC|DOUT\(0)) # (\processador|fetch|registerPC|DOUT[1]~DUPLICATE_q\)))) ) ) )
+
+-- pragma translate_off
+GENERIC MAP (
+	extended_lut => "off",
+	lut_mask => "0000010001000100000000000000000000000000000000000000000000000000",
+	shared_arith => "off")
+-- pragma translate_on
+PORT MAP (
+	dataa => \processador|fetch|ROM|ALT_INV_memROM~0_combout\,
+	datab => \processador|fetch|registerPC|ALT_INV_DOUT\(9),
+	datac => \processador|fetch|registerPC|ALT_INV_DOUT[1]~DUPLICATE_q\,
+	datad => \processador|fetch|registerPC|ALT_INV_DOUT\(0),
+	datae => \processador|fetch|registerPC|ALT_INV_DOUT[2]~DUPLICATE_q\,
+	dataf => \processador|fetch|registerPC|ALT_INV_DOUT\(3),
+	combout => \processador|fetch|ROM|memROM~4_combout\);
+
+-- Location: LABCELL_X2_Y13_N3
 \~QUARTUS_CREATED_GND~I\ : cyclonev_lcell_comb
 -- Equation(s):
 

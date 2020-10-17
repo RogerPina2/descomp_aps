@@ -1,0 +1,24 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity displays is
+	generic (
+		opcode_width : natural := 4;
+		regs_width : natural := 3;
+		data_width : natural := 8;
+		addr_width : natural := 10;
+		inst_width : natural := 17
+	);
+	port (
+		addr : in std_logic_vector(addr_width - 1 downto 0);
+		
+		habilitaRAM : out std_logic
+	);
+end entity;
+
+architecture comportamento of displays is
+	
+begin
+	habilitaRAM <= addr(9);
+end architecture;

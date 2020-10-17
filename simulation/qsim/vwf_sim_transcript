@@ -7,7 +7,7 @@ Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-A
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off projeto1 -c projeto1 --vector_source="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/Waveform5.vwf" --testbench_file="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/Waveform5.vwf.vht"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off projeto1 -c projeto1 --vector_source="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/Waveform14.vwf" --testbench_file="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/Waveform14.vwf.vht"
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -26,17 +26,11 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Fri Oct 16 15:16:29 2020
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off projeto1 -c projeto1 --vector_source="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/Waveform5.vwf" --testbench_file="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/Waveform5.vwf.vht"
+    Info: Processing started: Fri Oct 16 21:11:28 2020
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off projeto1 -c projeto1 --vector_source="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/Waveform14.vwf" --testbench_file="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/Waveform14.vwf.vht"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
-ing output pin "out_memReg[0]" in vector source file when writing test bench files
-Info (201002): Generated VHDL Test Bench File C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/Waveform5.vwf.vht for simulation
-Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 23 warnings
-    Info: Peak virtual memory: 4722 megabytes
-    Info: Processing ended: Fri Oct 16 15:16:31 2020
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+utMem[3]" in vector source file when writing test bench files
 
 Completed successfully. 
 
@@ -61,14 +55,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Fri Oct 16 15:16:31 2020
+    Info: Processing started: Fri Oct 16 21:11:29 2020
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/" projeto1 -c projeto1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file projeto1.vho in folder "C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4726 megabytes
-    Info: Processing ended: Fri Oct 16 15:16:32 2020
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4725 megabytes
+    Info: Processing ended: Fri Oct 16 21:11:31 2020
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 Completed successfully. 
@@ -85,15 +79,16 @@ c:/intelfpga_lite/20.1/modelsim_ase/win32aloem//vsim -c -do projeto1.do
 
 Reading pref.tcl
 
+
 # 2020.1
 
 # do projeto1.do
 
 # ** Warning: (vlib-34) Library already exists at "work".
-
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:16:34 on Oct 16,2020
+# Start time: 21:11:32 on Oct 16,2020
 # vcom -work work projeto1.vho 
+
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -104,29 +99,29 @@ Reading pref.tcl
 # -- Loading package altera_lnsim_components
 # -- Loading package cyclonev_atom_pack
 # -- Loading package cyclonev_components
-# -- Compiling entity processador
-# -- Compiling architecture structure of processador
-
-# End time: 15:16:34 on Oct 16,2020, Elapsed time: 0:00:00
+# -- Compiling entity projeto1
+# -- Compiling architecture structure of projeto1
+# End time: 21:11:32 on Oct 16,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 15:16:34 on Oct 16,2020
-# vcom -work work Waveform5.vwf.vht 
+# Start time: 21:11:32 on Oct 16,2020
+# vcom -work work Waveform14.vwf.vht 
 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity processador_vhd_vec_tst
-# -- Compiling architecture processador_arch of processador_vhd_vec_tst
-# End time: 15:16:34 on Oct 16,2020, Elapsed time: 0:00:00
+# -- Compiling entity projeto1_vhd_vec_tst
+# -- Compiling architecture projeto1_arch of projeto1_vhd_vec_tst
+# End time: 21:11:32 on Oct 16,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
-# vsim -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.processador_vhd_vec_tst 
-# Start time: 15:16:34 on Oct 16,2020
+# vsim -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.projeto1_vhd_vec_tst 
+# Start time: 21:11:32 on Oct 16,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.processador_vhd_vec_tst(processador_arch)
+# Loading work.projeto1_vhd_vec_tst(projeto1_arch)
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
 # Loading altera.dffeas_pack
@@ -134,7 +129,7 @@ Reading pref.tcl
 # Loading altera_lnsim.altera_lnsim_components
 # Loading cyclonev.cyclonev_atom_pack(body)
 # Loading cyclonev.cyclonev_components
-# Loading work.processador(structure)
+# Loading work.projeto1(structure)
 # Loading ieee.std_logic_arith(body)
 # Loading cyclonev.cyclonev_io_obuf(arch)
 # Loading cyclonev.cyclonev_io_ibuf(arch)
@@ -143,20 +138,20 @@ Reading pref.tcl
 # Loading altera.dffeas(vital_dffeas)
 # after#34
 
-# End time: 15:16:34 on Oct 16,2020, Elapsed time: 0:00:00
+# End time: 21:11:33 on Oct 16,2020, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/Waveform5.vwf...
+Reading C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/Waveform14.vwf...
 
 Reading C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/projeto1.msim.vcd...
 
 Processing channel transitions... 
 
-Writing the resulting VWF to C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/projeto1_20201016151635.sim.vwf
+Writing the resulting VWF to C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/projeto1_20201016211133.sim.vwf
 
 Finished VCD to VWF conversion.
 

@@ -3,43 +3,33 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity fetch is
-    generic (
-        data_width : NATURAL := 8;
-        addr_width: NATURAL := 10;
-		  inst_width: NATURAL := 17;
-        incremento : NATURAL := 1
-    );
-    port (
-        -- Input ports
-        clk      			: in std_logic;
-		  
-		  flag				: in std_logic;
-		  jumpEqual			: in std_logic;
-        selMuxJump		: in std_logic;
-        
-        -- Output ports
-        out_instrucao 		: out std_logic_vector(inst_width - 1 downto 0);
-		  
-		  pinoTeste 			: out std_logic_vector(9 downto 0)
-    );
+	generic (
+		incremento : NATURAL := 1;
+
+		data_width : NATURAL := 8;
+		addr_width: NATURAL := 10;
+		inst_width: NATURAL := 17
+	);
+	port (
+		clk      		: in std_logic;
+		sel_muxJump		: in std_logic;
+
+		out_instrucao 	: out std_logic_vector(inst_width - 1 downto 0);
+
+		pinoTeste 		: out std_logic_vector(9 downto 0)
+	);
 end entity;
 
 architecture comportamento of fetch is
-	
-	
-	signal out_RegPC : std_logic_vector(addr_width - 1 downto 0);
-	signal out_SomPC : std_logic_vector(addr_width - 1 downto 0);
-	
 	signal addr_desvio 	: std_logic_vector(addr_width - 1 downto 0);
-	signal out_MuxPC 		: std_logic_vector(addr_width - 1 downto 0);
-	signal sel_MuxPC 		: std_logic;
 	
+	signal out_RegPC 		: std_logic_vector(addr_width - 1 downto 0);
+	signal out_SomPC 		: std_logic_vector(addr_width - 1 downto 0);
+	signal out_MuxPC 		: std_logic_vector(addr_width - 1 downto 0);
 	signal out_ROM 		: std_logic_vector(inst_width - 1 downto 0);
 	
 begin
-	
-	sel_MuxPC <= selMuxJump or (jumpEqual and flag);
-	
+		
 	muxPC : entity work.muxGenerico2x1
 		generic map (
 			larguraDados => addr_width
@@ -47,7 +37,7 @@ begin
 		port map (
 			entradaA_MUX => out_SomPC,
 			entradaB_MUX => addr_desvio,
-			seletor_MUX  => sel_MuxPC,
+			seletor_MUX  => sel_muxJump,
 			saida_MUX    => out_MuxPC
 		);
 		  
@@ -86,6 +76,7 @@ begin
 		);
 		
 		pinoTeste <= out_RegPC;
+		
 		out_instrucao <= out_ROM;
 		addr_desvio <= out_ROM(9 downto 0);
 		
