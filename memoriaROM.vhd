@@ -4,9 +4,10 @@ use ieee.numeric_std.all;
 
 entity memoriaROM is
    generic (
-          dataWidth	: natural := 8;
-          addrWidth	: natural := 10;
-			 inst_width	: natural := 17 
+		opcode_width: natural := 4;
+		dataWidth	: natural := 8;
+		addrWidth	: natural := 10;
+		inst_width	: natural := 17 
     );
    port (
           -- O fato da interface ser do tipo std_logic auxilía na simulação.
@@ -22,12 +23,40 @@ architecture assincrona of memoriaROM is
   function initMemory
         -- Inicializa todas as posições da memória com zero:
         return blocoMemoria is variable tmp : blocoMemoria := (others => (others => '0'));
+  
+	constant LOAD  : std_logic_vector(opcode_width - 1 downto 0) := "0000";
+	constant STORE : std_logic_vector(opcode_width - 1 downto 0) := "0001";
+	constant INC   : std_logic_vector(opcode_width - 1 downto 0) := "0010";
+	constant DEC   : std_logic_vector(opcode_width - 1 downto 0) := "0011";
+	constant CMP   : std_logic_vector(opcode_width - 1 downto 0) := "0100";
+	constant JE    : std_logic_vector(opcode_width - 1 downto 0) := "0101";
+	constant JMP   : std_logic_vector(opcode_width - 1 downto 0) := "0110";
+	constant ADD   : std_logic_vector(opcode_width - 1 downto 0) := "0111";
+	constant SUB   : std_logic_vector(opcode_width - 1 downto 0) := "1000";
+	constant MOVI  : std_logic_vector(opcode_width - 1 downto 0) := "1001";
+	constant ORL   : std_logic_vector(opcode_width - 1 downto 0) := "1010";
+	constant ANDL  : std_logic_vector(opcode_width - 1 downto 0) := "1011";
+	constant XORL  : std_logic_vector(opcode_width - 1 downto 0) := "1100";
+	constant NOTL  : std_logic_vector(opcode_width - 1 downto 0) := "1101";
+	
+	constant R0		: std_logic_vector(2 downto 0) := "000";
+	constant	R1		: std_logic_vector(2 downto 0) := "001";
+	constant R2		: std_logic_vector(2 downto 0) := "010";
+	constant R3		: std_logic_vector(2 downto 0) := "011";
+	constant R4		: std_logic_vector(2 downto 0) := "100";
+	constant R5		: std_logic_vector(2 downto 0) := "101";
+	constant R6		: std_logic_vector(2 downto 0) := "110";
+	constant R7		: std_logic_vector(2 downto 0) := "111";
+	
+
   begin
         -- Inicializa os endereços desejados. Os demais endereços conterão o valor zero:
         
-			tmp(0) := "1001" & "000" & "0000000010";
-			tmp(1) := "0111" & "000" & "0000000011";
-			tmp(2) := "0000" & "000" & "0000000000";
+		  
+			tmp(0) := MOVI  & R0 & "0000000010";
+			tmp(1) := STORE & R0 & "1000000000";
+			tmp(2) := LOAD  & R1 & "1000000000";
+			tmp(3) := STORE & R1 & "1000000001";
 			
 --        -- Carrega variáveis
 --        tmp(0) := "1001" & "000" & "0000000000";

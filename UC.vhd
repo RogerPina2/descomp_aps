@@ -10,14 +10,24 @@ entity UC is
     port (
         -- Input ports
 			opcode : in std_logic_vector(opcode_width - 1 downto 0);
-
+			flag : in std_logic;
+			
         -- Output ports
-			operacao : out std_logic_vector(operacao_width - 1 downto 0);
-			muxJump, jumpEqual, muxImediatoRAM, habilitaResgistrador, habilitaFlag, habilitaLeitutaMEM, habilitaEscritaMEM: out STD_LOGIC
-    );
+			operacao 				: out std_logic_vector(operacao_width - 1 downto 0);
+			sel_muxJump 			: out STD_LOGIC;
+			muxImediatoRAM 		: out STD_LOGIC;
+			habilitaResgistrador : out STD_LOGIC;
+			habilitaFlag 			: out STD_LOGIC;
+			habilitaLeitutaMEM 	: out STD_LOGIC;
+			habilitaEscritaMEM 	: out STD_LOGIC
+	 );
 end entity;
 
 architecture comportamento of UC is
+
+	signal muxJump 	: std_logic;
+	signal jumpEqual 	: std_logic; 
+	
 	constant LOAD  : std_logic_vector(opcode_width - 1 downto 0) := "0000";
 	constant STORE : std_logic_vector(opcode_width - 1 downto 0) := "0001";
 	constant INC   : std_logic_vector(opcode_width - 1 downto 0) := "0010";
@@ -80,5 +90,8 @@ begin
 	habilitaLeitutaMEM  <= '1' when opcode = LOAD  else '0';
 
 	habilitaEscritaMEM  <= '1' when opcode = STORE  else '0';
+	
+	
+	sel_muxJump <= muxJump or (jumpEqual and flag);
 	
 end architecture;

@@ -1,4 +1,33 @@
-|processador
+|projeto1
+CLOCK_50 => processador:processador.clk
+CLOCK_50 => memoriaram:RAM.clk
+pinoTeste[0] <= processador:processador.pinoTeste[0]
+pinoTeste[1] <= processador:processador.pinoTeste[1]
+pinoTeste[2] <= processador:processador.pinoTeste[2]
+pinoTeste[3] <= processador:processador.pinoTeste[3]
+pinoTeste[4] <= processador:processador.pinoTeste[4]
+pinoTeste[5] <= processador:processador.pinoTeste[5]
+pinoTeste[6] <= processador:processador.pinoTeste[6]
+pinoTeste[7] <= processador:processador.pinoTeste[7]
+pinoTeste[8] <= processador:processador.pinoTeste[8]
+pinoTeste[9] <= processador:processador.pinoTeste[9]
+t_outMem[0] <= processador:processador.t_outMem[0]
+t_outMem[1] <= processador:processador.t_outMem[1]
+t_outMem[2] <= processador:processador.t_outMem[2]
+t_outMem[3] <= processador:processador.t_outMem[3]
+t_outMem[4] <= processador:processador.t_outMem[4]
+t_outMem[5] <= processador:processador.t_outMem[5]
+t_outMem[6] <= processador:processador.t_outMem[6]
+t_outMem[7] <= processador:processador.t_outMem[7]
+habRAM <= codificadorenderecos:codificador.habilitaRAM
+habDisplay <= codificadorenderecos:codificador.habilitaDisplay
+habSW <= codificadorenderecos:codificador.habilitaSW
+habKEY <= codificadorenderecos:codificador.habilitaKEY
+habLED <= codificadorenderecos:codificador.habilitaLED
+habBT <= codificadorenderecos:codificador.habilitaBT
+
+
+|projeto1|processador:processador
 clk => fetch:fetch.clk
 clk => arquitetura:arquitetura.clk
 in_MuxRAM[0] => arquitetura:arquitetura.in_Mux_Ram[0]
@@ -27,11 +56,29 @@ out_addrImediato[6] <= fetch:fetch.out_instrucao[6]
 out_addrImediato[7] <= fetch:fetch.out_instrucao[7]
 out_addrImediato[8] <= fetch:fetch.out_instrucao[8]
 out_addrImediato[9] <= fetch:fetch.out_instrucao[9]
+pinoTeste[0] <= fetch:fetch.pinoTeste[0]
+pinoTeste[1] <= fetch:fetch.pinoTeste[1]
+pinoTeste[2] <= fetch:fetch.pinoTeste[2]
+pinoTeste[3] <= fetch:fetch.pinoTeste[3]
+pinoTeste[4] <= fetch:fetch.pinoTeste[4]
+pinoTeste[5] <= fetch:fetch.pinoTeste[5]
+pinoTeste[6] <= fetch:fetch.pinoTeste[6]
+pinoTeste[7] <= fetch:fetch.pinoTeste[7]
+pinoTeste[8] <= fetch:fetch.pinoTeste[8]
+pinoTeste[9] <= fetch:fetch.pinoTeste[9]
+t_outMem[0] <= arquitetura:arquitetura.out_memReg[0]
+t_outMem[1] <= arquitetura:arquitetura.out_memReg[1]
+t_outMem[2] <= arquitetura:arquitetura.out_memReg[2]
+t_outMem[3] <= arquitetura:arquitetura.out_memReg[3]
+t_outMem[4] <= arquitetura:arquitetura.out_memReg[4]
+t_outMem[5] <= arquitetura:arquitetura.out_memReg[5]
+t_outMem[6] <= arquitetura:arquitetura.out_memReg[6]
+t_outMem[7] <= arquitetura:arquitetura.out_memReg[7]
 out_habLeiMEM <= uc:UC.habilitaLeitutaMEM
 out_habEscMEM <= uc:UC.habilitaEscritaMEM
 
 
-|processador|UC:UC
+|projeto1|processador:processador|UC:UC
 opcode[0] => Equal0.IN1
 opcode[0] => Equal1.IN3
 opcode[0] => Equal2.IN3
@@ -92,11 +139,11 @@ opcode[3] => Equal11.IN0
 opcode[3] => Equal12.IN3
 opcode[3] => Equal13.IN0
 opcode[3] => Equal14.IN0
+flag => sel_muxJump.IN1
 operacao[0] <= operacao[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
 operacao[1] <= operacao[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
 operacao[2] <= operacao[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
-muxJump <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
-jumpEqual <= Equal1.DB_MAX_OUTPUT_PORT_TYPE
+sel_muxJump <= sel_muxJump.DB_MAX_OUTPUT_PORT_TYPE
 muxImediatoRAM <= Equal7.DB_MAX_OUTPUT_PORT_TYPE
 habilitaResgistrador <= habilitaResgistrador.DB_MAX_OUTPUT_PORT_TYPE
 habilitaFlag <= Equal10.DB_MAX_OUTPUT_PORT_TYPE
@@ -104,11 +151,9 @@ habilitaLeitutaMEM <= Equal7.DB_MAX_OUTPUT_PORT_TYPE
 habilitaEscritaMEM <= Equal2.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|processador|fetch:fetch
+|projeto1|processador:processador|fetch:fetch
 clk => registradorgenerico:registerPC.CLK
-flag => sel_MuxPC.IN0
-jumpEqual => sel_MuxPC.IN1
-selMuxJump => sel_MuxPC.IN1
+sel_muxJump => muxgenerico2x1:muxPC.seletor_MUX
 out_instrucao[0] <= memoriarom:ROM.Dado[0]
 out_instrucao[1] <= memoriarom:ROM.Dado[1]
 out_instrucao[2] <= memoriarom:ROM.Dado[2]
@@ -138,7 +183,7 @@ pinoTeste[8] <= registradorgenerico:registerPC.DOUT[8]
 pinoTeste[9] <= registradorgenerico:registerPC.DOUT[9]
 
 
-|processador|fetch:fetch|muxGenerico2x1:muxPC
+|projeto1|processador:processador|fetch:fetch|muxGenerico2x1:muxPC
 entradaA_MUX[0] => saida_MUX.DATAA
 entradaA_MUX[1] => saida_MUX.DATAA
 entradaA_MUX[2] => saida_MUX.DATAA
@@ -181,7 +226,7 @@ saida_MUX[8] <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
 saida_MUX[9] <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|processador|fetch:fetch|somaConstante:somPC
+|projeto1|processador:processador|fetch:fetch|somaConstante:somPC
 entrada[0] => Add0.IN20
 entrada[1] => Add0.IN19
 entrada[2] => Add0.IN18
@@ -204,7 +249,7 @@ saida[8] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 saida[9] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|processador|fetch:fetch|registradorGenerico:registerPC
+|projeto1|processador:processador|fetch:fetch|registradorGenerico:registerPC
 DIN[0] => DOUT[0]~reg0.DATAIN
 DIN[1] => DOUT[1]~reg0.DATAIN
 DIN[2] => DOUT[2]~reg0.DATAIN
@@ -257,7 +302,7 @@ RST => DOUT[8]~reg0.ACLR
 RST => DOUT[9]~reg0.ACLR
 
 
-|processador|fetch:fetch|memoriaROM:ROM
+|projeto1|processador:processador|fetch:fetch|memoriaROM:ROM
 Endereco[0] => memROM.RADDR
 Endereco[1] => memROM.RADDR1
 Endereco[2] => memROM.RADDR2
@@ -287,8 +332,9 @@ Dado[15] <= memROM.DATAOUT15
 Dado[16] <= memROM.DATAOUT16
 
 
-|processador|arquitetura:arquitetura
+|projeto1|processador:processador|arquitetura:arquitetura
 clk => bancoregistradoresarqregmem:memReg.clk
+clk => flag:flag.CLK
 in_Mux_Ram[0] => muxgenerico2x1:muxInstRAM.entradaA_MUX[0]
 in_Mux_Ram[1] => muxgenerico2x1:muxInstRAM.entradaA_MUX[1]
 in_Mux_Ram[2] => muxgenerico2x1:muxInstRAM.entradaA_MUX[2]
@@ -298,11 +344,8 @@ in_Mux_Ram[5] => muxgenerico2x1:muxInstRAM.entradaA_MUX[5]
 in_Mux_Ram[6] => muxgenerico2x1:muxInstRAM.entradaA_MUX[6]
 in_Mux_Ram[7] => muxgenerico2x1:muxInstRAM.entradaA_MUX[7]
 instrucao[0] => muxgenerico2x1:muxInstRAM.entradaB_MUX[0]
-instrucao[0] => bancoregistradoresarqregmem:memReg.endereco[0]
 instrucao[1] => muxgenerico2x1:muxInstRAM.entradaB_MUX[1]
-instrucao[1] => bancoregistradoresarqregmem:memReg.endereco[1]
 instrucao[2] => muxgenerico2x1:muxInstRAM.entradaB_MUX[2]
-instrucao[2] => bancoregistradoresarqregmem:memReg.endereco[2]
 instrucao[3] => muxgenerico2x1:muxInstRAM.entradaB_MUX[3]
 instrucao[4] => muxgenerico2x1:muxInstRAM.entradaB_MUX[4]
 instrucao[5] => muxgenerico2x1:muxInstRAM.entradaB_MUX[5]
@@ -310,9 +353,9 @@ instrucao[6] => muxgenerico2x1:muxInstRAM.entradaB_MUX[6]
 instrucao[7] => muxgenerico2x1:muxInstRAM.entradaB_MUX[7]
 instrucao[8] => ~NO_FANOUT~
 instrucao[9] => ~NO_FANOUT~
-instrucao[10] => ~NO_FANOUT~
-instrucao[11] => ~NO_FANOUT~
-instrucao[12] => ~NO_FANOUT~
+instrucao[10] => bancoregistradoresarqregmem:memReg.endereco[0]
+instrucao[11] => bancoregistradoresarqregmem:memReg.endereco[1]
+instrucao[12] => bancoregistradoresarqregmem:memReg.endereco[2]
 instrucao[13] => ~NO_FANOUT~
 instrucao[14] => ~NO_FANOUT~
 instrucao[15] => ~NO_FANOUT~
@@ -334,7 +377,7 @@ out_memReg[7] <= bancoregistradoresarqregmem:memReg.saida[7]
 out_flag <= flag:flag.out_flag
 
 
-|processador|arquitetura:arquitetura|muxGenerico2x1:muxInstRAM
+|projeto1|processador:processador|arquitetura:arquitetura|muxGenerico2x1:muxInstRAM
 entradaA_MUX[0] => saida_MUX.DATAA
 entradaA_MUX[1] => saida_MUX.DATAA
 entradaA_MUX[2] => saida_MUX.DATAA
@@ -369,31 +412,58 @@ saida_MUX[6] <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
 saida_MUX[7] <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg
-clk => ~NO_FANOUT~
-endereco[0] => ~NO_FANOUT~
-endereco[1] => ~NO_FANOUT~
-endereco[2] => ~NO_FANOUT~
-dadoEscrita[0] => ~NO_FANOUT~
-dadoEscrita[1] => ~NO_FANOUT~
-dadoEscrita[2] => ~NO_FANOUT~
-dadoEscrita[3] => ~NO_FANOUT~
-dadoEscrita[4] => ~NO_FANOUT~
-dadoEscrita[5] => ~NO_FANOUT~
-dadoEscrita[6] => ~NO_FANOUT~
-dadoEscrita[7] => ~NO_FANOUT~
-habilitaEscrita => ~NO_FANOUT~
-saida[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-saida[1] <= saida[1].DB_MAX_OUTPUT_PORT_TYPE
-saida[2] <= saida[2].DB_MAX_OUTPUT_PORT_TYPE
-saida[3] <= saida[3].DB_MAX_OUTPUT_PORT_TYPE
-saida[4] <= saida[4].DB_MAX_OUTPUT_PORT_TYPE
-saida[5] <= saida[5].DB_MAX_OUTPUT_PORT_TYPE
-saida[6] <= saida[6].DB_MAX_OUTPUT_PORT_TYPE
-saida[7] <= saida[7].DB_MAX_OUTPUT_PORT_TYPE
+|projeto1|processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg
+clk => registrador~11.CLK
+clk => registrador~0.CLK
+clk => registrador~1.CLK
+clk => registrador~2.CLK
+clk => registrador~3.CLK
+clk => registrador~4.CLK
+clk => registrador~5.CLK
+clk => registrador~6.CLK
+clk => registrador~7.CLK
+clk => registrador~8.CLK
+clk => registrador~9.CLK
+clk => registrador~10.CLK
+clk => registrador.CLK0
+endereco[0] => registrador~2.DATAIN
+endereco[0] => registrador.WADDR
+endereco[0] => registrador.RADDR
+endereco[1] => registrador~1.DATAIN
+endereco[1] => registrador.WADDR1
+endereco[1] => registrador.RADDR1
+endereco[2] => registrador~0.DATAIN
+endereco[2] => registrador.WADDR2
+endereco[2] => registrador.RADDR2
+dadoEscrita[0] => registrador~10.DATAIN
+dadoEscrita[0] => registrador.DATAIN
+dadoEscrita[1] => registrador~9.DATAIN
+dadoEscrita[1] => registrador.DATAIN1
+dadoEscrita[2] => registrador~8.DATAIN
+dadoEscrita[2] => registrador.DATAIN2
+dadoEscrita[3] => registrador~7.DATAIN
+dadoEscrita[3] => registrador.DATAIN3
+dadoEscrita[4] => registrador~6.DATAIN
+dadoEscrita[4] => registrador.DATAIN4
+dadoEscrita[5] => registrador~5.DATAIN
+dadoEscrita[5] => registrador.DATAIN5
+dadoEscrita[6] => registrador~4.DATAIN
+dadoEscrita[6] => registrador.DATAIN6
+dadoEscrita[7] => registrador~3.DATAIN
+dadoEscrita[7] => registrador.DATAIN7
+habilitaEscrita => registrador~11.DATAIN
+habilitaEscrita => registrador.WE
+saida[0] <= registrador.DATAOUT
+saida[1] <= registrador.DATAOUT1
+saida[2] <= registrador.DATAOUT2
+saida[3] <= registrador.DATAOUT3
+saida[4] <= registrador.DATAOUT4
+saida[5] <= registrador.DATAOUT5
+saida[6] <= registrador.DATAOUT6
+saida[7] <= registrador.DATAOUT7
 
 
-|processador|arquitetura:arquitetura|ULA:ULA
+|projeto1|processador:processador|arquitetura:arquitetura|ULA:ULA
 entradaA[0] => Add0.IN8
 entradaA[0] => Add1.IN16
 entradaA[0] => op_and[0].IN0
@@ -541,9 +611,131 @@ saida[7] <= saidaOut.DB_MAX_OUTPUT_PORT_TYPE
 flagZero <= Equal8.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|processador|arquitetura:arquitetura|flag:flag
-in_flag => out_flag.IN0
-hab_flag => out_flag.IN1
-out_flag <= out_flag.DB_MAX_OUTPUT_PORT_TYPE
+|projeto1|processador:processador|arquitetura:arquitetura|flag:flag
+in_flag => flipflop:flipFlop.DIN
+hab_flag => flipflop:flipFlop.ENABLE
+CLK => flipflop:flipFlop.CLK
+out_flag <= flipflop:flipFlop.DOUT
+
+
+|projeto1|processador:processador|arquitetura:arquitetura|flag:flag|flipFlop:flipFlop
+DIN => DOUT~reg0.DATAIN
+DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ENABLE => DOUT~reg0.ENA
+CLK => DOUT~reg0.CLK
+RST => DOUT~reg0.ACLR
+
+
+|projeto1|memoriaRAM:RAM
+addr[0] => ram~9.DATAIN
+addr[0] => ram.WADDR
+addr[0] => ram.RADDR
+addr[1] => ram~8.DATAIN
+addr[1] => ram.WADDR1
+addr[1] => ram.RADDR1
+addr[2] => ram~7.DATAIN
+addr[2] => ram.WADDR2
+addr[2] => ram.RADDR2
+addr[3] => ram~6.DATAIN
+addr[3] => ram.WADDR3
+addr[3] => ram.RADDR3
+addr[4] => ram~5.DATAIN
+addr[4] => ram.WADDR4
+addr[4] => ram.RADDR4
+addr[5] => ram~4.DATAIN
+addr[5] => ram.WADDR5
+addr[5] => ram.RADDR5
+addr[6] => ram~3.DATAIN
+addr[6] => ram.WADDR6
+addr[6] => ram.RADDR6
+addr[7] => ram~2.DATAIN
+addr[7] => ram.WADDR7
+addr[7] => ram.RADDR7
+addr[8] => ram~1.DATAIN
+addr[8] => ram.WADDR8
+addr[8] => ram.RADDR8
+addr[9] => ram~0.DATAIN
+addr[9] => ram.WADDR9
+addr[9] => ram.RADDR9
+we => process_0.IN0
+re => dado_out.IN0
+habilita => process_0.IN1
+habilita => dado_out.IN1
+clk => ram~18.CLK
+clk => ram~0.CLK
+clk => ram~1.CLK
+clk => ram~2.CLK
+clk => ram~3.CLK
+clk => ram~4.CLK
+clk => ram~5.CLK
+clk => ram~6.CLK
+clk => ram~7.CLK
+clk => ram~8.CLK
+clk => ram~9.CLK
+clk => ram~10.CLK
+clk => ram~11.CLK
+clk => ram~12.CLK
+clk => ram~13.CLK
+clk => ram~14.CLK
+clk => ram~15.CLK
+clk => ram~16.CLK
+clk => ram~17.CLK
+clk => ram.CLK0
+dado_in[0] => ram~17.DATAIN
+dado_in[0] => ram.DATAIN
+dado_in[1] => ram~16.DATAIN
+dado_in[1] => ram.DATAIN1
+dado_in[2] => ram~15.DATAIN
+dado_in[2] => ram.DATAIN2
+dado_in[3] => ram~14.DATAIN
+dado_in[3] => ram.DATAIN3
+dado_in[4] => ram~13.DATAIN
+dado_in[4] => ram.DATAIN4
+dado_in[5] => ram~12.DATAIN
+dado_in[5] => ram.DATAIN5
+dado_in[6] => ram~11.DATAIN
+dado_in[6] => ram.DATAIN6
+dado_in[7] => ram~10.DATAIN
+dado_in[7] => ram.DATAIN7
+dado_out[0] <= dado_out[0].DB_MAX_OUTPUT_PORT_TYPE
+dado_out[1] <= dado_out[1].DB_MAX_OUTPUT_PORT_TYPE
+dado_out[2] <= dado_out[2].DB_MAX_OUTPUT_PORT_TYPE
+dado_out[3] <= dado_out[3].DB_MAX_OUTPUT_PORT_TYPE
+dado_out[4] <= dado_out[4].DB_MAX_OUTPUT_PORT_TYPE
+dado_out[5] <= dado_out[5].DB_MAX_OUTPUT_PORT_TYPE
+dado_out[6] <= dado_out[6].DB_MAX_OUTPUT_PORT_TYPE
+dado_out[7] <= dado_out[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto1|codificadorEnderecos:codificador
+addr[0] => ~NO_FANOUT~
+addr[1] => ~NO_FANOUT~
+addr[2] => ~NO_FANOUT~
+addr[3] => ~NO_FANOUT~
+addr[4] => ~NO_FANOUT~
+addr[5] => ~NO_FANOUT~
+addr[6] => ~NO_FANOUT~
+addr[7] => habilitaDisplay.IN0
+addr[7] => habilitaKEY.IN0
+addr[7] => habilitaSW.IN0
+addr[7] => habilitaLED.IN0
+addr[8] => habilitaRAM.IN0
+addr[8] => habilitaDisplay.IN1
+addr[8] => habilitaSW.IN1
+addr[8] => habilitaKEY.IN1
+addr[8] => habilitaLED.IN1
+addr[8] => habilitaBT.IN0
+addr[9] => habilitaRAM.IN1
+addr[9] => habilitaBT.IN1
+addr[9] => habilitaDisplay.IN1
+addr[9] => habilitaSW.IN1
+addr[9] => habilitaKEY.IN1
+addr[9] => habilitaLED.IN1
+habilitaRAM <= habilitaRAM.DB_MAX_OUTPUT_PORT_TYPE
+habilitaDisplay <= habilitaDisplay.DB_MAX_OUTPUT_PORT_TYPE
+habilitaSW <= habilitaSW.DB_MAX_OUTPUT_PORT_TYPE
+habilitaKEY <= habilitaKEY.DB_MAX_OUTPUT_PORT_TYPE
+habilitaLED <= habilitaLED.DB_MAX_OUTPUT_PORT_TYPE
+habilitaBT <= habilitaBT.DB_MAX_OUTPUT_PORT_TYPE
 
 

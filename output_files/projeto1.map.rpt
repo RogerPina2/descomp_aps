@@ -1,5 +1,5 @@
 Analysis & Synthesis report for projeto1
-Fri Oct 16 15:08:18 2020
+Fri Oct 16 21:08:26 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -13,23 +13,30 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: Top-level Entity: |processador
- 10. Parameter Settings for User Entity Instance: UC:UC
- 11. Parameter Settings for User Entity Instance: fetch:fetch
- 12. Parameter Settings for User Entity Instance: fetch:fetch|muxGenerico2x1:muxPC
- 13. Parameter Settings for User Entity Instance: fetch:fetch|somaConstante:somPC
- 14. Parameter Settings for User Entity Instance: fetch:fetch|registradorGenerico:registerPC
- 15. Parameter Settings for User Entity Instance: fetch:fetch|memoriaROM:ROM
- 16. Parameter Settings for User Entity Instance: arquitetura:arquitetura
- 17. Parameter Settings for User Entity Instance: arquitetura:arquitetura|muxGenerico2x1:muxInstRAM
- 18. Parameter Settings for User Entity Instance: arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg
- 19. Parameter Settings for User Entity Instance: arquitetura:arquitetura|ULA:ULA
- 20. Port Connectivity Checks: "fetch:fetch|registradorGenerico:registerPC"
- 21. Port Connectivity Checks: "fetch:fetch"
- 22. Post-Synthesis Netlist Statistics for Top Partition
- 23. Elapsed Time Per Partition
- 24. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |projeto1
+ 13. Parameter Settings for User Entity Instance: processador:processador
+ 14. Parameter Settings for User Entity Instance: processador:processador|UC:UC
+ 15. Parameter Settings for User Entity Instance: processador:processador|fetch:fetch
+ 16. Parameter Settings for User Entity Instance: processador:processador|fetch:fetch|muxGenerico2x1:muxPC
+ 17. Parameter Settings for User Entity Instance: processador:processador|fetch:fetch|somaConstante:somPC
+ 18. Parameter Settings for User Entity Instance: processador:processador|fetch:fetch|registradorGenerico:registerPC
+ 19. Parameter Settings for User Entity Instance: processador:processador|fetch:fetch|memoriaROM:ROM
+ 20. Parameter Settings for User Entity Instance: processador:processador|arquitetura:arquitetura
+ 21. Parameter Settings for User Entity Instance: processador:processador|arquitetura:arquitetura|muxGenerico2x1:muxInstRAM
+ 22. Parameter Settings for User Entity Instance: processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg
+ 23. Parameter Settings for User Entity Instance: processador:processador|arquitetura:arquitetura|ULA:ULA
+ 24. Parameter Settings for User Entity Instance: processador:processador|arquitetura:arquitetura|flag:flag|flipFlop:flipFlop
+ 25. Parameter Settings for User Entity Instance: memoriaRAM:RAM
+ 26. Parameter Settings for User Entity Instance: codificadorEnderecos:codificador
+ 27. Port Connectivity Checks: "processador:processador|arquitetura:arquitetura|flag:flag|flipFlop:flipFlop"
+ 28. Port Connectivity Checks: "processador:processador|fetch:fetch|registradorGenerico:registerPC"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
 
 
 
@@ -56,14 +63,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Oct 16 15:08:18 2020       ;
+; Analysis & Synthesis Status     ; Successful - Fri Oct 16 21:08:26 2020       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; projeto1                                    ;
-; Top-level Entity Name           ; processador                                 ;
+; Top-level Entity Name           ; projeto1                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 10                                          ;
-; Total pins                      ; 29                                          ;
+; Total registers                 ; 14                                          ;
+; Total pins                      ; 25                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -82,8 +89,10 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CEBA4F23C7        ;                    ;
-; Top-level entity name                                                           ; processador        ; projeto1           ;
+; Top-level entity name                                                           ; projeto1           ; projeto1           ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                                  ; Off                ;                    ;
+; VHDL Version                                                                    ; VHDL_2008          ; VHDL_1993          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
 ; Enable compact report table                                                     ; Off                ; Off                ;
@@ -93,7 +102,6 @@ https://fpgasoftware.intel.com/eula.
 ; Preserve fewer node names                                                       ; On                 ; On                 ;
 ; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
 ; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
 ; State Machine Processing                                                        ; Auto               ; Auto               ;
 ; Safe State Machine                                                              ; Off                ; Off                ;
 ; Extract Verilog State Machines                                                  ; On                 ; On                 ;
@@ -189,6 +197,7 @@ https://fpgasoftware.intel.com/eula.
 ; muxGenerico2x1.vhd               ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/muxGenerico2x1.vhd              ;         ;
 ; fetch.vhd                        ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd                       ;         ;
 ; somaConstante.vhd                ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/somaConstante.vhd               ;         ;
+; projeto1.vhd                     ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd                    ;         ;
 ; memoriaROM.vhd                   ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaROM.vhd                  ;         ;
 ; processador.vhd                  ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd                 ;         ;
 ; arquitetura.vhd                  ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd                 ;         ;
@@ -196,48 +205,88 @@ https://fpgasoftware.intel.com/eula.
 ; flag.vhd                         ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/flag.vhd                        ;         ;
 ; UC.vhd                           ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd                          ;         ;
 ; bancoRegistradoresArqRegMem.vhd  ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/bancoRegistradoresArqRegMem.vhd ;         ;
+; flipFlop.vhd                     ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/flipFlop.vhd                    ;         ;
+; memoriaRAM.vhd                   ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd                  ;         ;
+; codificadorEnderecos.vhd         ; yes             ; User VHDL File  ; C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/codificadorEnderecos.vhd        ;         ;
 +----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 7         ;
-;                                             ;           ;
-; Combinational ALUT usage for logic          ; 13        ;
-;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 1         ;
-;     -- 5 input functions                    ; 2         ;
-;     -- 4 input functions                    ; 0         ;
-;     -- <=3 input functions                  ; 10        ;
-;                                             ;           ;
-; Dedicated logic registers                   ; 10        ;
-;                                             ;           ;
-; I/O pins                                    ; 29        ;
-;                                             ;           ;
-; Total DSP Blocks                            ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 10        ;
-; Total fan-out                               ; 87        ;
-; Average fan-out                             ; 1.07      ;
-+---------------------------------------------+-----------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 15             ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 20             ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 5              ;
+;     -- 5 input functions                    ; 3              ;
+;     -- 4 input functions                    ; 1              ;
+;     -- <=3 input functions                  ; 11             ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 14             ;
+;                                             ;                ;
+; I/O pins                                    ; 25             ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 14             ;
+; Total fan-out                               ; 141            ;
+; Average fan-out                             ; 1.68           ;
++---------------------------------------------+----------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                            ;
-+----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                     ; Entity Name         ; Library Name ;
-+----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------+---------------------+--------------+
-; |processador                           ; 13 (0)              ; 10 (0)                    ; 0                 ; 0          ; 29   ; 0            ; |processador                                            ; processador         ; work         ;
-;    |fetch:fetch|                       ; 13 (0)              ; 10 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |processador|fetch:fetch                                ; fetch               ; work         ;
-;       |memoriaROM:ROM|                 ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |processador|fetch:fetch|memoriaROM:ROM                 ; memoriaROM          ; work         ;
-;       |registradorGenerico:registerPC| ; 0 (0)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |processador|fetch:fetch|registradorGenerico:registerPC ; registradorGenerico ; work         ;
-;       |somaConstante:somPC|            ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |processador|fetch:fetch|somaConstante:somPC            ; somaConstante       ; work         ;
-+----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------+---------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                ;
++-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node                    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                          ; Entity Name                 ; Library Name ;
++-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------+-----------------------------+--------------+
+; |projeto1                                     ; 20 (0)              ; 14 (0)                    ; 0                 ; 0          ; 25   ; 0            ; |projeto1                                                                                    ; projeto1                    ; work         ;
+;    |processador:processador|                  ; 20 (0)              ; 14 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |projeto1|processador:processador                                                            ; processador                 ; work         ;
+;       |arquitetura:arquitetura|               ; 5 (0)               ; 4 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto1|processador:processador|arquitetura:arquitetura                                    ; arquitetura                 ; work         ;
+;          |bancoRegistradoresArqRegMem:memReg| ; 4 (4)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto1|processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg ; bancoRegistradoresArqRegMem ; work         ;
+;          |muxGenerico2x1:muxInstRAM|          ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto1|processador:processador|arquitetura:arquitetura|muxGenerico2x1:muxInstRAM          ; muxGenerico2x1              ; work         ;
+;       |fetch:fetch|                           ; 15 (0)              ; 10 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |projeto1|processador:processador|fetch:fetch                                                ; fetch                       ; work         ;
+;          |memoriaROM:ROM|                     ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto1|processador:processador|fetch:fetch|memoriaROM:ROM                                 ; memoriaROM                  ; work         ;
+;          |registradorGenerico:registerPC|     ; 0 (0)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |projeto1|processador:processador|fetch:fetch|registradorGenerico:registerPC                 ; registradorGenerico         ; work         ;
+;          |somaConstante:somPC|                ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |projeto1|processador:processador|fetch:fetch|somaConstante:somPC                            ; somaConstante               ; work         ;
++-----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; processador:processador|UC:UC|operacao[1]          ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                              ;
++---------------------------------------------------------------------------------------------------+---------------------------------------------+
+; Register name                                                                                     ; Reason for Removal                          ;
++---------------------------------------------------------------------------------------------------+---------------------------------------------+
+; processador:processador|arquitetura:arquitetura|flag:flag|flipFlop:flipFlop|DOUT                  ; Stuck at GND due to stuck port clock_enable ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~22 ; Stuck at GND due to stuck port sload        ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~14 ; Stuck at GND due to stuck port sload        ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~23 ; Stuck at GND due to stuck port sload        ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~15 ; Stuck at GND due to stuck port sload        ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~24 ; Stuck at GND due to stuck port sload        ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~16 ; Stuck at GND due to stuck port sload        ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~25 ; Stuck at GND due to stuck port sload        ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~17 ; Stuck at GND due to stuck port sload        ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~26 ; Stuck at GND due to stuck port sload        ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~18 ; Stuck at GND due to stuck port sload        ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~27 ; Stuck at GND due to stuck port sload        ;
+; processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador~19 ; Stuck at GND due to stuck port sload        ;
+; Total Number of Removed Registers = 13                                                            ;                                             ;
++---------------------------------------------------------------------------------------------------+---------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -245,99 +294,42 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 10    ;
+; Total registers                              ; 14    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 4     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Top-level Entity: |processador ;
-+----------------+-------+----------------------------------------------------+
-; Parameter Name ; Value ; Type                                               ;
-+----------------+-------+----------------------------------------------------+
-; opcode_width   ; 4     ; Signed Integer                                     ;
-; regs_width     ; 3     ; Signed Integer                                     ;
-; data_width     ; 8     ; Signed Integer                                     ;
-; addr_width     ; 10    ; Signed Integer                                     ;
-; inst_width     ; 17    ; Signed Integer                                     ;
-+----------------+-------+----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |projeto1|processador:processador|arquitetura:arquitetura|ULA:ULA|saida[2] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |projeto1|processador:processador|arquitetura:arquitetura|ULA:ULA|saida[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
 
 
-+----------------------------------------------------+
-; Parameter Settings for User Entity Instance: UC:UC ;
-+----------------+-------+---------------------------+
-; Parameter Name ; Value ; Type                      ;
-+----------------+-------+---------------------------+
-; opcode_width   ; 4     ; Signed Integer            ;
-; operacao_width ; 3     ; Signed Integer            ;
-+----------------+-------+---------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: fetch:fetch ;
-+----------------+-------+---------------------------------+
-; Parameter Name ; Value ; Type                            ;
-+----------------+-------+---------------------------------+
-; data_width     ; 8     ; Signed Integer                  ;
-; addr_width     ; 10    ; Signed Integer                  ;
-; inst_width     ; 17    ; Signed Integer                  ;
-; incremento     ; 1     ; Signed Integer                  ;
-+----------------+-------+---------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: fetch:fetch|muxGenerico2x1:muxPC ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; larguradados   ; 10    ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: fetch:fetch|somaConstante:somPC ;
-+----------------+-------+-----------------------------------------------------+
-; Parameter Name ; Value ; Type                                                ;
-+----------------+-------+-----------------------------------------------------+
-; larguradados   ; 10    ; Signed Integer                                      ;
-; constante      ; 1     ; Signed Integer                                      ;
-+----------------+-------+-----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: fetch:fetch|registradorGenerico:registerPC ;
-+----------------+-------+----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                           ;
-+----------------+-------+----------------------------------------------------------------+
-; larguradados   ; 10    ; Signed Integer                                                 ;
-+----------------+-------+----------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: fetch:fetch|memoriaROM:ROM ;
-+----------------+-------+------------------------------------------------+
-; Parameter Name ; Value ; Type                                           ;
-+----------------+-------+------------------------------------------------+
-; datawidth      ; 8     ; Signed Integer                                 ;
-; addrwidth      ; 10    ; Signed Integer                                 ;
-; inst_width     ; 17    ; Signed Integer                                 ;
-+----------------+-------+------------------------------------------------+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |projeto1 ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; opcode_width   ; 4     ; Signed Integer                                  ;
+; regs_width     ; 3     ; Signed Integer                                  ;
+; data_width     ; 8     ; Signed Integer                                  ;
+; addr_width     ; 10    ; Signed Integer                                  ;
+; inst_width     ; 17    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: arquitetura:arquitetura ;
+; Parameter Settings for User Entity Instance: processador:processador ;
 +----------------+-------+---------------------------------------------+
 ; Parameter Name ; Value ; Type                                        ;
 +----------------+-------+---------------------------------------------+
@@ -350,54 +342,171 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: arquitetura:arquitetura|muxGenerico2x1:muxInstRAM ;
-+----------------+-------+-----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                  ;
-+----------------+-------+-----------------------------------------------------------------------+
-; larguradados   ; 8     ; Signed Integer                                                        ;
-+----------------+-------+-----------------------------------------------------------------------+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processador:processador|UC:UC ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; opcode_width   ; 4     ; Signed Integer                                    ;
+; operacao_width ; 3     ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processador:processador|fetch:fetch ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; incremento     ; 1     ; Signed Integer                                          ;
+; data_width     ; 8     ; Signed Integer                                          ;
+; addr_width     ; 10    ; Signed Integer                                          ;
+; inst_width     ; 17    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processador:processador|fetch:fetch|muxGenerico2x1:muxPC ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; larguradados   ; 10    ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processador:processador|fetch:fetch|somaConstante:somPC ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; larguradados   ; 10    ; Signed Integer                                                              ;
+; constante      ; 1     ; Signed Integer                                                              ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processador:processador|fetch:fetch|registradorGenerico:registerPC ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; larguradados   ; 10    ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processador:processador|fetch:fetch|memoriaROM:ROM ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; opcode_width   ; 4     ; Signed Integer                                                         ;
+; datawidth      ; 8     ; Signed Integer                                                         ;
+; addrwidth      ; 10    ; Signed Integer                                                         ;
+; inst_width     ; 17    ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processador:processador|arquitetura:arquitetura ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; opcode_width   ; 4     ; Signed Integer                                                      ;
+; regs_width     ; 3     ; Signed Integer                                                      ;
+; data_width     ; 8     ; Signed Integer                                                      ;
+; addr_width     ; 10    ; Signed Integer                                                      ;
+; inst_width     ; 17    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processador:processador|arquitetura:arquitetura|muxGenerico2x1:muxInstRAM ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; larguradados   ; 8     ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg ;
++---------------------+-------+---------------------------------------------------------------------------------------------------+
+; Parameter Name      ; Value ; Type                                                                                              ;
++---------------------+-------+---------------------------------------------------------------------------------------------------+
+; larguraDados        ; 8     ; Signed Integer                                                                                    ;
+; larguraEndBancoRegs ; 3     ; Signed Integer                                                                                    ;
++---------------------+-------+---------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processador:processador|arquitetura:arquitetura|ULA:ULA ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; larguradados   ; 8     ; Signed Integer                                                              ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: processador:processador|arquitetura:arquitetura|flag:flag|flipFlop:flipFlop ;
++----------------+-------+-------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                            ;
++----------------+-------+-------------------------------------------------------------------------------------------------+
+; larguradados   ; 8     ; Signed Integer                                                                                  ;
++----------------+-------+-------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memoriaRAM:RAM ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; datawidth      ; 8     ; Signed Integer                     ;
+; addrwidth      ; 10    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: codificadorEnderecos:codificador ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; opcode_width   ; 4     ; Signed Integer                                       ;
+; regs_width     ; 3     ; Signed Integer                                       ;
+; data_width     ; 8     ; Signed Integer                                       ;
+; addr_width     ; 10    ; Signed Integer                                       ;
+; inst_width     ; 17    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg ;
-+---------------------+-------+---------------------------------------------------------------------------+
-; Parameter Name      ; Value ; Type                                                                      ;
-+---------------------+-------+---------------------------------------------------------------------------+
-; larguradados        ; 8     ; Signed Integer                                                            ;
-; larguraendbancoregs ; 3     ; Signed Integer                                                            ;
-+---------------------+-------+---------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+; Port Connectivity Checks: "processador:processador|arquitetura:arquitetura|flag:flag|flipFlop:flipFlop" ;
++------+-------+----------+-------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                       ;
++------+-------+----------+-------------------------------------------------------------------------------+
+; rst  ; Input ; Info     ; Stuck at GND                                                                  ;
++------+-------+----------+-------------------------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: arquitetura:arquitetura|ULA:ULA ;
-+----------------+-------+-----------------------------------------------------+
-; Parameter Name ; Value ; Type                                                ;
-+----------------+-------+-----------------------------------------------------+
-; larguradados   ; 8     ; Signed Integer                                      ;
-+----------------+-------+-----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------+
-; Port Connectivity Checks: "fetch:fetch|registradorGenerico:registerPC" ;
-+--------+-------+----------+--------------------------------------------+
-; Port   ; Type  ; Severity ; Details                                    ;
-+--------+-------+----------+--------------------------------------------+
-; enable ; Input ; Info     ; Stuck at VCC                               ;
-; rst    ; Input ; Info     ; Stuck at GND                               ;
-+--------+-------+----------+--------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "fetch:fetch"                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; pinoteste ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "processador:processador|fetch:fetch|registradorGenerico:registerPC" ;
++--------+-------+----------+--------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                            ;
++--------+-------+----------+--------------------------------------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                                                       ;
+; rst    ; Input ; Info     ; Stuck at GND                                                       ;
++--------+-------+----------+--------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -405,20 +514,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 10                          ;
+; arriav_ff             ; 14                          ;
+;     ENA SLD           ; 4                           ;
 ;     plain             ; 10                          ;
-; arriav_lcell_comb     ; 15                          ;
+; arriav_lcell_comb     ; 22                          ;
 ;     arith             ; 10                          ;
 ;         1 data inputs ; 10                          ;
-;     normal            ; 5                           ;
+;     normal            ; 12                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 1                           ;
-;         5 data inputs ; 2                           ;
-;         6 data inputs ; 1                           ;
-; boundary_port         ; 29                          ;
+;         2 data inputs ; 1                           ;
+;         4 data inputs ; 1                           ;
+;         5 data inputs ; 3                           ;
+;         6 data inputs ; 5                           ;
+; boundary_port         ; 25                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.93                        ;
+; Average LUT depth     ; 1.86                        ;
 +-----------------------+-----------------------------+
 
 
@@ -437,12 +549,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri Oct 16 15:08:06 2020
+    Info: Processing started: Fri Oct 16 21:08:14 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off projeto1 -c projeto1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file registradorgenerico.vhd
-    Info (12022): Found design unit 1: registradorGenerico-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/registradorGenerico.vhd Line: 15
+    Info (12022): Found design unit 1: registradorGenerico-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/registradorGenerico.vhd Line: 16
     Info (12023): Found entity 1: registradorGenerico File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/registradorGenerico.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico2x1.vhd
     Info (12022): Found design unit 1: muxGenerico2x1-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/muxGenerico2x1.vhd Line: 14
@@ -451,19 +563,19 @@ Info (12021): Found 2 design units, including 1 entities, in source file ulasoma
     Info (12022): Found design unit 1: ULAsoma-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/ULAsoma.vhd Line: 14
     Info (12023): Found entity 1: ULAsoma File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/ULAsoma.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file fetch.vhd
-    Info (12022): Found design unit 1: fetch-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 27
+    Info (12022): Found design unit 1: fetch-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 23
     Info (12023): Found entity 1: fetch File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file somaconstante.vhd
     Info (12022): Found design unit 1: somaConstante-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/somaConstante.vhd Line: 18
     Info (12023): Found entity 1: somaConstante File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/somaConstante.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file projeto1.vhd
-    Info (12022): Found design unit 1: projeto1-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 20
+    Info (12022): Found design unit 1: projeto1-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 35
     Info (12023): Found entity 1: projeto1 File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file memoriarom.vhd
-    Info (12022): Found design unit 1: memoriaROM-assincrona File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaROM.vhd Line: 18
+    Info (12022): Found design unit 1: memoriaROM-assincrona File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaROM.vhd Line: 19
     Info (12023): Found entity 1: memoriaROM File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaROM.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file processador.vhd
-    Info (12022): Found design unit 1: processador-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 26
+    Info (12022): Found design unit 1: processador-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 31
     Info (12023): Found entity 1: processador File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file arquitetura.vhd
     Info (12022): Found design unit 1: arquitetura-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd Line: 28
@@ -475,7 +587,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file flag.vh
     Info (12022): Found design unit 1: flag-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/flag.vhd Line: 14
     Info (12023): Found entity 1: flag File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/flag.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file uc.vhd
-    Info (12022): Found design unit 1: UC-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 20
+    Info (12022): Found design unit 1: UC-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 26
     Info (12023): Found entity 1: UC File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file bancoregistradoresarqregmem.vhd
     Info (12022): Found design unit 1: bancoRegistradoresArqRegMem-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/bancoRegistradoresArqRegMem.vhd Line: 23
@@ -483,62 +595,71 @@ Info (12021): Found 2 design units, including 1 entities, in source file bancore
 Info (12021): Found 2 design units, including 1 entities, in source file decodificador.vhd
     Info (12022): Found design unit 1: decodificador-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/decodificador.vhd Line: 9
     Info (12023): Found entity 1: decodificador File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/decodificador.vhd Line: 5
-Info (12127): Elaborating entity "processador" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at processador.vhd(41): object "pinoTeste" assigned a value but never read File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 41
-Info (12128): Elaborating entity "UC" for hierarchy "UC:UC" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 50
-Info (10041): Inferred latch for "operacao[0]" at UC.vhd(61) File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 61
-Info (10041): Inferred latch for "operacao[1]" at UC.vhd(61) File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 61
-Info (10041): Inferred latch for "operacao[2]" at UC.vhd(61) File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 61
-Info (12128): Elaborating entity "fetch" for hierarchy "fetch:fetch" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 66
-Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "fetch:fetch|muxGenerico2x1:muxPC" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 43
-Info (12128): Elaborating entity "somaConstante" for hierarchy "fetch:fetch|somaConstante:somPC" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 54
-Info (12128): Elaborating entity "registradorGenerico" for hierarchy "fetch:fetch|registradorGenerico:registerPC" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 66
-Info (12128): Elaborating entity "memoriaROM" for hierarchy "fetch:fetch|memoriaROM:ROM" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 78
-Info (12128): Elaborating entity "arquitetura" for hierarchy "arquitetura:arquitetura" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 81
-Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "arquitetura:arquitetura|muxGenerico2x1:muxInstRAM" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd Line: 44
-Info (12128): Elaborating entity "bancoRegistradoresArqRegMem" for hierarchy "arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd Line: 56
-Warning (10541): VHDL Signal Declaration warning at bancoRegistradoresArqRegMem.vhd(19): used implicit default value for signal "saida" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/bancoRegistradoresArqRegMem.vhd Line: 19
-Warning (10036): Verilog HDL or VHDL warning at bancoRegistradoresArqRegMem.vhd(29): object "registrador" assigned a value but never read File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/bancoRegistradoresArqRegMem.vhd Line: 29
-Info (12128): Elaborating entity "ULA" for hierarchy "arquitetura:arquitetura|ULA:ULA" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd Line: 65
-Info (12128): Elaborating entity "flag" for hierarchy "arquitetura:arquitetura|flag:flag" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd Line: 77
+Info (12021): Found 2 design units, including 1 entities, in source file flipflop.vhd
+    Info (12022): Found design unit 1: flipFlop-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/flipFlop.vhd Line: 16
+    Info (12023): Found entity 1: flipFlop File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/flipFlop.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file memoriaram.vhd
+    Info (12022): Found design unit 1: memoriaRAM-rtl File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd Line: 21
+    Info (12023): Found entity 1: memoriaRAM File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file codificadorenderecos.vhd
+    Info (12022): Found design unit 1: codificadorEnderecos-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/codificadorEnderecos.vhd Line: 25
+    Info (12023): Found entity 1: codificadorEnderecos File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/codificadorEnderecos.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file conversorhex7seg.vhd
+    Info (12022): Found design unit 1: conversorHex7Seg-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/conversorHex7Seg.vhd Line: 17
+    Info (12023): Found entity 1: conversorHex7Seg File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/conversorHex7Seg.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file displays.vhd
+    Info (12022): Found design unit 1: displays-comportamento File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/displays.vhd Line: 11
+    Info (12023): Found entity 1: displays File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/displays.vhd Line: 5
+Info (12127): Elaborating entity "projeto1" for the top level hierarchy
+Info (12128): Elaborating entity "processador" for hierarchy "processador:processador" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 56
+Info (12128): Elaborating entity "UC" for hierarchy "processador:processador|UC:UC" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 54
+Info (10041): Inferred latch for "operacao[0]" at UC.vhd(71) File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 71
+Info (10041): Inferred latch for "operacao[1]" at UC.vhd(71) File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 71
+Info (10041): Inferred latch for "operacao[2]" at UC.vhd(71) File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 71
+Info (12128): Elaborating entity "fetch" for hierarchy "processador:processador|fetch:fetch" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 70
+Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "processador:processador|fetch:fetch|muxGenerico2x1:muxPC" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 33
+Info (12128): Elaborating entity "somaConstante" for hierarchy "processador:processador|fetch:fetch|somaConstante:somPC" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 44
+Info (12128): Elaborating entity "registradorGenerico" for hierarchy "processador:processador|fetch:fetch|registradorGenerico:registerPC" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 56
+Info (12128): Elaborating entity "memoriaROM" for hierarchy "processador:processador|fetch:fetch|memoriaROM:ROM" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/fetch.vhd Line: 68
+Info (12128): Elaborating entity "arquitetura" for hierarchy "processador:processador|arquitetura:arquitetura" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 84
+Info (12128): Elaborating entity "muxGenerico2x1" for hierarchy "processador:processador|arquitetura:arquitetura|muxGenerico2x1:muxInstRAM" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd Line: 44
+Info (12128): Elaborating entity "bancoRegistradoresArqRegMem" for hierarchy "processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd Line: 56
+Info (12128): Elaborating entity "ULA" for hierarchy "processador:processador|arquitetura:arquitetura|ULA:ULA" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd Line: 65
+Info (12128): Elaborating entity "flag" for hierarchy "processador:processador|arquitetura:arquitetura|flag:flag" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/arquitetura.vhd Line: 77
+Info (12128): Elaborating entity "flipFlop" for hierarchy "processador:processador|arquitetura:arquitetura|flag:flag|flipFlop:flipFlop" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/flag.vhd Line: 19
+Info (12128): Elaborating entity "memoriaRAM" for hierarchy "memoriaRAM:RAM" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 75
+Info (12128): Elaborating entity "codificadorEnderecos" for hierarchy "codificadorEnderecos:codificador" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 90
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276007): RAM logic "memoriaRAM:RAM|ram" is uninferred due to asynchronous read logic File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd Line: 27
+    Info (276007): RAM logic "processador:processador|arquitetura:arquitetura|bancoRegistradoresArqRegMem:memReg|registrador" is uninferred due to asynchronous read logic File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/bancoRegistradoresArqRegMem.vhd Line: 29
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM|dado_out[0]" feeding internal logic into a wire File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd Line: 17
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM|dado_out[1]" feeding internal logic into a wire File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd Line: 17
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM|dado_out[2]" feeding internal logic into a wire File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd Line: 17
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM|dado_out[3]" feeding internal logic into a wire File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd Line: 17
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM|dado_out[4]" feeding internal logic into a wire File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd Line: 17
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM|dado_out[5]" feeding internal logic into a wire File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd Line: 17
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM|dado_out[6]" feeding internal logic into a wire File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd Line: 17
+    Warning (13049): Converted tri-state buffer "memoriaRAM:RAM|dado_out[7]" feeding internal logic into a wire File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/memoriaRAM.vhd Line: 17
+Warning (14025): LATCH primitive "processador:processador|UC:UC|operacao[0]" is permanently disabled File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 71
+Warning (14025): LATCH primitive "processador:processador|UC:UC|operacao[2]" is permanently disabled File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 71
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "out_memReg[0]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 18
-    Warning (13410): Pin "out_memReg[1]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 18
-    Warning (13410): Pin "out_memReg[2]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 18
-    Warning (13410): Pin "out_memReg[3]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 18
-    Warning (13410): Pin "out_memReg[4]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 18
-    Warning (13410): Pin "out_memReg[5]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 18
-    Warning (13410): Pin "out_memReg[6]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 18
-    Warning (13410): Pin "out_memReg[7]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 18
-    Warning (13410): Pin "out_addrImediato[2]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 19
-    Warning (13410): Pin "out_addrImediato[3]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 19
-    Warning (13410): Pin "out_addrImediato[4]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 19
-    Warning (13410): Pin "out_addrImediato[5]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 19
-    Warning (13410): Pin "out_addrImediato[6]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 19
-    Warning (13410): Pin "out_addrImediato[7]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 19
-    Warning (13410): Pin "out_addrImediato[8]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 19
-    Warning (13410): Pin "out_addrImediato[9]" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 19
-    Warning (13410): Pin "out_habEscMEM" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 22
+    Warning (13410): Pin "habRAM" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 26
+    Warning (13410): Pin "habDisplay" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 27
+    Warning (13410): Pin "habSW" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 28
+    Warning (13410): Pin "habKEY" is stuck at GND File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/projeto1.vhd Line: 29
 Info (286030): Timing-Driven Synthesis is running
+Warning (14025): LATCH primitive "processador:processador|UC:UC|operacao[1]" is permanently disabled File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/UC.vhd Line: 71
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 8 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "in_MuxRAM[0]" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 16
-    Warning (15610): No output dependent on input pin "in_MuxRAM[1]" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 16
-    Warning (15610): No output dependent on input pin "in_MuxRAM[2]" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 16
-    Warning (15610): No output dependent on input pin "in_MuxRAM[3]" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 16
-    Warning (15610): No output dependent on input pin "in_MuxRAM[4]" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 16
-    Warning (15610): No output dependent on input pin "in_MuxRAM[5]" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 16
-    Warning (15610): No output dependent on input pin "in_MuxRAM[6]" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 16
-    Warning (15610): No output dependent on input pin "in_MuxRAM[7]" File: C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/processador.vhd Line: 16
-Info (21057): Implemented 42 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 9 input pins
-    Info (21059): Implemented 20 output pins
-    Info (21061): Implemented 13 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 31 warnings
-    Info: Peak virtual memory: 4855 megabytes
-    Info: Processing ended: Fri Oct 16 15:08:18 2020
+Info (21057): Implemented 49 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 24 output pins
+    Info (21061): Implemented 24 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 4858 megabytes
+    Info: Processing ended: Fri Oct 16 21:08:26 2020
     Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:27
+    Info: Total CPU time (on all processors): 00:00:28
 
 
