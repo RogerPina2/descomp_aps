@@ -26,9 +26,9 @@ architecture comportamento of codificadorEnderecos is
 	
 begin
 	habilitaRAM  						<= (addr(9) and addr(8));										
-	habilitaBT	 						<= (addr(9) and not(addr(8)));								
-	habilitaDisplay, habilitaLED 	<= not(addr(9)) and addr(8);				
-	habilitaSW, habilitaKEY			<= not(addr(9)) and not(addr(8));							
+--	habilitaBT	 						<= (addr(9) and not(addr(8)));								
+--	habilitaDisplay, habilitaLED 	<= not(addr(9)) and addr(8);				
+--	habilitaSW, habilitaKEY			<= not(addr(9)) and not(addr(8));							
 				
 	
 						

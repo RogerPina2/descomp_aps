@@ -28,7 +28,14 @@ entity projeto1 is
 		habSW 		: out std_logic;
 		habKEY 		: out std_logic;
 		habLED 		: out std_logic;
-		habBT 		: out std_logic
+		habBT 		: out std_logic;
+
+		us : out std_logic_vector(data_width - 1 downto 0);
+		ds : out std_logic_vector(data_width - 1 downto 0);
+		um : out std_logic_vector(data_width - 1 downto 0);
+		dm : out std_logic_vector(data_width - 1 downto 0);
+		uh : out std_logic_vector(data_width - 1 downto 0);
+		dh : out std_logic_vector(data_width - 1 downto 0)
 	);
 end entity;
 
@@ -84,7 +91,13 @@ begin
 			habilita => s_habRAM,
 			clk      => CLOCK_50,
 			dado_in  => in_dataRAM,
-			dado_out => out_dataRAM
+			dado_out => out_dataRAM,
+			out_us	=> us,
+			out_ds	=> ds,
+			out_um	=> um,
+			out_dm	=> dm,
+			out_uh	=> uh,
+			out_dh	=> dh
 		);
 		
 	codificador : entity work.codificadorEnderecos
@@ -104,7 +117,7 @@ begin
 			habilitaLED			=> habLED,
 			habilitaBT			=> habBT
 		);
-		
+	
 	habRAM <= s_habRAM;
 
 end architecture;
