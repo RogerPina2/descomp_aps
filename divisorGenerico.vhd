@@ -3,10 +3,12 @@ USE ieee.std_logic_1164.ALL;
 use ieee.numeric_std.all;
 
 entity divisorGenerico is
-generic (divisor : natural := 8);
-    port(
-      clk      :   in std_logic;
-      saida_clk :   out std_logic
+	generic (
+		divisor : natural := 8
+	);
+	port(
+		clk      	:   in std_logic;
+		saida_clk 	:   out std_logic
 	);
 end entity;
 
@@ -16,6 +18,7 @@ end entity;
 architecture divInteiro of divisorGenerico is
     signal tick : std_logic := '0';
     signal contador : integer range 0 to divisor+1 := 0;
+	 
 begin
     process(clk)
     begin

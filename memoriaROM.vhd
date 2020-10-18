@@ -50,23 +50,26 @@ architecture assincrona of memoriaROM is
 	constant R7		: std_logic_vector(2 downto 0) := "111";
 	constant XX		: std_logic_vector(2 downto 0) := "000";
 
-	constant DISPLAY0	: std_logic_vector(addrWidth - 1 downto 0) := "1100000000";
-	constant DISPLAY1	: std_logic_vector(addrWidth - 1 downto 0) := "1100000001";
-	constant DISPLAY2	: std_logic_vector(addrWidth - 1 downto 0) := "1100000010";
-	constant DISPLAY3	: std_logic_vector(addrWidth - 1 downto 0) := "1100000011";
-	constant DISPLAY4	: std_logic_vector(addrWidth - 1 downto 0) := "1100000100";
-	constant DISPLAY5	: std_logic_vector(addrWidth - 1 downto 0) := "1100000101";
+	constant DISPLAY0	: std_logic_vector(addrWidth - 1 downto 0) := "0000000000";
+	constant DISPLAY1	: std_logic_vector(addrWidth - 1 downto 0) := "0000000001";
+	constant DISPLAY2	: std_logic_vector(addrWidth - 1 downto 0) := "0000000010";
+	constant DISPLAY3	: std_logic_vector(addrWidth - 1 downto 0) := "0000000011";
+	constant DISPLAY4	: std_logic_vector(addrWidth - 1 downto 0) := "0000000100";
+	constant DISPLAY5	: std_logic_vector(addrWidth - 1 downto 0) := "0000000101";
+	constant BT_L		: std_logic_vector(addrWidth - 1 downto 0) := "0000010011";
+	constant BT_C		: std_logic_vector(addrWidth - 1 downto 0) := "0000010100";
 
 	constant LBL_WHILE		: std_logic_vector(addrWidth - 1 downto 0) := "0000000110";
-	constant LBL_US			: std_logic_vector(addrWidth - 1 downto 0) := "0000001101";
-	constant LBL_DS			: std_logic_vector(addrWidth - 1 downto 0) := "0000010001";
-	constant LBL_UM			: std_logic_vector(addrWidth - 1 downto 0) := "0000010110";
-	constant LBL_DM			: std_logic_vector(addrWidth - 1 downto 0) := "0000011011";
-	constant LBL_UH			: std_logic_vector(addrWidth - 1 downto 0) := "0000100000";
-	constant LBL_UH2			: std_logic_vector(addrWidth - 1 downto 0) := "0000101001";
-	constant LBL_DH			: std_logic_vector(addrWidth - 1 downto 0) := "0000101100";
-	constant LBL_RESTART		: std_logic_vector(addrWidth - 1 downto 0) := "0000110001";
-
+	constant LBL_BT			: std_logic_vector(addrWidth - 1 downto 0) := "0000001100";
+	constant LBL_US			: std_logic_vector(addrWidth - 1 downto 0) := "0000010000";
+	constant LBL_DS			: std_logic_vector(addrWidth - 1 downto 0) := "0000010101";
+	constant LBL_UM			: std_logic_vector(addrWidth - 1 downto 0) := "0000011010";
+	constant LBL_DM			: std_logic_vector(addrWidth - 1 downto 0) := "0000011111";
+	constant LBL_UH			: std_logic_vector(addrWidth - 1 downto 0) := "0000100100";
+	constant LBL_UH2			: std_logic_vector(addrWidth - 1 downto 0) := "0000101011";
+	constant LBL_DH			: std_logic_vector(addrWidth - 1 downto 0) := "0000110000";
+	constant LBL_RESTART		: std_logic_vector(addrWidth - 1 downto 0) := "0000110101";
+	
   begin
         -- Inicializa os endereços desejados. Os demais endereços conterão o valor zero:
 	 
@@ -85,69 +88,75 @@ architecture assincrona of memoriaROM is
 		tmp(9)  := STORE & R3 & DISPLAY3;
 		tmp(10) := STORE & R4 & DISPLAY4; 
 		tmp(11) := STORE & R5 & DISPLAY5;
-
-		tmp(12) := JMP & XX & LBL_US;
-
-		-- label: US
-		tmp(13) := CMP	&	R0	&	"0000001001";
-		tmp(14) := JE	&	XX	&	LBL_DS;
-		tmp(15) := ADD	&	R0	&	"0000000001";
-		tmp(16) := JMP	&	XX	&	LBL_WHILE;
 		
-		-- label: DS
-		tmp(17) := MOVI	&	R0	&	"0000000000";
+		-- label: LBL_BT
+		tmp(12) := LOAD & R6	& BT_L;
+		tmp(13) := CMP  & R6 & "0000000001"; 
+		tmp(14) := JE	 & XX & LBL_US;
+		tmp(15) := JMP  & XX & LBL_BT;
+			
+		-- label: LBL_US
+		tmp(16) := STORE & XX & BT_C; 
 		
-		tmp(18) := CMP	&	R1	&	"0000000101";
-		tmp(19) := JE	&	XX	&	LBL_UM;
-		tmp(20) := ADD	&	R1	&	"0000000001";
-		tmp(21) := JMP	&	XX	&	LBL_WHILE;
+		tmp(17) := CMP	&	R0	&	"0000001001";
+		tmp(18) := JE	&	XX	&	LBL_DS;
+		tmp(19) := ADD	&	R0	&	"0000000001";
+		tmp(20) := JMP	&	XX	&	LBL_WHILE;
+		
+		-- label: LBL_DS
+		tmp(21) := MOVI	&	R0	&	"0000000000";
+		
+		tmp(22) := CMP	&	R1	&	"0000000101";
+		tmp(23) := JE	&	XX	&	LBL_UM;
+		tmp(24) := ADD	&	R1	&	"0000000001";
+		tmp(25) := JMP	&	XX	&	LBL_WHILE;
 		
 		-- label: LBL_UM
-		tmp(22) := MOVI	&	R1	&	"0000000000";
-		
-		tmp(23) := CMP	&	R2	&	"0000001001";
-		tmp(24) := JE	&	XX	&	LBL_DM;
-		tmp(25) := ADD	&	R2	&	"0000000001";
-		tmp(26) := JMP	&	XX	&	LBL_WHILE;
+		tmp(26) := MOVI	&	R1	&	"0000000000";
+
+		tmp(27) := CMP	&	R2	&	"0000001001";
+		tmp(28) := JE	&	XX	&	LBL_DM;
+		tmp(29) := ADD	&	R2	&	"0000000001";
+		tmp(30) := JMP	&	XX	&	LBL_WHILE;
 		
 		-- label: LBL_DM
-		tmp(27) := MOVI	&	R2	&	"0000000000";
+		tmp(31) := MOVI	&	R2	&	"0000000000";
 		
-		tmp(28) := CMP	&	R3	&	"0000000101";
-		tmp(29) := JE	&	XX	&	LBL_UH;
-		tmp(30) := ADD	&	R3	&	"0000000001";
-		tmp(31) := JMP	&	XX	&	LBL_WHILE;
-		
+		tmp(32) := CMP	&	R3	&	"0000000101";
+		tmp(33) := JE	&	XX	&	LBL_UH;
+		tmp(34) := ADD	&	R3	&	"0000000001";
+		tmp(35) := JMP	&	XX	&	LBL_WHILE;
+	
 		-- label: LBL_UH
-		tmp(32) := MOVI	&	R3	&	"0000000000";
+		tmp(36) := MOVI &	R3	&	"0000000000";
 		
-		tmp(33) := CMP	&	R5	&	"0000000010";
-		tmp(34) := JE	&	XX	&	LBL_UH2;
+		tmp(37) := CMP	&	R5	&	"0000000010";
+		tmp(38) := JE	&	XX	&	LBL_UH2;
 
-		tmp(35) := CMP	&	R4	&	"0000001001";
-		tmp(36) := JE	&	XX	&	LBL_DH;
-		tmp(37) := ADD	&	R4	&	"0000000001";
-		tmp(38) := JMP	&	XX	&	LBL_WHILE;
+		tmp(39) := CMP	&	R4	&	"0000001001";
+		tmp(40) := JE	&	XX	&	LBL_DH;
+		tmp(41) := ADD	&	R4	&	"0000000001";
+		tmp(42) := JMP	&	XX	&	LBL_WHILE;
 
 		-- label: LBL_UH2
-		tmp(39) := MOVI	&	R3	&	"0000000000";
+		tmp(43) := MOVI	&	R3	&	"0000000000";
 		
-		tmp(40) := CMP	&	R4	&	"0000000100";
-		tmp(41) := JE	&	XX	&	LBL_DH;
-		tmp(42) := ADD	&	R4	&	"0000000001";
-		tmp(43) := JMP	&	XX	&	LBL_WHILE;
+		tmp(44) := CMP	&	R4	&	"0000000100";
+		tmp(45) := JE	&	XX	&	LBL_DH;
+		tmp(46) := ADD	&	R4	&	"0000000001";
+		tmp(47) := JMP	&	XX	&	LBL_WHILE;
 
 		-- label: LBL_DH
-		tmp(44) := MOVI	&	R4	&	"0000000000";
+		tmp(48) := MOVI	&	R4	&	"0000000000";
 		
-		tmp(45) := CMP	&	R5	&	"0000000010";
-		tmp(46) := JE	&	XX	&	LBL_RESTART;
-		tmp(47) := ADD	&	R5	&	"0000000001";
-		tmp(48) := JMP	&	XX	&	LBL_WHILE;
+		tmp(49) := CMP	&	R5	&	"0000000010";
+		tmp(50) := JE	&	XX	&	LBL_RESTART;
+		tmp(51) := ADD	&	R5	&	"0000000001";
+		tmp(52) := JMP	&	XX	&	LBL_WHILE;
 
 		-- label: LBL_RESTART
-		tmp(49)	:= MOVI	&	R5	&	"0000000000";
-		tmp(50)	:= JMP	&	XX	&	LBL_WHILE;
+		tmp(53)	:= MOVI	&	R5	&	"0000000000";
+		tmp(54)	:= JMP	&	XX	&	LBL_WHILE;
 
         return tmp;
     end initMemory;

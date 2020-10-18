@@ -19,9 +19,9 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "10/16/2020 17:58:05"
+-- Generated on "10/18/2020 20:40:51"
                                                              
--- Vhdl Test Bench(with test vectors) for design  :          bancoRegistradoresArqRegMem
+-- Vhdl Test Bench(with test vectors) for design  :          projeto1
 -- 
 -- Simulation tool : 3rd Party
 -- 
@@ -29,177 +29,144 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY bancoRegistradoresArqRegMem_vhd_vec_tst IS
-END bancoRegistradoresArqRegMem_vhd_vec_tst;
-ARCHITECTURE bancoRegistradoresArqRegMem_arch OF bancoRegistradoresArqRegMem_vhd_vec_tst IS
+ENTITY projeto1_vhd_vec_tst IS
+END projeto1_vhd_vec_tst;
+ARCHITECTURE projeto1_arch OF projeto1_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
-SIGNAL clk : STD_LOGIC;
-SIGNAL dadoEscrita : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL endereco : STD_LOGIC_VECTOR(2 DOWNTO 0);
-SIGNAL habilitaEscrita : STD_LOGIC;
-SIGNAL saida : STD_LOGIC_VECTOR(7 DOWNTO 0);
-COMPONENT bancoRegistradoresArqRegMem
+SIGNAL CLOCK_50 : STD_LOGIC;
+SIGNAL HEX0 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX1 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX2 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX3 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX4 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX5 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL KEY : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL pinoTeste : STD_LOGIC_VECTOR(9 DOWNTO 0);
+SIGNAL SW : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL t_BT : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL t_outMem : STD_LOGIC_VECTOR(7 DOWNTO 0);
+COMPONENT projeto1
 	PORT (
-	clk : IN STD_LOGIC;
-	dadoEscrita : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	endereco : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-	habilitaEscrita : IN STD_LOGIC;
-	saida : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+	CLOCK_50 : IN STD_LOGIC;
+	HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX4 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	pinoTeste : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+	SW : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+	t_BT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+	t_outMem : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN
-	i1 : bancoRegistradoresArqRegMem
+	i1 : projeto1
 	PORT MAP (
 -- list connections between master ports and signals
-	clk => clk,
-	dadoEscrita => dadoEscrita,
-	endereco => endereco,
-	habilitaEscrita => habilitaEscrita,
-	saida => saida
+	CLOCK_50 => CLOCK_50,
+	HEX0 => HEX0,
+	HEX1 => HEX1,
+	HEX2 => HEX2,
+	HEX3 => HEX3,
+	HEX4 => HEX4,
+	HEX5 => HEX5,
+	KEY => KEY,
+	pinoTeste => pinoTeste,
+	SW => SW,
+	t_BT => t_BT,
+	t_outMem => t_outMem
 	);
 
--- clk
-t_prcs_clk: PROCESS
+-- CLOCK_50
+t_prcs_CLOCK_50: PROCESS
 BEGIN
 LOOP
-	clk <= '0';
+	CLOCK_50 <= '0';
 	WAIT FOR 10000 ps;
-	clk <= '1';
+	CLOCK_50 <= '1';
 	WAIT FOR 10000 ps;
 	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
 END LOOP;
-END PROCESS t_prcs_clk;
--- dadoEscrita[7]
-t_prcs_dadoEscrita_7: PROCESS
+END PROCESS t_prcs_CLOCK_50;
+-- KEY[3]
+t_prcs_KEY_3: PROCESS
 BEGIN
-	dadoEscrita(7) <= '0';
+	KEY(3) <= '0';
 WAIT;
-END PROCESS t_prcs_dadoEscrita_7;
--- dadoEscrita[6]
-t_prcs_dadoEscrita_6: PROCESS
+END PROCESS t_prcs_KEY_3;
+-- KEY[2]
+t_prcs_KEY_2: PROCESS
 BEGIN
-	dadoEscrita(6) <= '0';
+	KEY(2) <= '0';
 WAIT;
-END PROCESS t_prcs_dadoEscrita_6;
--- dadoEscrita[5]
-t_prcs_dadoEscrita_5: PROCESS
+END PROCESS t_prcs_KEY_2;
+-- KEY[1]
+t_prcs_KEY_1: PROCESS
 BEGIN
-	dadoEscrita(5) <= '0';
+	KEY(1) <= '0';
 WAIT;
-END PROCESS t_prcs_dadoEscrita_5;
--- dadoEscrita[4]
-t_prcs_dadoEscrita_4: PROCESS
+END PROCESS t_prcs_KEY_1;
+-- KEY[0]
+t_prcs_KEY_0: PROCESS
 BEGIN
-	dadoEscrita(4) <= '0';
-	WAIT FOR 640000 ps;
-	dadoEscrita(4) <= '1';
+	KEY(0) <= '0';
 WAIT;
-END PROCESS t_prcs_dadoEscrita_4;
--- dadoEscrita[3]
-t_prcs_dadoEscrita_3: PROCESS
+END PROCESS t_prcs_KEY_0;
+-- SW[8]
+t_prcs_SW_8: PROCESS
 BEGIN
-	dadoEscrita(3) <= '0';
-	WAIT FOR 320000 ps;
-	dadoEscrita(3) <= '1';
-	WAIT FOR 320000 ps;
-	dadoEscrita(3) <= '0';
-	WAIT FOR 320000 ps;
-	dadoEscrita(3) <= '1';
+	SW(8) <= '0';
 WAIT;
-END PROCESS t_prcs_dadoEscrita_3;
--- dadoEscrita[2]
-t_prcs_dadoEscrita_2: PROCESS
+END PROCESS t_prcs_SW_8;
+-- SW[7]
+t_prcs_SW_7: PROCESS
 BEGIN
-	FOR i IN 1 TO 3
-	LOOP
-		dadoEscrita(2) <= '0';
-		WAIT FOR 160000 ps;
-		dadoEscrita(2) <= '1';
-		WAIT FOR 160000 ps;
-	END LOOP;
-	dadoEscrita(2) <= '0';
+	SW(7) <= '0';
 WAIT;
-END PROCESS t_prcs_dadoEscrita_2;
--- dadoEscrita[1]
-t_prcs_dadoEscrita_1: PROCESS
+END PROCESS t_prcs_SW_7;
+-- SW[6]
+t_prcs_SW_6: PROCESS
 BEGIN
-	FOR i IN 1 TO 6
-	LOOP
-		dadoEscrita(1) <= '0';
-		WAIT FOR 80000 ps;
-		dadoEscrita(1) <= '1';
-		WAIT FOR 80000 ps;
-	END LOOP;
-	dadoEscrita(1) <= '0';
+	SW(6) <= '0';
 WAIT;
-END PROCESS t_prcs_dadoEscrita_1;
--- dadoEscrita[0]
-t_prcs_dadoEscrita_0: PROCESS
+END PROCESS t_prcs_SW_6;
+-- SW[5]
+t_prcs_SW_5: PROCESS
 BEGIN
-	FOR i IN 1 TO 12
-	LOOP
-		dadoEscrita(0) <= '0';
-		WAIT FOR 40000 ps;
-		dadoEscrita(0) <= '1';
-		WAIT FOR 40000 ps;
-	END LOOP;
-	dadoEscrita(0) <= '0';
+	SW(5) <= '0';
 WAIT;
-END PROCESS t_prcs_dadoEscrita_0;
--- endereco[2]
-t_prcs_endereco_2: PROCESS
+END PROCESS t_prcs_SW_5;
+-- SW[4]
+t_prcs_SW_4: PROCESS
 BEGIN
-	FOR i IN 1 TO 3
-	LOOP
-		endereco(2) <= '0';
-		WAIT FOR 160000 ps;
-		endereco(2) <= '1';
-		WAIT FOR 160000 ps;
-	END LOOP;
-	endereco(2) <= '0';
+	SW(4) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_2;
--- endereco[1]
-t_prcs_endereco_1: PROCESS
+END PROCESS t_prcs_SW_4;
+-- SW[3]
+t_prcs_SW_3: PROCESS
 BEGIN
-	FOR i IN 1 TO 6
-	LOOP
-		endereco(1) <= '0';
-		WAIT FOR 80000 ps;
-		endereco(1) <= '1';
-		WAIT FOR 80000 ps;
-	END LOOP;
-	endereco(1) <= '0';
+	SW(3) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_1;
--- endereco[0]
-t_prcs_endereco_0: PROCESS
+END PROCESS t_prcs_SW_3;
+-- SW[2]
+t_prcs_SW_2: PROCESS
 BEGIN
-	FOR i IN 1 TO 12
-	LOOP
-		endereco(0) <= '0';
-		WAIT FOR 40000 ps;
-		endereco(0) <= '1';
-		WAIT FOR 40000 ps;
-	END LOOP;
-	endereco(0) <= '0';
+	SW(2) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_0;
-
--- habilitaEscrita
-t_prcs_habilitaEscrita: PROCESS
+END PROCESS t_prcs_SW_2;
+-- SW[1]
+t_prcs_SW_1: PROCESS
 BEGIN
-	FOR i IN 1 TO 16
-	LOOP
-		habilitaEscrita <= '0';
-		WAIT FOR 30000 ps;
-		habilitaEscrita <= '1';
-		WAIT FOR 30000 ps;
-	END LOOP;
-	habilitaEscrita <= '0';
-	WAIT FOR 30000 ps;
-	habilitaEscrita <= '1';
+	SW(1) <= '0';
 WAIT;
-END PROCESS t_prcs_habilitaEscrita;
-END bancoRegistradoresArqRegMem_arch;
+END PROCESS t_prcs_SW_1;
+-- SW[0]
+t_prcs_SW_0: PROCESS
+BEGIN
+	SW(0) <= '0';
+WAIT;
+END PROCESS t_prcs_SW_0;
+END projeto1_arch;

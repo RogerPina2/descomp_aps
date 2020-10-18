@@ -20,8 +20,9 @@ entity projeto1 is
 		-- Output ports
 		HEX0, HEX1, HEX2, HEX3, HEX4, HEX5 : out STD_LOGIC_VECTOR(6 downto 0);
 
-		pinoTeste			: out std_logic_vector(9 downto 0);
-		t_outMem				: out std_logic_vector(data_width - 1 downto 0)
+		pinoTeste		: out std_logic_vector(9 downto 0);
+		t_outMem			: out std_logic_vector(data_width - 1 downto 0);
+		t_BT				: out std_logic_vector(data_width - 1 downto 0)
 	);
 end entity;
 
@@ -50,6 +51,8 @@ architecture comportamento of projeto1 is
 	
 	signal inDisplay : std_logic_vector(3 downto 0);
 begin
+
+	t_BT <= saidaBT;
 
 	inDisplay <= in_dataRAM(3 downto 0);
 	out_dataRAM <= saidaChave when (habChave = '1') else
