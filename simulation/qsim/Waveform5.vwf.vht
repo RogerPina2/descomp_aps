@@ -19,9 +19,9 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "10/16/2020 15:16:31"
+-- Generated on "10/18/2020 20:25:08"
                                                              
--- Vhdl Test Bench(with test vectors) for design  :          processador
+-- Vhdl Test Bench(with test vectors) for design  :          projeto1
 -- 
 -- Simulation tool : 3rd Party
 -- 
@@ -29,96 +29,144 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY processador_vhd_vec_tst IS
-END processador_vhd_vec_tst;
-ARCHITECTURE processador_arch OF processador_vhd_vec_tst IS
+ENTITY projeto1_vhd_vec_tst IS
+END projeto1_vhd_vec_tst;
+ARCHITECTURE projeto1_arch OF projeto1_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
-SIGNAL clk : STD_LOGIC;
-SIGNAL in_MuxRAM : STD_LOGIC_VECTOR(7 DOWNTO 0);
-SIGNAL out_addrImediato : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL out_habEscMEM : STD_LOGIC;
-SIGNAL out_habLeiMEM : STD_LOGIC;
-SIGNAL out_memReg : STD_LOGIC_VECTOR(7 DOWNTO 0);
-COMPONENT processador
+SIGNAL CLOCK_50 : STD_LOGIC;
+SIGNAL HEX0 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX1 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX2 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX3 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX4 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX5 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL KEY : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL pinoTeste : STD_LOGIC_VECTOR(9 DOWNTO 0);
+SIGNAL SW : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL t_BT : STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL t_outMem : STD_LOGIC_VECTOR(7 DOWNTO 0);
+COMPONENT projeto1
 	PORT (
-	clk : IN STD_LOGIC;
-	in_MuxRAM : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-	out_addrImediato : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
-	out_habEscMEM : OUT STD_LOGIC;
-	out_habLeiMEM : OUT STD_LOGIC;
-	out_memReg : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+	CLOCK_50 : IN STD_LOGIC;
+	HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX4 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	pinoTeste : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+	SW : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+	t_BT : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+	t_outMem : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN
-	i1 : processador
+	i1 : projeto1
 	PORT MAP (
 -- list connections between master ports and signals
-	clk => clk,
-	in_MuxRAM => in_MuxRAM,
-	out_addrImediato => out_addrImediato,
-	out_habEscMEM => out_habEscMEM,
-	out_habLeiMEM => out_habLeiMEM,
-	out_memReg => out_memReg
+	CLOCK_50 => CLOCK_50,
+	HEX0 => HEX0,
+	HEX1 => HEX1,
+	HEX2 => HEX2,
+	HEX3 => HEX3,
+	HEX4 => HEX4,
+	HEX5 => HEX5,
+	KEY => KEY,
+	pinoTeste => pinoTeste,
+	SW => SW,
+	t_BT => t_BT,
+	t_outMem => t_outMem
 	);
 
--- clk
-t_prcs_clk: PROCESS
+-- CLOCK_50
+t_prcs_CLOCK_50: PROCESS
 BEGIN
 LOOP
-	clk <= '0';
+	CLOCK_50 <= '0';
 	WAIT FOR 10000 ps;
-	clk <= '1';
+	CLOCK_50 <= '1';
 	WAIT FOR 10000 ps;
 	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
 END LOOP;
-END PROCESS t_prcs_clk;
--- in_MuxRAM[7]
-t_prcs_in_MuxRAM_7: PROCESS
+END PROCESS t_prcs_CLOCK_50;
+-- KEY[3]
+t_prcs_KEY_3: PROCESS
 BEGIN
-	in_MuxRAM(7) <= '0';
+	KEY(3) <= '0';
 WAIT;
-END PROCESS t_prcs_in_MuxRAM_7;
--- in_MuxRAM[6]
-t_prcs_in_MuxRAM_6: PROCESS
+END PROCESS t_prcs_KEY_3;
+-- KEY[2]
+t_prcs_KEY_2: PROCESS
 BEGIN
-	in_MuxRAM(6) <= '0';
+	KEY(2) <= '0';
 WAIT;
-END PROCESS t_prcs_in_MuxRAM_6;
--- in_MuxRAM[5]
-t_prcs_in_MuxRAM_5: PROCESS
+END PROCESS t_prcs_KEY_2;
+-- KEY[1]
+t_prcs_KEY_1: PROCESS
 BEGIN
-	in_MuxRAM(5) <= '0';
+	KEY(1) <= '0';
 WAIT;
-END PROCESS t_prcs_in_MuxRAM_5;
--- in_MuxRAM[4]
-t_prcs_in_MuxRAM_4: PROCESS
+END PROCESS t_prcs_KEY_1;
+-- KEY[0]
+t_prcs_KEY_0: PROCESS
 BEGIN
-	in_MuxRAM(4) <= '0';
+	KEY(0) <= '0';
 WAIT;
-END PROCESS t_prcs_in_MuxRAM_4;
--- in_MuxRAM[3]
-t_prcs_in_MuxRAM_3: PROCESS
+END PROCESS t_prcs_KEY_0;
+-- SW[8]
+t_prcs_SW_8: PROCESS
 BEGIN
-	in_MuxRAM(3) <= '0';
+	SW(8) <= '0';
 WAIT;
-END PROCESS t_prcs_in_MuxRAM_3;
--- in_MuxRAM[2]
-t_prcs_in_MuxRAM_2: PROCESS
+END PROCESS t_prcs_SW_8;
+-- SW[7]
+t_prcs_SW_7: PROCESS
 BEGIN
-	in_MuxRAM(2) <= '0';
+	SW(7) <= '0';
 WAIT;
-END PROCESS t_prcs_in_MuxRAM_2;
--- in_MuxRAM[1]
-t_prcs_in_MuxRAM_1: PROCESS
+END PROCESS t_prcs_SW_7;
+-- SW[6]
+t_prcs_SW_6: PROCESS
 BEGIN
-	in_MuxRAM(1) <= '0';
+	SW(6) <= '0';
 WAIT;
-END PROCESS t_prcs_in_MuxRAM_1;
--- in_MuxRAM[0]
-t_prcs_in_MuxRAM_0: PROCESS
+END PROCESS t_prcs_SW_6;
+-- SW[5]
+t_prcs_SW_5: PROCESS
 BEGIN
-	in_MuxRAM(0) <= '0';
+	SW(5) <= '0';
 WAIT;
-END PROCESS t_prcs_in_MuxRAM_0;
-END processador_arch;
+END PROCESS t_prcs_SW_5;
+-- SW[4]
+t_prcs_SW_4: PROCESS
+BEGIN
+	SW(4) <= '0';
+WAIT;
+END PROCESS t_prcs_SW_4;
+-- SW[3]
+t_prcs_SW_3: PROCESS
+BEGIN
+	SW(3) <= '0';
+WAIT;
+END PROCESS t_prcs_SW_3;
+-- SW[2]
+t_prcs_SW_2: PROCESS
+BEGIN
+	SW(2) <= '0';
+WAIT;
+END PROCESS t_prcs_SW_2;
+-- SW[1]
+t_prcs_SW_1: PROCESS
+BEGIN
+	SW(1) <= '0';
+WAIT;
+END PROCESS t_prcs_SW_1;
+-- SW[0]
+t_prcs_SW_0: PROCESS
+BEGIN
+	SW(0) <= '0';
+WAIT;
+END PROCESS t_prcs_SW_0;
+END projeto1_arch;

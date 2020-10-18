@@ -10,22 +10,22 @@ entity decodificador is
           addrWidth: natural     := 8
     );
 	port (
-		enderecos    : in std_logic_vector (addrWidth-1 DOWNTO 0);
-		habLeitura      : in std_logic;
-        habEscrita      : in std_logic;
+		enderecos    		: in std_logic_vector (addrWidth-1 DOWNTO 0);
+		habLeitura      	: in std_logic;
+		habEscrita      	: in std_logic;
 
-        habilitaDisplay : out std_logic;
-        enderecoDisplay : out std_logic_vector (addrDispWidth-1 DOWNTO 0);
+		habilitaDisplay 	: out std_logic;
+		enderecoDisplay 	: out std_logic_vector (addrDispWidth-1 DOWNTO 0);
 
-		habilitaChave      : out std_logic;
-        enderecoChave      : out std_logic_vector (addrSWWidth-1 DOWNTO 0);
+		habilitaChave     : out std_logic;
+		enderecoChave     : out std_logic_vector (addrSWWidth-1 DOWNTO 0);
 
-        habilitaBotao     : out std_logic;
-        enderecoBotao     : out std_logic_vector (addrKEYWidth-1 DOWNTO 0);
+		habilitaBotao     : out std_logic;
+		enderecoBotao     : out std_logic_vector (addrKEYWidth-1 DOWNTO 0);
 
-        habilitaTempo   : out std_logic;
-        limpaLeitura    : out std_logic
-		 );
+		habilitaTempo   	: out std_logic;
+		limpaLeitura    	: out std_logic
+	);
 end entity;
 
 architecture comportamento of decodificador is
@@ -86,6 +86,6 @@ begin
                         "00";
 
     habilitaTempo <= '1' when (habLeitura = '1' and enderecos = x"13") else '0';
-    limpaLeitura  <= '1' when (habLeitura = '1' and enderecos = x"13") else '0';
+    limpaLeitura  <= '1' when (habLeitura = '1' and enderecos = x"14") else '0';
 
 end architecture;

@@ -19,9 +19,9 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "10/16/2020 10:55:01"
+-- Generated on "10/18/2020 19:30:21"
                                                              
--- Vhdl Test Bench(with test vectors) for design  :          fetch
+-- Vhdl Test Bench(with test vectors) for design  :          projeto1
 -- 
 -- Simulation tool : 3rd Party
 -- 
@@ -29,132 +29,141 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY fetch_vhd_vec_tst IS
-END fetch_vhd_vec_tst;
-ARCHITECTURE fetch_arch OF fetch_vhd_vec_tst IS
+ENTITY projeto1_vhd_vec_tst IS
+END projeto1_vhd_vec_tst;
+ARCHITECTURE projeto1_arch OF projeto1_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
-SIGNAL clk : STD_LOGIC;
-SIGNAL endereco_desvio : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL flag : STD_LOGIC;
-SIGNAL instrucao : STD_LOGIC_VECTOR(16 DOWNTO 0);
-SIGNAL je : STD_LOGIC;
+SIGNAL CLOCK_50 : STD_LOGIC;
+SIGNAL HEX0 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX1 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX2 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX3 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX4 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX5 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL KEY : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL pinoTeste : STD_LOGIC_VECTOR(9 DOWNTO 0);
-SIGNAL sel_MuxJump : STD_LOGIC;
-COMPONENT fetch
+SIGNAL SW : STD_LOGIC_VECTOR(8 DOWNTO 0);
+SIGNAL t_outMem : STD_LOGIC_VECTOR(7 DOWNTO 0);
+COMPONENT projeto1
 	PORT (
-	clk : IN STD_LOGIC;
-	endereco_desvio : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-	flag : IN STD_LOGIC;
-	instrucao : OUT STD_LOGIC_VECTOR(16 DOWNTO 0);
-	je : IN STD_LOGIC;
+	CLOCK_50 : IN STD_LOGIC;
+	HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX4 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	pinoTeste : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
-	sel_MuxJump : IN STD_LOGIC
+	SW : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+	t_outMem : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN
-	i1 : fetch
+	i1 : projeto1
 	PORT MAP (
 -- list connections between master ports and signals
-	clk => clk,
-	endereco_desvio => endereco_desvio,
-	flag => flag,
-	instrucao => instrucao,
-	je => je,
+	CLOCK_50 => CLOCK_50,
+	HEX0 => HEX0,
+	HEX1 => HEX1,
+	HEX2 => HEX2,
+	HEX3 => HEX3,
+	HEX4 => HEX4,
+	HEX5 => HEX5,
+	KEY => KEY,
 	pinoTeste => pinoTeste,
-	sel_MuxJump => sel_MuxJump
+	SW => SW,
+	t_outMem => t_outMem
 	);
 
--- clk
-t_prcs_clk: PROCESS
+-- CLOCK_50
+t_prcs_CLOCK_50: PROCESS
 BEGIN
 LOOP
-	clk <= '0';
+	CLOCK_50 <= '0';
 	WAIT FOR 10000 ps;
-	clk <= '1';
+	CLOCK_50 <= '1';
 	WAIT FOR 10000 ps;
 	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
 END LOOP;
-END PROCESS t_prcs_clk;
--- endereco_desvio[9]
-t_prcs_endereco_desvio_9: PROCESS
+END PROCESS t_prcs_CLOCK_50;
+-- KEY[3]
+t_prcs_KEY_3: PROCESS
 BEGIN
-	endereco_desvio(9) <= '0';
+	KEY(3) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_desvio_9;
--- endereco_desvio[8]
-t_prcs_endereco_desvio_8: PROCESS
+END PROCESS t_prcs_KEY_3;
+-- KEY[2]
+t_prcs_KEY_2: PROCESS
 BEGIN
-	endereco_desvio(8) <= '0';
+	KEY(2) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_desvio_8;
--- endereco_desvio[7]
-t_prcs_endereco_desvio_7: PROCESS
+END PROCESS t_prcs_KEY_2;
+-- KEY[1]
+t_prcs_KEY_1: PROCESS
 BEGIN
-	endereco_desvio(7) <= '0';
+	KEY(1) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_desvio_7;
--- endereco_desvio[6]
-t_prcs_endereco_desvio_6: PROCESS
+END PROCESS t_prcs_KEY_1;
+-- KEY[0]
+t_prcs_KEY_0: PROCESS
 BEGIN
-	endereco_desvio(6) <= '0';
+	KEY(0) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_desvio_6;
--- endereco_desvio[5]
-t_prcs_endereco_desvio_5: PROCESS
+END PROCESS t_prcs_KEY_0;
+-- SW[8]
+t_prcs_SW_8: PROCESS
 BEGIN
-	endereco_desvio(5) <= '0';
+	SW(8) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_desvio_5;
--- endereco_desvio[4]
-t_prcs_endereco_desvio_4: PROCESS
+END PROCESS t_prcs_SW_8;
+-- SW[7]
+t_prcs_SW_7: PROCESS
 BEGIN
-	endereco_desvio(4) <= '0';
+	SW(7) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_desvio_4;
--- endereco_desvio[3]
-t_prcs_endereco_desvio_3: PROCESS
+END PROCESS t_prcs_SW_7;
+-- SW[6]
+t_prcs_SW_6: PROCESS
 BEGIN
-	endereco_desvio(3) <= '0';
+	SW(6) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_desvio_3;
--- endereco_desvio[2]
-t_prcs_endereco_desvio_2: PROCESS
+END PROCESS t_prcs_SW_6;
+-- SW[5]
+t_prcs_SW_5: PROCESS
 BEGIN
-	endereco_desvio(2) <= '0';
+	SW(5) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_desvio_2;
--- endereco_desvio[1]
-t_prcs_endereco_desvio_1: PROCESS
+END PROCESS t_prcs_SW_5;
+-- SW[4]
+t_prcs_SW_4: PROCESS
 BEGIN
-	endereco_desvio(1) <= '0';
+	SW(4) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_desvio_1;
--- endereco_desvio[0]
-t_prcs_endereco_desvio_0: PROCESS
+END PROCESS t_prcs_SW_4;
+-- SW[3]
+t_prcs_SW_3: PROCESS
 BEGIN
-	endereco_desvio(0) <= '0';
+	SW(3) <= '0';
 WAIT;
-END PROCESS t_prcs_endereco_desvio_0;
-
--- flag
-t_prcs_flag: PROCESS
+END PROCESS t_prcs_SW_3;
+-- SW[2]
+t_prcs_SW_2: PROCESS
 BEGIN
-	flag <= '0';
+	SW(2) <= '0';
 WAIT;
-END PROCESS t_prcs_flag;
-
--- je
-t_prcs_je: PROCESS
+END PROCESS t_prcs_SW_2;
+-- SW[1]
+t_prcs_SW_1: PROCESS
 BEGIN
-	je <= '0';
+	SW(1) <= '0';
 WAIT;
-END PROCESS t_prcs_je;
-
--- sel_MuxJump
-t_prcs_sel_MuxJump: PROCESS
+END PROCESS t_prcs_SW_1;
+-- SW[0]
+t_prcs_SW_0: PROCESS
 BEGIN
-	sel_MuxJump <= '0';
+	SW(0) <= '0';
 WAIT;
-END PROCESS t_prcs_sel_MuxJump;
-END fetch_arch;
+END PROCESS t_prcs_SW_0;
+END projeto1_arch;
