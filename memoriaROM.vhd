@@ -38,119 +38,116 @@ architecture assincrona of memoriaROM is
 	constant ANDL  : std_logic_vector(opcode_width - 1 downto 0) := "1011";
 	constant XORL  : std_logic_vector(opcode_width - 1 downto 0) := "1100";
 	constant NOTL  : std_logic_vector(opcode_width - 1 downto 0) := "1101";
+	constant XXXX  : std_logic_vector(opcode_width - 1 downto 0) := "0000";
 	
 	constant R0		: std_logic_vector(2 downto 0) := "000";
-	constant	R1		: std_logic_vector(2 downto 0) := "001";
+	constant R1		: std_logic_vector(2 downto 0) := "001";
 	constant R2		: std_logic_vector(2 downto 0) := "010";
 	constant R3		: std_logic_vector(2 downto 0) := "011";
 	constant R4		: std_logic_vector(2 downto 0) := "100";
 	constant R5		: std_logic_vector(2 downto 0) := "101";
 	constant R6		: std_logic_vector(2 downto 0) := "110";
 	constant R7		: std_logic_vector(2 downto 0) := "111";
-	
+	constant XX		: std_logic_vector(2 downto 0) := "000";
+
+	constant DISPLAY0	: std_logic_vector(addrWidth - 1 downto 0) := "1100000000";
+	constant DISPLAY1	: std_logic_vector(addrWidth - 1 downto 0) := "1100000001";
+	constant DISPLAY2	: std_logic_vector(addrWidth - 1 downto 0) := "1100000010";
+	constant DISPLAY3	: std_logic_vector(addrWidth - 1 downto 0) := "1100000011";
+	constant DISPLAY4	: std_logic_vector(addrWidth - 1 downto 0) := "1100000100";
+	constant DISPLAY5	: std_logic_vector(addrWidth - 1 downto 0) := "1100000101";
+
+	constant LBL_WHILE		: std_logic_vector(addrWidth - 1 downto 0) := "0000000110";
+	constant LBL_US			: std_logic_vector(addrWidth - 1 downto 0) := "0000001101";
+	constant LBL_DS			: std_logic_vector(addrWidth - 1 downto 0) := "0000010001";
+	constant LBL_UM			: std_logic_vector(addrWidth - 1 downto 0) := "0000010110";
+	constant LBL_DM			: std_logic_vector(addrWidth - 1 downto 0) := "0000011011";
+	constant LBL_UH			: std_logic_vector(addrWidth - 1 downto 0) := "0000100000";
+	constant LBL_UH2			: std_logic_vector(addrWidth - 1 downto 0) := "0000101001";
+	constant LBL_DH			: std_logic_vector(addrWidth - 1 downto 0) := "0000101100";
+	constant LBL_RESTART		: std_logic_vector(addrWidth - 1 downto 0) := "0000110001";
 
   begin
         -- Inicializa os endereços desejados. Os demais endereços conterão o valor zero:
-        
-		  
-			tmp(0) := MOVI  & R0 & "0000000010";
-			tmp(1) := STORE & R0 & "1000000000";
-			tmp(2) := LOAD  & R1 & "1000000000";
-			tmp(3) := STORE & R1 & "1000000001";
-			
---        -- Carrega variáveis
---        tmp(0) := "1001" & "000" & "0000000000";
---        tmp(1) := "1001" & "001" & "0000000000";
---        tmp(2) := "10010100000000000";
---        tmp(3) := "10010110000000000";
---        tmp(4) := "10011000000000000";
---        tmp(5) := "10011010000000000";
---		  
---		  -- passo
---        tmp(6) := "10011100000000001";
---
---        -- While
---            -- END DISPLAY
---        tmp(7) := "00010000000000000"; --END DISPLAY0
---        tmp(8) := "00010010000000000"; --END DISPLAY1
---        tmp(9) := "00010100000000000"; --END DISPLAY2
---        tmp(10) := "00010110000000000"; --END DISPLAY3
---        tmp(11) := "00011000000000000"; --END DISPLAY4
---        tmp(12) := "00011010000000000"; --END DISPLAY5
---
---        tmp(13) := "01100000000001110"; --US
---        
---        -- US
---		  tmp(14) := "00000000000000000"; --END MEM
---		  tmp(15) := "00011110000000000"; --END MEM 	
---        tmp(16) := "01000000000001001";
---        tmp(17) := "01010000000010100"; -- DS
---        tmp(18) := "01110000000000001";
---        tmp(19) := "01100000000000111";
---
---        -- DS
---        tmp(20) := "10010000000000000";
---        tmp(21) := "00000010000000000"; --END MEM
---        tmp(22) := "00011110000000000"; --END MEM
---        tmp(23) := "01000010000000101";
---        tmp(24) := "01010000000010111";
---        tmp(25) := "01110010000000001";
---        tmp(26) := "01100000000000111";
---        
---        
---        -- UM
---        tmp(27) := "10010010000000000";
---        tmp(28) := "00000100000000000"; --END MEM
---        tmp(29) := "00011110000000000"; --END MEM
---        tmp(30) := "01000100000000101";
---        tmp(31) := "01010000000011100";
---        tmp(32) := "01110100000000001";
---        tmp(33) := "01100000000000111";
---
---        -- DM
---        tmp(34) := "10010100000000000";
---        tmp(35) := "00000110000000000"; --END MEM
---        tmp(36) := "00011110000000000"; --END MEM
---        tmp(37) := "01000110000000101";
---        tmp(38) := "01010000000100001";
---        tmp(39) := "01110110000000001";
---        tmp(40) := "01100000000000111";
---
---        -- UH
---        tmp(41) := "10010110000000000";
---        tmp(42) := "00001010000000000"; -- END MEM
---        tmp(43) := "00011110000000000"; -- END MEM
---        tmp(44) := "01001010000000010";
---        tmp(45) := "01010000000101101";
---        tmp(46) := "00001000000000000"; -- END MEM
---        tmp(47) := "00011110000000000"; -- END MEM
---        tmp(48) := "01001000000000101";
---        tmp(49) := "01010000000101101";
---        tmp(50) := "01111000000000001";
---        tmp(51) := "01100000000000111";
---
---        -- UH2
---        tmp(52) := "10010110000000000";
---        tmp(53) := "00001000000000000"; -- END MEM
---        tmp(54) := "00011110000000000"; -- END MEM
---        tmp(55) := "01001000000000101";
---        tmp(56) := "01010000000101101";
---        tmp(57) := "01111000000000001";
---        tmp(58) := "01100000000000111";
---
---        -- DH
---        tmp(59) := "10011000000000000";
---        tmp(60) := "00001010000000000"; -- END MEM
---        tmp(61) := "00011110000000000"; -- END MEM
---        tmp(62) := "01001010000000010";
---        tmp(63) := "01010000000110010";
---        tmp(64) := "01111010000000001";
---        tmp(65) := "01100000000000111";
---
---        -- RESTART
---        tmp(66) := "10011010000000000";
---        tmp(67) := "01100000000000111";
+	 
+		-- Carrega o valor 0 para os registradores
+		tmp(0) := MOVI  & R0 & "0000000000";
+		tmp(1) := MOVI  & R1 & "0000000000";
+		tmp(2) := MOVI  & R2 & "0000000000";
+		tmp(3) := MOVI  & R3 & "0000000000";
+		tmp(4) := MOVI  & R4 & "0000000000";
+		tmp(5) := MOVI  & R5 & "0000000000";
 
+		-- label: while
+		tmp(6)  := STORE & R0 & DISPLAY0;
+		tmp(7)  := STORE & R1 & DISPLAY1;
+		tmp(8)  := STORE & R2 & DISPLAY2;
+		tmp(9)  := STORE & R3 & DISPLAY3;
+		tmp(10) := STORE & R4 & DISPLAY4; 
+		tmp(11) := STORE & R5 & DISPLAY5;
+
+		tmp(12) := JMP & XX & LBL_US;
+
+		-- label: US
+		tmp(13) := CMP	&	R0	&	"0000001001";
+		tmp(14) := JE	&	XX	&	LBL_DS;
+		tmp(15) := ADD	&	R0	&	"0000000001";
+		tmp(16) := JMP	&	XX	&	LBL_WHILE;
+		
+		-- label: DS
+		tmp(17) := MOVI	&	R0	&	"0000000000";
+		
+		tmp(18) := CMP	&	R1	&	"0000000101";
+		tmp(19) := JE	&	XX	&	LBL_UM;
+		tmp(20) := ADD	&	R1	&	"0000000001";
+		tmp(21) := JMP	&	XX	&	LBL_WHILE;
+		
+		-- label: LBL_UM
+		tmp(22) := MOVI	&	R1	&	"0000000000";
+		
+		tmp(23) := CMP	&	R2	&	"0000001001";
+		tmp(24) := JE	&	XX	&	LBL_DM;
+		tmp(25) := ADD	&	R2	&	"0000000001";
+		tmp(26) := JMP	&	XX	&	LBL_WHILE;
+		
+		-- label: LBL_DM
+		tmp(27) := MOVI	&	R2	&	"0000000000";
+		
+		tmp(28) := CMP	&	R3	&	"0000000101";
+		tmp(29) := JE	&	XX	&	LBL_UH;
+		tmp(30) := ADD	&	R3	&	"0000000001";
+		tmp(31) := JMP	&	XX	&	LBL_WHILE;
+		
+		-- label: LBL_UH
+		tmp(32) := MOVI	&	R3	&	"0000000000";
+		
+		tmp(33) := CMP	&	R5	&	"0000000010";
+		tmp(34) := JE	&	XX	&	LBL_UH2;
+
+		tmp(35) := CMP	&	R4	&	"0000001001";
+		tmp(36) := JE	&	XX	&	LBL_DH;
+		tmp(37) := ADD	&	R4	&	"0000000001";
+		tmp(38) := JMP	&	XX	&	LBL_WHILE;
+
+		-- label: LBL_UH2
+		tmp(39) := MOVI	&	R3	&	"0000000000";
+		
+		tmp(40) := CMP	&	R4	&	"0000000100";
+		tmp(41) := JE	&	XX	&	LBL_DH;
+		tmp(42) := ADD	&	R4	&	"0000000001";
+		tmp(43) := JMP	&	XX	&	LBL_WHILE;
+
+		-- label: LBL_DH
+		tmp(44) := MOVI	&	R4	&	"0000000000";
+		
+		tmp(45) := CMP	&	R5	&	"0000000010";
+		tmp(46) := JE	&	XX	&	LBL_RESTART;
+		tmp(47) := ADD	&	R5	&	"0000000001";
+		tmp(48) := JMP	&	XX	&	LBL_WHILE;
+
+		-- label: LBL_RESTART
+		tmp(49)	:= MOVI	&	R5	&	"0000000000";
+		tmp(50)	:= JMP	&	XX	&	LBL_WHILE;
 
         return tmp;
     end initMemory;
