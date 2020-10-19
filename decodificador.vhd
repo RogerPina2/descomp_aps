@@ -80,6 +80,7 @@ begin
                         '0';
 
     enderecoBotao      <= "00" when enderecos = x"0F" else
+
                         "01" when enderecos = x"10" else
                         "10" when enderecos = x"11" else
                         "11" when enderecos = x"12";
