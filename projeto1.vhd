@@ -2,6 +2,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+-- Conexão entre o processador e periféricos
+
 entity projeto1 is
 	generic (
 		opcode_width : natural := 4;

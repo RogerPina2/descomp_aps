@@ -2,12 +2,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+-- Usa o mapa de memoria para decodificar e assionar os periféricos corretos
+
 entity decodificador is
     generic (
-          addrDispWidth: natural := 3;
-			 addrSWWidth: natural := 4;
-			 addrKEYWidth: natural := 2;
-          addrWidth: natural     := 8
+            addrDispWidth: natural := 3;
+		    addrSWWidth: natural := 4;
+			addrKEYWidth: natural := 2;
+            addrWidth: natural     := 8
     );
 	port (
 		enderecos    		: in std_logic_vector (addrWidth-1 DOWNTO 0);
@@ -32,6 +34,8 @@ architecture comportamento of decodificador is
 
 begin
 
+-- Cada um dos display de sete segmentos ocupa um endereço - x00 até x05
+
     habilitaDisplay  <= '1' when (habEscrita = '1' and enderecos = x"00") else
                         '1' when (habEscrita = '1' and enderecos = x"01") else
                         '1' when (habEscrita = '1' and enderecos = x"02") else
@@ -48,7 +52,7 @@ begin
                         "101" when enderecos = x"05" else
                         "111";
 
-
+-- Cada uma das chaves SW ocupa um endereço - x05 até x0E
 
     habilitaChave       <= '1' when (habLeitura = '1' and enderecos = x"06") else
                         '1' when (habLeitura = '1' and enderecos = x"07") else
@@ -61,17 +65,18 @@ begin
                         '1' when (habLeitura = '1' and enderecos = x"0E") else
                         '0';
 
-    enderecoChave       <= "0000" when enderecos = x"06" else
-                        "0001" when enderecos = x"07" else
-                        "0010" when enderecos = x"08" else
-                        "0011" when enderecos = x"09" else
-                        "0100" when enderecos = x"0A" else
-                        "0101" when enderecos = x"0B" else
-                        "0110" when enderecos = x"0C" else
-                        "0111" when enderecos = x"0D" else
-                        "1000" when enderecos = x"0E" else
-                        "1111";
+    enderecoChave       <=  "0000" when enderecos = x"06" else
+                            "0001" when enderecos = x"07" else
+                            "0010" when enderecos = x"08" else
+                            "0011" when enderecos = x"09" else
+                            "0100" when enderecos = x"0A" else
+                            "0101" when enderecos = x"0B" else
+                            "0110" when enderecos = x"0C" else
+                            "0111" when enderecos = x"0D" else
+                            "1000" when enderecos = x"0E" else
+                            "1111";
 
+-- Cada um dos botões SKEY acupa um endereço - x0F até x12
 
     habilitaBotao      <= '1' when (habLeitura = '1' and enderecos = x"0F") else
                         '1' when (habLeitura = '1' and enderecos = x"10") else
@@ -84,6 +89,8 @@ begin
                         "01" when enderecos = x"10" else
                         "10" when enderecos = x"11" else
                         "11" when enderecos = x"12";
+
+-- Cada uma das entradas da Base de Tempo ocupa um endereço - x13 e x14
 
     habilitaTempo <= '1' when (habLeitura = '1' and enderecos = x"13") else '0';
     limpaLeitura  <= '1' when (habEscrita = '1' and enderecos = x"14") else '0';

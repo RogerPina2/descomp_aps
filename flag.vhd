@@ -16,7 +16,7 @@ architecture comportamento of flag is
 
 begin
 
-	flipFlop : entity work.flipFlop
+	flipFlop : entity work.flipflopGenerico
 		port map (
 			DIN => in_flag,
 			DOUT => out_flag,
