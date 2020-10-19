@@ -2,7 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity arquitetura is
+-- Arquitetura registrdor memória
+
+entity arquitetura is 
 	generic (
 		opcode_width : natural := 4;
 		regs_width : natural := 3;
