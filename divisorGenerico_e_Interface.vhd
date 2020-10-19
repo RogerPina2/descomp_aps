@@ -7,7 +7,7 @@ entity divisorGenerico_e_Interface is
 		clk      			: in std_logic;
 		habilitaLeitura 	: in std_logic;
 		limpaLeitura 		: in std_logic;
-		
+		seletor     		: in std_logic;
 		leituraUmSegundo 	: out std_logic_vector(7 downto 0)
 	);
 end entity;
@@ -16,25 +16,43 @@ architecture interface of divisorGenerico_e_Interface is
 
 	signal sinalUmSegundo 	: std_logic;
 	signal saidaclk_reg1seg : std_logic;
+	signal saidaX1, saidaX1000, saidaMux : std_logic;
 
 begin
 
-baseTempo: entity work.divisorGenerico
+baseTempoX1: entity work.divisorGenerico
          generic map (
 				--divisor => 1
 				divisor => 250000
 			)  -- divide por 10.
          port map (
             clk => clk, 
-            saida_clk => saidaclk_reg1seg
+            saida_clk => saidaX1
          );
+			
+baseTempoX1000: entity work.divisorGenerico
+         generic map (
+				divisor => 25000
+			)  -- divide por 10.
+         port map (
+            clk => clk, 
+            saida_clk => saidaX1000
+         );
+			
+muxBaseTempo: entity work.muxGenericoBit2x1
+	port map (
+    entradaA_MUX => saidaX1,
+	 entradaB_MUX => saidaX1000,
+    seletor_MUX => seletor,
+    saida_MUX => saidaMux
+  );
 
 registraUmSegundo: entity work.flipflopGenerico
    port map (
       DIN => '1', 
       DOUT => sinalUmSegundo,
       ENABLE => '1', 
-      CLK => saidaclk_reg1seg,
+      CLK => saidaMux,
       RST => limpaLeitura
       );
 

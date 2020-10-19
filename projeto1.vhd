@@ -79,26 +79,6 @@ begin
 			out_habEscMEM 		=> habEscMEM
 		);
 		
---	RAM : entity work.memoriaRAM
---		generic map (
---			dataWidth => data_width,
---         addrWidth => addr_width
---		)
---		port map (
---			addr     => addr,
---			re			=> habLeiMEM,
---			we   		=> habEscMEM,
---			habilita => s_habRAM,
---			clk      => CLOCK_50,
---			dado_in  => in_dataRAM,
---			dado_out => out_dataRAM,
---			out_us	=> us,
---			out_ds	=> ds,
---			out_um	=> um,
---			out_dm	=> dm,
---			out_uh	=> uh,
---			out_dh	=> dh
---		);
 		
 	de : entity work.decodificador
 	port map  (
@@ -156,6 +136,7 @@ begin
 	baseTempo : entity work.divisorGenerico_e_Interface
 	port map (
 		clk      => CLOCK_50,
+		seletor => SW(8),
       habilitaLeitura => habBT,
       limpaLeitura => limpaBT,
       leituraUmSegundo => saidaBT
