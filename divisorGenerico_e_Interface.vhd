@@ -21,7 +21,8 @@ begin
 
 baseTempo: entity work.divisorGenerico
          generic map (
-				divisor => 25000000
+				--divisor => 1
+				divisor => 250000
 			)  -- divide por 10.
          port map (
             clk => clk, 
