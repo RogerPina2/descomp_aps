@@ -46,7 +46,7 @@ begin
                         "011" when enderecos = x"03" else
                         "100" when enderecos = x"04" else
                         "101" when enderecos = x"05" else
-                        "000";
+                        "111";
 
 
 
@@ -70,7 +70,7 @@ begin
                         "0110" when enderecos = x"0C" else
                         "0111" when enderecos = x"0D" else
                         "1000" when enderecos = x"0E" else
-                        "0000";
+                        "1111";
 
 
     habilitaBotao      <= '1' when (habLeitura = '1' and enderecos = x"0F") else
@@ -80,12 +80,11 @@ begin
                         '0';
 
     enderecoBotao      <= "00" when enderecos = x"0F" else
-                        "01" when enderecos = x"10" else
-                        "10" when enderecos = x"11" else
-                        "11" when enderecos = x"12" else
-                        "00";
+                          "01" when enderecos = x"10" else
+                          "10" when enderecos = x"11" else
+                          "11" when enderecos = x"12";
 
     habilitaTempo <= '1' when (habLeitura = '1' and enderecos = x"13") else '0';
-    limpaLeitura  <= '1' when (habLeitura = '1' and enderecos = x"14") else '0';
+    limpaLeitura  <= '1' when (habEscrita = '1' and enderecos = x"14") else '0';
 
 end architecture;

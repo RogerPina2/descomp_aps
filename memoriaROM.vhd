@@ -141,7 +141,7 @@ architecture assincrona of memoriaROM is
 		-- label: LBL_UH2
 		tmp(43) := MOVI	&	R3	&	"0000000000";
 		
-		tmp(44) := CMP	&	R4	&	"0000000100";
+		tmp(44) := CMP	&	R4	&	"0000000011";
 		tmp(45) := JE	&	XX	&	LBL_DH;
 		tmp(46) := ADD	&	R4	&	"0000000001";
 		tmp(47) := JMP	&	XX	&	LBL_WHILE;
