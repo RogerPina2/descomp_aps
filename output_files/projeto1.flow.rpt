@@ -1,5 +1,5 @@
 Flow report for projeto1
-Sun Oct 18 20:52:17 2020
+Sun Oct 18 22:40:01 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sun Oct 18 20:52:02 2020       ;
+; Flow Status                     ; Successful - Sun Oct 18 22:39:50 2020       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; projeto1                                    ;
 ; Top-level Entity Name           ; projeto1                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CEBA4F23C7                                 ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 139 / 18,480 ( < 1 % )                      ;
-; Total registers                 ; 98                                          ;
+; Logic utilization (in ALMs)     ; 140 / 18,480 ( < 1 % )                      ;
+; Total registers                 ; 95                                          ;
 ; Total pins                      ; 82 / 224 ( 37 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 3,153,920 ( 0 % )                       ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/18/2020 20:49:36 ;
+; Start date & time ; 10/18/2020 22:37:48 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; projeto1            ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 2544094336327.160306497617248          ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 2544094336327.160307146817264          ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -98,11 +98,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:28     ; 1.0                     ; 4861 MB             ; 00:00:44                           ;
-; Fitter               ; 00:01:47     ; 1.0                     ; 5939 MB             ; 00:02:01                           ;
-; Assembler            ; 00:00:07     ; 1.0                     ; 4826 MB             ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:14     ; 1.1                     ; 5059 MB             ; 00:00:11                           ;
-; Total                ; 00:02:36     ; --                      ; --                  ; 00:03:01                           ;
+; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4857 MB             ; 00:00:33                           ;
+; Fitter               ; 00:01:37     ; 1.0                     ; 5945 MB             ; 00:01:58                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4827 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:10     ; 1.1                     ; 5057 MB             ; 00:00:10                           ;
+; Total                ; 00:02:08     ; --                      ; --                  ; 00:02:46                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

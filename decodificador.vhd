@@ -80,9 +80,10 @@ begin
                         '0';
 
     enderecoBotao      <= "00" when enderecos = x"0F" else
-                          "01" when enderecos = x"10" else
-                          "10" when enderecos = x"11" else
-                          "11" when enderecos = x"12";
+
+                        "01" when enderecos = x"10" else
+                        "10" when enderecos = x"11" else
+                        "11" when enderecos = x"12";
 
     habilitaTempo <= '1' when (habLeitura = '1' and enderecos = x"13") else '0';
     limpaLeitura  <= '1' when (habEscrita = '1' and enderecos = x"14") else '0';

@@ -104,7 +104,7 @@ architecture assincrona of memoriaROM is
 		tmp(20) := JMP	&	XX	&	LBL_WHILE;
 		
 		-- label: LBL_DS
-		tmp(21) := MOVI	&	R0	&	"0000000000";
+		tmp(21) := MOVI &	R0	&	"0000000000";
 		
 		tmp(22) := CMP	&	R1	&	"0000000101";
 		tmp(23) := JE	&	XX	&	LBL_UM;
@@ -112,7 +112,7 @@ architecture assincrona of memoriaROM is
 		tmp(25) := JMP	&	XX	&	LBL_WHILE;
 		
 		-- label: LBL_UM
-		tmp(26) := MOVI	&	R1	&	"0000000000";
+		tmp(26) := MOVI &	R1	&	"0000000000";
 
 		tmp(27) := CMP	&	R2	&	"0000001001";
 		tmp(28) := JE	&	XX	&	LBL_DM;
@@ -120,7 +120,7 @@ architecture assincrona of memoriaROM is
 		tmp(30) := JMP	&	XX	&	LBL_WHILE;
 		
 		-- label: LBL_DM
-		tmp(31) := MOVI	&	R2	&	"0000000000";
+		tmp(31) := MOVI &	R2	& "0000000000";
 		
 		tmp(32) := CMP	&	R3	&	"0000000101";
 		tmp(33) := JE	&	XX	&	LBL_UH;
@@ -139,7 +139,7 @@ architecture assincrona of memoriaROM is
 		tmp(42) := JMP	&	XX	&	LBL_WHILE;
 
 		-- label: LBL_UH2
-		tmp(43) := MOVI	&	R3	&	"0000000000";
+		tmp(43) := MOVI	&	R3	& "0000000000";
 		
 		tmp(44) := CMP	&	R4	&	"0000000011";
 		tmp(45) := JE	&	XX	&	LBL_DH;

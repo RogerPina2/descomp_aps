@@ -4,9 +4,9 @@ use ieee.numeric_std.all;
 
 entity interfaceDisplay is
 	port (
-        data_display : in std_logic_vector(3 downto 0);
-        habilita : in std_logic;
-        endereco : in std_logic_vector(2 downto 0);
+		data_display : in std_logic_vector(3 downto 0);
+		habilita : in std_logic;
+		endereco : in std_logic_vector(2 downto 0);
 
 		H0, H1, H2, H3, H4, H5 : out std_logic_vector(6 downto 0)
 	);
