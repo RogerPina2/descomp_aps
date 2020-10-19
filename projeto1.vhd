@@ -122,7 +122,7 @@ begin
 	display : entity work.interfaceDisplay
 	port map  (
 			data_display => inDisplay,
-			habilita => habEscMEM,
+			habilita => habDisplay,
 			endereco => endDisp,
 
 			H0 => HEX0, 

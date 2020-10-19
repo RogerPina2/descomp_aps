@@ -3,147 +3,147 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1100mV 85C Model Setup 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -10.683
-TNS   : -424.983
+Slack : -10.760
+TNS   : -428.037
 
 Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -10.661
-TNS   : -729.213
+Slack : -9.937
+TNS   : -687.419
 
 Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
-Slack : -2.420
-TNS   : -25.188
+Slack : -1.735
+TNS   : -5.006
 
 Type  : Slow 1100mV 85C Model Hold 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -1.515
-TNS   : -14.092
+Slack : -0.172
+TNS   : -0.296
 
 Type  : Slow 1100mV 85C Model Recovery 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
-Slack : -6.400
-TNS   : -6.400
+Slack : -6.550
+TNS   : -13.093
 
 Type  : Slow 1100mV 85C Model Removal 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
-Slack : 1.305
+Slack : 1.240
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -1.550
-TNS   : -427.679
+Slack : -2.287
+TNS   : -564.055
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.538
-TNS   : -75.496
+Slack : -0.637
+TNS   : -81.544
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
 Slack : -0.538
-TNS   : -0.800
-
-Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -10.766
-TNS   : -728.082
+TNS   : -1.573
 
 Type  : Slow 1100mV 0C Model Setup 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -10.725
-TNS   : -429.800
+Slack : -10.834
+TNS   : -431.148
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -10.042
+TNS   : -687.188
 
 Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
-Slack : -2.439
-TNS   : -27.047
+Slack : -1.859
+TNS   : -7.434
 
 Type  : Slow 1100mV 0C Model Hold 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -1.627
-TNS   : -15.577
+Slack : -0.256
+TNS   : -0.986
 
 Type  : Slow 1100mV 0C Model Recovery 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
-Slack : -6.529
-TNS   : -6.529
+Slack : -6.710
+TNS   : -13.412
 
 Type  : Slow 1100mV 0C Model Removal 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
-Slack : 1.305
+Slack : 1.205
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -1.592
-TNS   : -455.447
+Slack : -2.352
+TNS   : -561.794
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.538
-TNS   : -76.327
+Slack : -0.672
+TNS   : -72.912
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
 Slack : -0.538
-TNS   : -0.793
+TNS   : -1.558
 
 Type  : Fast 1100mV 85C Model Setup 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -5.445
-TNS   : -214.506
+Slack : -5.475
+TNS   : -213.674
 
 Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -5.030
-TNS   : -343.094
+Slack : -4.614
+TNS   : -311.858
 
 Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
-Slack : -1.389
-TNS   : -22.553
+Slack : -0.940
+TNS   : -4.392
 
 Type  : Fast 1100mV 85C Model Hold 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -0.846
-TNS   : -8.666
+Slack : -0.158
+TNS   : -0.574
 
 Type  : Fast 1100mV 85C Model Recovery 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
-Slack : -2.845
-TNS   : -2.845
+Slack : -2.922
+TNS   : -5.842
 
 Type  : Fast 1100mV 85C Model Removal 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
-Slack : 0.486
+Slack : 0.498
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -0.567
-TNS   : -97.730
+Slack : -1.013
+TNS   : -186.337
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.189
-TNS   : -8.784
+Slack : -0.734
+TNS   : -43.154
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
-Slack : 0.088
+Slack : 0.134
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Setup 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -4.980
-TNS   : -197.396
+Slack : -4.991
+TNS   : -195.282
 
 Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -4.485
-TNS   : -304.189
+Slack : -4.147
+TNS   : -277.159
 
 Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
-Slack : -1.366
-TNS   : -26.799
+Slack : -0.962
+TNS   : -6.296
 
 Type  : Fast 1100mV 0C Model Hold 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -0.775
-TNS   : -7.489
+Slack : -0.141
+TNS   : -0.369
 
 Type  : Fast 1100mV 0C Model Recovery 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
-Slack : -2.689
-TNS   : -2.689
+Slack : -2.727
+TNS   : -5.452
 
 Type  : Fast 1100mV 0C Model Removal 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
-Slack : 0.434
+Slack : 0.442
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'processador:processador|fetch:fetch|registradorGenerico:registerPC|DOUT[0]'
-Slack : -0.477
-TNS   : -75.719
+Slack : -0.868
+TNS   : -148.454
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -0.211
-TNS   : -9.005
+Slack : -0.757
+TNS   : -51.470
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo|tick'
-Slack : 0.105
+Slack : 0.140
 TNS   : 0.000
 
 ------------------------------------------------------------
