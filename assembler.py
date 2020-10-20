@@ -6,7 +6,7 @@ import argparse
 class Assembler():
 
     opcodes = {
-        "LOAD " : "0000",
+        "LOAD"  : "0000",
         "STORE" : "0001",
         "INC"   : "0010",
         "DEC"   : "0011",
@@ -91,12 +91,12 @@ class Assembler():
             opc = self.decodifica_opc(codigos[0])
             if opc in self.jumps:
                 reg = "000"
-                end = self.decodifica_end(codigos[1])
+                end = self.decodifica_end_e_imediato(codigos[1])
             elif opc == "LABEL":
                 continue
             else:
                 reg = self.decodifica_reg(codigos[1])
-                end = self.decodifica_end(codigos[2])
+                end = self.decodifica_end_e_imediato(codigos[2])
 
             self.codigo_maquina.append(opc + reg + end)
 
@@ -107,6 +107,7 @@ class Assembler():
         elif opcode[:-1] in self.labels:
             return "LABEL"
         else:
+            print(opcode)
             raise KeyError('OPCode não encontrado')
 
     def decodifica_reg(self, reg):
@@ -116,7 +117,7 @@ class Assembler():
         else:
             raise KeyError('Registrador não encontrado')
 
-    def decodifica_end(self, end):
+    def decodifica_end_e_imediato(self, end):
         end = end.upper()
         if end in self.enderecos:
             return self.enderecos[end]
@@ -124,7 +125,15 @@ class Assembler():
             binario = bin(self.labels[end])
             return (binario[2:]).zfill(self.t_ends)
         else:
-            raise KeyError('Endereço não encontrado')
+            try:
+                valor = int(end, 16)
+            except:
+                raise KeyError('Endereço não encontrado')
+            if valor < (2**self.t_ends) - 1:
+                binario = bin(valor)
+                return (binario[2:]).zfill(self.t_ends)
+            else:
+                raise KeyError('Endereço não encontrado')
 
 
     def find_labels(self):
