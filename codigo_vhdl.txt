@@ -1,31 +1,3 @@
-library IEEE;
-use IEEE.std_logic_1164.all;
-use ieee.numeric_std.all;
-
-entity memoriaROM is
-   generic (
-		opcode_width: natural := 4;
-		dataWidth	: natural := 8;
-		addrWidth	: natural := 10;
-		inst_width	: natural := 17 
-    );
-   port (
-          -- O fato da interface ser do tipo std_logic auxilía na simulação.
-          Endereco : in std_logic_vector (addrWidth-1 DOWNTO 0);
-          Dado : out std_logic_vector (inst_width-1 DOWNTO 0)
-    );
-end entity;
-
-architecture assincrona of memoriaROM is
-
-  type blocoMemoria is array(0 TO 2**addrWidth - 1) of std_logic_vector(inst_width-1 DOWNTO 0);
-
-  function initMemory
-        -- Inicializa todas as posições da memória com zero:
-        return blocoMemoria is variable tmp : blocoMemoria := (others => (others => '0'));
-  begin
-        -- Inicializa os endereços desejados. Os demais endereços conterão o valor zero:
-	 
 		tmp(0) := "1001" & "000" & "0000000000";
 		tmp(1) := "1001" & "001" & "0000000000";
 		tmp(2) := "1001" & "010" & "0000000000";
@@ -85,13 +57,3 @@ architecture assincrona of memoriaROM is
 		tmp(56) := "1001" & "101" & "0000000000";
 		tmp(57) := "0110" & "000" & "0000000110";
 		tmp(58) := "0110" & "000" & "0000000110";
-		
-        return tmp;
-    end initMemory;
-
-    signal memROM : blocoMemoria := initMemory;
-
-begin
-    -- A conversão de tipos para obter o índice do vetor que será acessado:
-    Dado <= memROM (to_integer(unsigned(Endereco)));
-end architecture;
