@@ -1,5 +1,5 @@
 Flow report for projeto1
-Sun Oct 18 22:40:01 2020
+Mon Oct 19 21:31:35 2020
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,16 +41,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sun Oct 18 22:39:50 2020       ;
+; Flow Status                     ; Successful - Mon Oct 19 21:31:35 2020       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; projeto1                                    ;
 ; Top-level Entity Name           ; projeto1                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CEBA4F23C7                                 ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 140 / 18,480 ( < 1 % )                      ;
-; Total registers                 ; 95                                          ;
-; Total pins                      ; 82 / 224 ( 37 % )                           ;
+; Logic utilization (in ALMs)     ; 135 / 18,480 ( < 1 % )                      ;
+; Total registers                 ; 98                                          ;
+; Total pins                      ; 85 / 224 ( 38 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 3,153,920 ( 0 % )                       ;
 ; Total DSP Blocks                ; 0 / 66 ( 0 % )                              ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/18/2020 22:37:48 ;
+; Start date & time ; 10/19/2020 21:18:00 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; projeto1            ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 2544094336327.160307146817264          ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 2544094336327.160315308000532          ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -98,11 +98,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4857 MB             ; 00:00:33                           ;
-; Fitter               ; 00:01:37     ; 1.0                     ; 5945 MB             ; 00:01:58                           ;
-; Assembler            ; 00:00:05     ; 1.0                     ; 4827 MB             ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:10     ; 1.1                     ; 5057 MB             ; 00:00:10                           ;
-; Total                ; 00:02:08     ; --                      ; --                  ; 00:02:46                           ;
+; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 4858 MB             ; 00:00:33                           ;
+; Fitter               ; 00:01:08     ; 1.0                     ; 5942 MB             ; 00:01:48                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4826 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:10     ; 1.1                     ; 5060 MB             ; 00:00:09                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4717 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4717 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4726 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4717 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4729 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4717 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4729 MB             ; 00:00:02                           ;
+; Total                ; 00:01:52     ; --                      ; --                  ; 00:02:43                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -115,6 +122,13 @@ https://fpgasoftware.intel.com/eula.
 ; Fitter               ; DESKTOP-DG0B5V0  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Assembler            ; DESKTOP-DG0B5V0  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Timing Analyzer      ; DESKTOP-DG0B5V0  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-DG0B5V0  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-DG0B5V0  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-DG0B5V0  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-DG0B5V0  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-DG0B5V0  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-DG0B5V0  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-DG0B5V0  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -125,6 +139,13 @@ quartus_map --read_settings_files=on --write_settings_files=off projeto1 -c proj
 quartus_fit --read_settings_files=off --write_settings_files=off projeto1 -c projeto1
 quartus_asm --read_settings_files=off --write_settings_files=off projeto1 -c projeto1
 quartus_sta projeto1 -c projeto1
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off projeto1 -c projeto1 --vector_source="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/output_files/Waveform4.vwf" --testbench_file="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/output_files/Waveform4.vwf.vht"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off projeto1 -c projeto1 --vector_source="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/Waveform12.vwf" --testbench_file="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/Waveform12.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/" projeto1 -c projeto1
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off projeto1 -c projeto1 --vector_source="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/Waveform13.vwf" --testbench_file="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/Waveform13.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/" projeto1 -c projeto1
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off projeto1 -c projeto1 --vector_source="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/Waveform13.vwf" --testbench_file="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/Waveform13.vwf.vht"
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/roger/Documents/Insper/2020.2/Design de Computadores/descomp_aps/simulation/qsim/" projeto1 -c projeto1
 
 
 

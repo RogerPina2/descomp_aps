@@ -3,6 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity muxGenericoBit2x1 is
   -- Total de bits das entradas e saidas
+  generic ( larguraDados : natural := 8);
   port (
     entradaA_MUX, entradaB_MUX : in std_logic;
     seletor_MUX : in std_logic;
