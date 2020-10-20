@@ -24,7 +24,9 @@ entity projeto1 is
 
 		pinoTeste		: out std_logic_vector(9 downto 0);
 		t_outMem			: out std_logic_vector(data_width - 1 downto 0);
-		t_BT				: out std_logic_vector(data_width - 1 downto 0)
+		t_BT				: out std_logic_vector(data_width - 1 downto 0);
+		
+		habD, habB, habC : out std_logic
 	);
 end entity;
 
@@ -47,7 +49,7 @@ architecture comportamento of projeto1 is
 	signal endBut		: std_logic_vector(1 downto 0);
 	
 	signal habBT 		: std_logic;
-	signal limpaBT 		: std_logic;
+	signal limpaBT 	: std_logic;
 	
 	signal saidaChave, saidaBotao, saidaBT : std_logic_vector(data_width - 1 downto 0);
 	
@@ -143,6 +145,10 @@ begin
       limpaLeitura => limpaBT,
       leituraUmSegundo => saidaBT
    );
-
+	
+	habD <= habDisplay;
+	habB <= habBotao;
+	habC <= habChave;
+	
 
 end architecture;

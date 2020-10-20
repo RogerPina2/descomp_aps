@@ -10,6 +10,7 @@ SW[5] => interfacechave:chaves.entradaChaves[5]
 SW[6] => interfacechave:chaves.entradaChaves[6]
 SW[7] => interfacechave:chaves.entradaChaves[7]
 SW[8] => interfacechave:chaves.entradaChaves[8]
+SW[8] => divisorgenerico_e_interface:baseTempo.seletor
 KEY[0] => interfacebotao:botoes.entrada[0]
 KEY[1] => interfacebotao:botoes.entrada[1]
 KEY[2] => interfacebotao:botoes.entrada[2]
@@ -82,6 +83,9 @@ t_BT[4] <= divisorgenerico_e_interface:baseTempo.leituraUmSegundo[4]
 t_BT[5] <= divisorgenerico_e_interface:baseTempo.leituraUmSegundo[5]
 t_BT[6] <= divisorgenerico_e_interface:baseTempo.leituraUmSegundo[6]
 t_BT[7] <= divisorgenerico_e_interface:baseTempo.leituraUmSegundo[7]
+habD <= decodificador:de.habilitaDisplay
+habB <= decodificador:de.habilitaBotao
+habC <= decodificador:de.habilitaChave
 
 
 |projeto1|processador:processador
@@ -669,13 +673,13 @@ flagZero <= Equal8.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |projeto1|processador:processador|arquitetura:arquitetura|flag:flag
-in_flag => flipflop:flipFlop.DIN
-hab_flag => flipflop:flipFlop.ENABLE
-CLK => flipflop:flipFlop.CLK
-out_flag <= flipflop:flipFlop.DOUT
+in_flag => flipflopgenerico:flipFlop.DIN
+hab_flag => flipflopgenerico:flipFlop.ENABLE
+CLK => flipflopgenerico:flipFlop.CLK
+out_flag <= flipflopgenerico:flipFlop.DOUT
 
 
-|projeto1|processador:processador|arquitetura:arquitetura|flag:flag|flipFlop:flipFlop
+|projeto1|processador:processador|arquitetura:arquitetura|flag:flag|flipflopGenerico:flipFlop
 DIN => DOUT~reg0.DATAIN
 DOUT <= DOUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
 ENABLE => DOUT~reg0.ENA
@@ -1561,9 +1565,11 @@ saida[7] <= <GND>
 
 
 |projeto1|divisorGenerico_e_Interface:baseTempo
-clk => divisorgenerico:baseTempo.clk
+clk => divisorgenerico:baseTempoX1.clk
+clk => divisorgenerico:baseTempoX1000.clk
 habilitaLeitura => leituraUmSegundo.OUTPUTSELECT
 limpaLeitura => flipflopgenerico:registraUmSegundo.RST
+seletor => muxgenericobit2x1:muxBaseTempo.seletor_MUX
 leituraUmSegundo[0] <= leituraUmSegundo.DB_MAX_OUTPUT_PORT_TYPE
 leituraUmSegundo[1] <= <GND>
 leituraUmSegundo[2] <= <GND>
@@ -1574,7 +1580,14 @@ leituraUmSegundo[6] <= <GND>
 leituraUmSegundo[7] <= <GND>
 
 
-|projeto1|divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempo
+|projeto1|divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempoX1
+clk => tick.CLK
+clk => contador[0].CLK
+clk => contador[1].CLK
+saida_clk <= tick.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto1|divisorGenerico_e_Interface:baseTempo|divisorGenerico:baseTempoX1000
 clk => tick.CLK
 clk => contador[0].CLK
 clk => contador[1].CLK
@@ -1591,10 +1604,14 @@ clk => contador[11].CLK
 clk => contador[12].CLK
 clk => contador[13].CLK
 clk => contador[14].CLK
-clk => contador[15].CLK
-clk => contador[16].CLK
-clk => contador[17].CLK
 saida_clk <= tick.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|projeto1|divisorGenerico_e_Interface:baseTempo|muxGenericoBit2x1:muxBaseTempo
+entradaA_MUX => saida_MUX.DATAA
+entradaB_MUX => saida_MUX.DATAB
+seletor_MUX => saida_MUX.OUTPUTSELECT
+saida_MUX <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |projeto1|divisorGenerico_e_Interface:baseTempo|flipflopGenerico:registraUmSegundo

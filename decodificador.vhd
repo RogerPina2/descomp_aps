@@ -6,12 +6,12 @@ use ieee.numeric_std.all;
 
 entity decodificador is
     generic (
-            addrDispWidth: natural := 3;
-		    addrSWWidth: natural := 4;
-			addrKEYWidth: natural := 2;
-            addrWidth: natural     := 8
-    );
-	port (
+		addrDispWidth: natural := 3;
+		addrSWWidth: natural := 4;
+		addrKEYWidth: natural := 2;
+		addrWidth: natural     := 8
+	);
+port (
 		enderecos    		: in std_logic_vector (addrWidth-1 DOWNTO 0);
 		habLeitura      	: in std_logic;
 		habEscrita      	: in std_logic;
